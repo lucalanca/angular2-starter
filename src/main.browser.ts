@@ -2,6 +2,8 @@
  * Providers provided by Angular
  */
 import { bootstrap } from '@angular/platform-browser-dynamic';
+import { HTTP_PROVIDERS } from '@angular/http';
+
 /*
 * Platform and Environment
 * our providers/directives/pipes
@@ -26,7 +28,8 @@ export function main(initialHmrState?: any): Promise<any> {
     ...ENV_PROVIDERS,
     ...DIRECTIVES,
     ...PIPES,
-    ...APP_PROVIDERS
+    ...APP_PROVIDERS,
+    ...HTTP_PROVIDERS
   ])
   .catch(err => console.error(err));
 
