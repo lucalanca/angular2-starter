@@ -59,6 +59,11 @@ import { SearchService } from './data/search.service';
           <pre>{{ searchResultItem | json }}</pre>
         </li>
       </ul>
+      <ul>
+        <li *ngFor="let searchResultItem of searchResultItems2 | async">
+          <pre>{{ searchResultItem | json }}</pre>
+        </li>
+      </ul>
 
 
 
@@ -87,8 +92,9 @@ export class App {
   name = 'Angular 2 Webpack Starter';
   url = 'https://twitter.com/AngularClass';
 
-  categories       : Observable<Category[]>;
-  searchResultItems: Observable<SearchResultItem[]>;
+  categories        : Observable<Category[]>;
+  searchResultItems : Observable<SearchResultItem[]>;
+  searchResultItems2: Observable<SearchResultItem[]>;
 
   constructor(
     public appState: AppState,
@@ -109,6 +115,8 @@ export class App {
     this.searchResultItems = this.searchService.search(term);
 
     this.searchResultItems.subscribe((foo: any) => console.log('received, ', foo));
+
+    this.searchResultItems2 = this.searchService.searchForReal(term);
   }
 
 }

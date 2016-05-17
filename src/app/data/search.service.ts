@@ -4,6 +4,10 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/from';
 import 'rxjs/add/operator/toArray';
 
+
+import { Http, Response } from '@angular/http';
+
+
 import {
   SearchResultItem,
   ProductSearchResultItem,
@@ -14,6 +18,7 @@ const mockedSearchResult = {"items":[{"type":"suggest-product","data":{"name":"A
 
 @Injectable()
 export class SearchService {
+  constructor(private http: Http) {}
 
 
   search (query: string) : Observable<SearchResultItem[]> {
@@ -21,7 +26,25 @@ export class SearchService {
     if (query === "") {
       Observable.from([]).toArray();
     }
-    const items : SearchResultItem[] = mockedSearchResult.items.map((item: any): SearchResultItem => {
+    const items : SearchResultItem[] = this.transformRawSearchData(mockedSearchResult);
+    return Observable.from(items).toArray();
+  }
+
+  searchForReal (query: string) : Observable<SearchResultItem[]>{
+    return this.http.get(`https://siroop.ch/search-suggestions?q=${query}`)
+      .map((res: Response) => {
+        if (res.status < 200 || res.status >= 300) {
+          throw new Error('Response status: ' + res.status);
+        }
+        return res.json();
+      })
+      .map(this.transformRawSearchData);
+
+  }
+
+  private transformRawSearchData (rawSearchData: any): SearchResultItem[] {
+    console.log('transformRawSearchData', rawSearchData);
+    return mockedSearchResult.items.map((item: any) : SearchResultItem => {
       if (item.type === 'suggest-product') {
         return new ProductSearchResultItem(
           item.data.name,
@@ -42,7 +65,6 @@ export class SearchService {
         item.data.product_count,
         item.data.category_path
       );
-    });
-    return Observable.from(items).toArray();
+    })
   }
 }
