@@ -3,6 +3,7 @@
  */
 import { Component, ViewEncapsulation } from '@angular/core';
 import { RouteConfig, Router } from '@angular/router-deprecated';
+import { Observable } from 'rxjs/Observable';
 
 import { AppState } from './app.service';
 import { Home } from './home';
@@ -11,6 +12,13 @@ import { RouterActive } from './router-active';
 import { Category } from './data/category';
 import { CategoriesService } from './data/categories.service';
 
+import {
+  SearchResultItem,
+  ProductSearchResultItem,
+  CategorySearchResultItem
+} from './data/search';
+import { SearchService } from './data/search.service';
+
 /*
  * App Component
  * Top Level Component
@@ -18,7 +26,7 @@ import { CategoriesService } from './data/categories.service';
 @Component({
   selector: 'app',
   pipes: [ ],
-  providers: [ CategoriesService ],
+  providers: [ CategoriesService, SearchService ],
   directives: [ RouterActive ],
   encapsulation: ViewEncapsulation.None,
   styles: [
@@ -41,10 +49,18 @@ import { CategoriesService } from './data/categories.service';
           </button>
       </md-toolbar>
       <ul>
-        <li *ngFor="let category of categories">
+        <li *ngFor="let category of categories | async">
           {{ category.name }}
         </li>
       </ul>
+      <input type="search" #term type="text" (keyup)="search(term.value)" />
+      <ul>
+        <li *ngFor="let searchResultItem of searchResultItems | async">
+          <pre>{{ searchResultItem | json }}</pre>
+        </li>
+      </ul>
+
+
 
       <md-progress-bar mode="indeterminate" color="primary" *ngIf="loading"></md-progress-bar>
 
@@ -71,17 +87,28 @@ export class App {
   name = 'Angular 2 Webpack Starter';
   url = 'https://twitter.com/AngularClass';
 
-  categories: Category[] = [];
+  categories       : Observable<Category[]>;
+  searchResultItems: Observable<SearchResultItem[]>;
 
   constructor(
     public appState: AppState,
-    private categoriesService: CategoriesService) {
+    private categoriesService: CategoriesService,
+    private searchService: SearchService) {
 
   }
 
   ngOnInit() {
     console.log('Initial App State', this.appState.state);
     this.categories = this.categoriesService.getCategoriesTree();
+    this.categoriesService.getCategoriesTree().subscribe((result) => {
+      console.log('result', result);
+    })
+  }
+
+  search (term) {
+    this.searchResultItems = this.searchService.search(term);
+
+    this.searchResultItems.subscribe((foo: any) => console.log('received, ', foo));
   }
 
 }

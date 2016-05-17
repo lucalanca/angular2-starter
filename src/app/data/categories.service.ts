@@ -1,4 +1,8 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/from';
+import 'rxjs/add/operator/toArray';
+
 
 import { Category } from './category';
 
@@ -17,7 +21,7 @@ const L1Categories : Category[] = [
 export class CategoriesService {
 
 
-  getCategoriesTree () : Category[] {
-    return L1Categories;
+  getCategoriesTree () : Observable<Category[]> {
+    return Observable.from(L1Categories).toArray();
   }
 }
