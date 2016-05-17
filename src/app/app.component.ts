@@ -8,6 +8,9 @@ import { AppState } from './app.service';
 import { Home } from './home';
 import { RouterActive } from './router-active';
 
+import { Category } from './data/category';
+import { CategoriesService } from './data/categories.service';
+
 /*
  * App Component
  * Top Level Component
@@ -15,7 +18,7 @@ import { RouterActive } from './router-active';
 @Component({
   selector: 'app',
   pipes: [ ],
-  providers: [ ],
+  providers: [ CategoriesService ],
   directives: [ RouterActive ],
   encapsulation: ViewEncapsulation.None,
   styles: [
@@ -37,6 +40,11 @@ import { RouterActive } from './router-active';
             About
           </button>
       </md-toolbar>
+      <ul>
+        <li *ngFor="let category of categories">
+          {{ category.name }}
+        </li>
+      </ul>
 
       <md-progress-bar mode="indeterminate" color="primary" *ngIf="loading"></md-progress-bar>
 
@@ -63,13 +71,17 @@ export class App {
   name = 'Angular 2 Webpack Starter';
   url = 'https://twitter.com/AngularClass';
 
+  categories: Category[] = [];
+
   constructor(
-    public appState: AppState) {
+    public appState: AppState,
+    private categoriesService: CategoriesService) {
 
   }
 
   ngOnInit() {
     console.log('Initial App State', this.appState.state);
+    this.categories = this.categoriesService.getCategoriesTree();
   }
 
 }
