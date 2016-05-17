@@ -1,0 +1,66 @@
+/*------------------------------------*\
+  #GLOBAL SEARCH INPUT
+\*------------------------------------*/
+
+.c-search-global {
+    position: relative; // so search-suggestions (which are position absolute) are
+                        // positioned in relation to this.
+}
+
+.c-search-global__form {
+    position: relative;
+}
+
+.c-search-global__btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: all 200ms ease-in-out;
+    min-height: 36px;
+    @media screen and(min-width: $screen-s) {
+        min-height: 37px;
+    }
+    &.is-hidden{
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+.c-search-global__btn-clear{
+    visibility: hidden;
+    opacity: 0;
+    min-height: 36px;
+    transition: all 300ms ease-in-out;
+    .btn__icon{
+        width: 14px;
+        height:14px;
+    }
+    @media screen and(min-width: $screen-s) {
+        min-height: 36px;
+    }
+    &.is-visible{
+        opacity: 1;
+        visibility: visible;
+    }   
+}
+
+.c-search-global__input[type="search"] {
+    box-sizing: inherit;
+    -webkit-appearance: none;
+}
+
+.c-search-global__input {
+    font-weight: 400;
+    font-size: 16px;
+    width: 100%;
+    margin:0;
+    border: none;
+    transition: all 200ms ease-in-out;
+    &:focus{
+        border: none;
+        box-shadow: 0px 0px 2px 2px $color-teal-dark;
+    }
+    @media screen and(max-width: $screen-s) {
+        height: 36px;
+    }
+}

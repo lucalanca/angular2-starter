@@ -1,0 +1,72 @@
+
+
+//SMALL
+$marketing-spacing: 0px;
+.marketing {
+    padding: 0 $marketing-spacing;
+    &__grid-item {
+      margin-top: $marketing-spacing;
+      position: relative;
+    }
+
+  &__bordered-item { border: 1px solid $color-blue; }
+
+  // overrides o-container horizontal padding
+  &__container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+//MEDIUM
+@media screen and (min-width: $screen-sm) and (max-width: $screen-md){
+  .marketing {
+    &__grid {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+    }
+    &__grid-item {
+      display: table-cell;
+      padding-top: $marketing-spacing;
+
+    }
+    &__grid-item:nth-child(1) { padding-right: round($marketing-spacing/2); }
+    &__grid-item:nth-child(2) { padding-left : round($marketing-spacing/2); }
+  }
+}
+
+//LARGE
+@media screen and(min-width: $screen-md) {
+    .marketing {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+      &__slider-container,
+      &__grid {
+         display: table-cell;
+         vertical-align: middle; // consider removing it
+      }
+      &__slider-container {
+        width: (2/3 * 100%);
+      }
+      &__grid {
+        padding-left: $marketing-spacing;
+      }
+      &__grid-item:first-child {
+        margin-top: 0;
+      }
+    }
+}
+
+// make slider take full height of its container
+.marketing__slider {
+  .c-promo-card__inner {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+  .c-promo-card__content-bg-replacement-container {
+    margin-left: -35px;
+    margin-right: -35px;
+  }
+}

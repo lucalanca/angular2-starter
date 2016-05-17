@@ -1,0 +1,136 @@
+/*------------------------------------
+#COMPONENT
+
+This component creates an image-card with image on the left, and a text-container on the right
+with a minim height of 140px. The widths of the elements within the imagecard are: image=40%, 
+description=60%.
+ 
+Starting from a minim screensize of 769 each of these two elements set their width to 100% and 
+stack on each other with an background image size set to 200px;
+
+TODO: Probably this component is a refactor-candidate (it looks like a media / flag object). I didn't
+digg deeper into it.
+
+Mobile
+======
+
+|-----------|---------------|
+|           |title          |
+|   img     |               |
+|           |leadtext       |
+|-----------|---------------|
+
+
+Desktop
+========
+|-----------|
+|           |
+|   img     |
+|           |
+|-----------|
+|  title    |
+|           |
+| leadtext  |
+|-----------|
+
+
+
+
+<div class="c-imagecard">
+    <div class="c-imagecard__image" style="background-image:url(www.url.com/image.jpg);">
+    </div>
+    <div class="c-imagecard__description">
+        <div class="c-imagecard__title">Some title text
+        </div>
+        <div class="c-imagecard__lead c-imagecard__lead--text">Some lead text
+        </div>
+    </div>
+</div>
+
+------------------------------------*/
+$imagecard-image-height-mobile: 120px;
+$imagecard-image-height-desktop: 200px;
+.c-imagecard {
+    position: relative;
+    min-height: $imagecard-image-height-mobile;
+    width: 100%;
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: $color-teal;
+    @media screen and (min-width: $screen-m) {
+        position: static;
+        position: initial;
+    }
+
+    &__image {
+        position: absolute;
+        height: $imagecard-image-height-mobile;
+        float: left;
+        width: 40%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        @media screen and (min-width: $screen-m) {
+            width: 100%;
+            position: static;
+            position: initial;
+            height: $imagecard-image-height-desktop;
+        }
+    }
+
+    &__description {
+        float: right;
+        width: 60%;
+        padding: 12px;
+
+        @media screen and (min-width: $screen-m) {
+            width: 100%;
+            padding: 20px;
+        }
+    }
+
+        &__title {
+            font-size: 1.1rem;
+            font-weight: $font-weight-medium;
+            margin-bottom: 8px;
+            @media screen and (min-width: $screen-xs) {
+                font-size: 1.2rem;
+            }
+        }
+        &__title,
+        &__lead {
+            line-height: 1.2;
+            max-height: 2 * 1.2em;
+            overflow: hidden;
+            @media screen and(min-width:$screen-sm) {
+                max-height: 1.2em;
+                @include text-truncate();
+            }
+        }
+}
+
+// only apply hover to anchors
+a.c-imagecard {
+
+    .c-imagecard__image {
+        position: relative;
+        &:after {
+          content: "";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: $color-black;
+          opacity: 0;
+          transition: opacity 200ms;
+        }
+    }
+    &:hover {
+        .c-imagecard__image:after {
+          opacity: .2;
+        }
+        background-color: $color-teal-dark;
+    }
+}

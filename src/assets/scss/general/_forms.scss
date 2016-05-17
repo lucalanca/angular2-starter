@@ -1,0 +1,270 @@
+// FORMS
+//
+// Author: Ricardo Hildebrand <ricardo.hildebrand@votum.de>
+// ===================================================================================================================
+
+label.icon-label {
+    position: absolute;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    @media screen and (min-width: $screen-sm) {
+        font-size: 1rem;
+        margin-top: 0.8rem;
+    }
+    margin-left: 10px;
+}
+
+/* FIELDS */
+
+.icon-label + input:not([type='checkbox']):not([type='radio']) {
+    padding-left: 35px;
+    &:focus {
+        padding-left: 34px;
+    }
+}
+
+.field {
+    padding-top: $padding-small;
+    padding-bottom: $padding-small;
+}
+
+.input-field {
+    position: relative;
+
+    %field-active {
+        top: pxToRem(1);
+        font-size: 0.65rem;
+    }
+
+    %field-inactive {
+        top: pxToRem(19);
+        font-size: 0.8rem;
+    }
+
+    &.with-placeholder {
+        > div,
+        .com-input {
+            &.loaded {
+                label {
+                    @extend %field-active;
+                }
+            }
+        }
+    }
+
+    > div,
+    .input {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 2.9rem;
+        padding: 0;
+        margin: $padding-small 0;
+        border: none;
+        background: #fff;
+
+        &.loaded {
+            label {
+                @extend %field-inactive;
+
+                opacity: 1;
+            }
+
+            &.focus,
+            &.with-content {
+                label {
+                    @extend %field-active;
+
+                    outline: none;
+                    z-index: 2;
+                }
+            }
+        }
+
+        label {
+            @extend %field-active;
+
+            display: inline-block;
+            position: absolute;
+            left: pxToRem(11);
+            border: none;
+            background: transparent;
+            font-weight: normal;
+            color: $gray-base;
+            opacity: 0;
+            z-index: 0;
+            transition: all 150ms ease-in-out;
+        }
+
+        input {
+            display: block;
+            position: relative;
+            height: 100% !important;
+            width: 100%;
+            padding: pxToRem(14) $padding-small 0 $padding-small;
+            margin: 0;
+            box-sizing: border-box;
+            background: transparent;
+            font-size: 1rem !important;
+            z-index: 1;
+
+            @media screen and (min-width: $screen-sm) {
+                height: 100%;
+            }
+        }
+
+        .form-errors {
+            border-radius: 0 0 pxToRem(3) pxToRem(3);
+
+
+            + input {
+                border-color: $red !important;
+            }
+        }
+
+        .form-errors.hide + input {
+            border-color: $gray-light !important;
+        }
+    }
+}
+
+.text-field {
+    @extend .input-field;
+
+    &.big {
+        > div {
+            min-height: 20rem !important;
+
+            .form-errors {
+                top: 19.75rem;
+
+                + textarea {
+                    border-color: $red !important;
+                }
+            }
+
+            .form-errors.hide + textarea {
+                border-color: $gray-light !important;
+            }
+        }
+    }
+
+    > div {
+        min-height: 10rem !important;
+
+        textarea {
+            display: block;
+            position: relative;
+            height: 100% !important;
+            width: 100%;
+            padding: pxToRem(17) $padding-small $padding-small $padding-small;
+            margin: 0;
+            box-sizing: border-box;
+            background: transparent !important;
+            font-size: 1rem !important;
+            z-index: 1;
+
+            @media screen and (min-width: $screen-sm) {
+                height: 100%;
+            }
+        }
+
+        .form-errors {
+            top: 9.75rem;
+
+            + textarea {
+                border-color: $red !important;
+            }
+        }
+    }
+}
+
+.radio-field,
+.checkbox-field {
+    .form-errors {
+        display: inline-block;
+        top: 1.5rem;
+        left: $padding-small;
+        width: auto;
+        padding: 0.3rem;
+
+        + div {
+            label:before {
+                color: $red;
+            }
+        }
+    }
+
+    .form-errors.hide + div label:before{
+        color: $gray-light;
+    }
+}
+
+.select-group {
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    i {
+        position: absolute;
+        right: 1rem;
+        top: 1.25rem;
+    }
+    select {
+        color: $gray-156;
+        background: transparent;
+        -webkit-appearance: none;
+    }
+}
+
+.form-section {
+    @media screen and (min-width: $screen-md) {
+        padding-left: 12rem;
+        padding-right: 12rem;
+    }
+    button {
+        margin-top: $padding-base;
+        margin-bottom: $padding-base;
+        width: 100%;
+    }
+}
+
+/* FORM ERRORS */
+
+.form-errors {
+    display: block;
+    visibility: visible;
+    position: absolute;
+    top: 2.75rem;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0.3rem;
+    border: 1px solid $red;
+    border-radius: 3px;
+    background-color: $color-message-error;
+    font-size: 0.65rem;
+    line-height: 1rem;
+    z-index: 3;
+    transition: all 150ms ease-in-out;
+
+    &.hide {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    li {
+        position: relative;
+        display: block;
+    }
+}
+
+.captcha {
+    margin-top: 0.75rem;
+    margin-bottom: $padding-base;
+}
+
+.important-to-fill {
+    position: absolute;
+    left: -999em;
+    height: 0;
+}

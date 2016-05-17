@@ -1,0 +1,96 @@
+.c-pdp {
+    &__content {
+        padding-bottom: 64px;
+    }
+
+    &__container-inner {
+        background: url(../images/pdp/sidebar-pin.svg) 100% 98% no-repeat;
+    }
+
+
+    &__sticky-footer {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        border-top: 1px solid $color-white;
+        @media screen and (min-width: $screen-m) {
+            display: none;
+        }
+    }
+
+    &__form {
+        display: none;
+        &.is-active { display: block; }
+    }
+
+
+    &__sidebar-inner {
+        padding-top: 40px;
+        padding-bottom: 120px;
+    }
+
+    &__price {
+        margin-right: 8px;
+        // @media screen and (min-width: $screen-m) {
+        //     margin-top: 16px;
+        // }
+    }
+    &__price,
+    &__merchant-name {
+        display: inline-block;
+        @media screen and (min-width: $screen-s) {
+            display: block;
+        }
+    }
+
+    &__merchant-name {
+        margin-bottom: 8px;
+        // background: rgba(red, 0.1);
+        @media screen and (min-width: $screen-s) {
+            margin-bottom: 4px;
+        }
+        @media screen and (min-width: $screen-m) {
+            margin-top: 16px;
+        }
+    }
+
+    &__merchant-name-prefix {
+        display: none;
+        @media screen and (min-width: $screen-s) {
+            display: inline-block;
+        }
+    }
+
+    &__go-to-merchant  {
+        display: block;
+        margin-top: 8px;
+        // background: rgba(green, 0.1);
+        @media screen and (min-width: $screen-s) {
+            margin-top: 0;
+        }
+        
+    }
+
+    &__form-container {
+        @media screen and (min-width: $screen-m) {
+            margin-top: 26px;
+        }
+    }
+
+    &__product-attributes {
+        margin: 20px 0;
+    }
+
+
+    &__section-title,
+    &__breadcrumbs-container {
+        margin-bottom: 16px;
+    }
+
+    &__section-title {
+        margin-top: 50px;
+    }
+
+    &__related-products {
+        border-top: 1px solid $color-white; // TODO: change this when we have new gray tones. //cc @lisa @joao.ginetta
+    }
+}

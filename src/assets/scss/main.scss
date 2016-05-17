@@ -1,0 +1,237 @@
+@charset "utf-8";
+
+
+
+
+/*
+ITCSS Layers are separated by 5 lines
+If you dont know where to put your css put it into 
+_trumps.shame.scss;
+*/
+
+
+
+
+
+// ITCSS CSS Debuger
+$debug-mode: false !default;
+$debug-closed-div: false !default;
+
+
+
+// ITCSS SETTINGS
+@import "settings.global";
+@import "settings.colors";
+@import "settings.breakpoints";
+@import "settings.typography";
+@import "settings.zindex";
+
+
+
+// ITCSS Generic
+@import "generic.normalize";
+@import "generic.box-model";
+
+
+
+// ITCSS TOOLS
+@import "tools.border-radius";
+@import "tools.clearfix";
+@import "tools.functions";
+@import "tools.opacity";
+@import "tools.radius";
+@import "tools.text-truncate";
+@import "tools.hocus";
+@import "tools.js-breakpoint";
+
+//
+// OLD CSS PLEASE DONT ADD MORE TO THIS FILES
+// try to move this code into ITCSS Comeponents
+// If you have questions feel free to ask aleksej.dix@siroop.ch
+@import 'base/variables';
+@import 'base/mixins';
+@import 'base/base';
+
+
+
+// ITCSS GENERAL
+@import 'general/layout';
+@import 'general/typography';
+@import 'general/links';
+@import 'general/forms';
+@import 'general/lists';
+@import 'general/buttons';
+@import 'general/grid';
+@import 'general/block-grid';
+@import 'general/panel';
+@import 'general/icons/font';
+@import 'general/icons/styles';
+@import 'general/svg-icons';
+
+
+
+// ITCSS Elements
+@import "elements.links";
+@import "elements.img";
+@import "elements.p";
+@import "elements.code";
+@import "shame.headings";
+@import "elements.inputs";
+@import "elements.page";
+
+
+
+// ITCSS Objects
+@import "objects.page-overlay";
+@import "objects.page";
+@import "objects.container";
+@import "objects.layout";
+@import "objects.layout-swipe";
+@import "objects.band";
+@import "objects.ratio";
+@import "objects.flag";
+@import "objects.list-unstyled";
+@import "objects.list-inline";
+@import "objects.layout-sidebar";
+@import "objects.table";
+@import "objects.centering";
+@import "objects.button-unstyled";
+@import "objects.sticky";
+@import "objects.domino";
+
+
+// ITCSS Components
+
+// base typography styles at the beginning so that components can override this if needed.
+@import "components.link";
+@import "components.headings";
+
+@import "components.badge";
+@import "components.brand";
+@import "components.brands-list";
+@import "components.logo-brand";
+@import "components.buttons";
+@import "components.card";
+@import "components.card-product";
+@import "components.card-title";
+@import "components.card-promo";
+@import "components.divider";
+@import "components.editor-content";
+@import "components.input-quantity";
+@import "components.link-icon";
+@import "components.list-links";
+@import "components.cover";
+@import "components.move";
+@import "components.password-strength";
+@import "components.avatar";
+@import "components.block-input-radio";
+@import "components.image-responsive";
+@import "components.search-global";
+@import "components.open-close";
+@import "components.table-bordered";
+@import "components.usp";
+@import "components.category-sidebar";
+@import "components.imagecard";
+@import "components.pin";
+@import "components.slider";
+@import "components.slider-thumbnails";
+@import "components.promo-card";
+@import "components.marketing";
+@import "components.nav-meta-list";
+@import "components.flyout";
+@import "components.header";
+@import "components.newsletter";
+@import "components.footer";
+@import "components.feedback-btn";
+@import "components.pdp";
+@import "components.breadcrumb";
+@import "components.product-merchant";
+@import "components.product-variants";
+@import "components.pdp-shipping";
+@import "components.header-image";
+@import "components.dropdown";
+@import "components.pill";
+@import "components.dialog";
+
+
+
+
+
+// overall page parts
+@import 'components/header-top';
+@import 'components/header';
+@import 'components/footer';
+
+// this are components not utilities
+@import 'components/content-toggle';
+@import 'components/flash-messages';
+@import 'components/downloads';
+@import 'components/modal';
+@import 'components/pickup-location';
+@import 'components/breadcrumb';
+
+// product related
+@import 'components/product';
+@import 'components/category';
+
+// search
+@import 'components/search/search';
+@import 'components/dropdown-select';
+
+
+
+
+// Please don't mirror the site with css 
+
+// landingpage elements
+@import 'components/landingpage-elements/landingpage';
+@import 'components/landingpage-elements/landingpage-static-content';
+@import 'components/landingpage-elements/landingpage-header';
+@import 'components/landingpage-elements/category-teaser-with-products.scss';
+
+@import 'components/merchant';
+
+// CMS
+@import 'components/cms/cms';
+@import 'components/cms/components/step-list';
+@import 'components/cms/components/icon-grid';
+@import 'components/cms/merchant-contact';
+@import 'components/cms/contacts';
+
+// cart/checkout
+@import 'components/cart';
+@import 'components/checkout';
+
+// customer backend related
+@import 'components/customer';
+
+// 404/error page
+@import 'components/error';
+
+//
+//PLUGINS
+//------------------------------------------------------------------------------
+
+
+
+// ITCSS Trumps
+/* single responsibility class with !important  */
+@import "trumps.clearfix";
+@import "trumps.widths";
+@import "trumps.body";
+@import "trumps.layout"; // utility classes?
+@import "trumps.shame";
+@import "trumps.debug";
+@import "trumps.shame";
+@import "trumps.typography";
+@import "trumps.visibility";
+@import "trumps.colors";
+
+
+@import "shame.new-navigation";
+@import "shame.search-suggestion";
+@import "shame.search-results";
+@import "shame.search-pagination";
+@import "shame.search-result-header";
+
+

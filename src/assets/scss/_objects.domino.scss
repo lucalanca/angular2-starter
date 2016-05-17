@@ -1,0 +1,35 @@
+@mixin o-domino--vertical {
+  display: block;
+  .o-domino__inner {
+    display: block;
+    width: 100%;
+  }
+}
+
+@mixin o-domino--horizontal {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+
+  .o-domino__inner {
+    display: table-cell;
+    vertical-align: middle;
+    width: 50%;
+  }
+}
+
+
+.o-domino,
+.o-domino--vertical   { @include o-domino--vertical; }
+.o-domino--horizontal { @include o-domino--horizontal; }
+
+
+ @media screen and(min-width: $screen-s) {
+   .o-domino--horizontal\@m { @include o-domino--horizontal; }
+   .o-domino--vertical\@m   { @include o-domino--vertical;   }
+ }
+
+ @media screen and(min-width: $screen-m) {
+   .o-domino--horizontal\@l { @include o-domino--horizontal; }
+   .o-domino--vertical\@l   { @include o-domino--vertical;   }
+ }

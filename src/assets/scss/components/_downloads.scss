@@ -1,0 +1,25 @@
+// Download Panels
+//
+// Author: Ricardo Hildebrand <ricardo.hildebrand@votum.de>
+// ===================================================================================================================
+
+.panel-download {
+    position: relative;
+    background: $gray-lighter;
+    border: 1px solid $gray-light;
+    padding: $padding-base;
+    a {
+        margin-left: 3rem;
+        display: inline-block;
+        i{
+            margin-left:1rem;
+        }
+    }
+    > i {
+        top: 1.25rem;
+        position: absolute;
+    }
+    @media screen and (min-width: $screen-md) {
+        width: 45%;
+    }
+}

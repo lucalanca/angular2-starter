@@ -1,0 +1,50 @@
+.breadcrumb {
+    display:none;
+     @media screen and (min-width: $screen-sm) {
+        display: block;
+    }
+    padding-bottom: 2rem;
+    text-transform: uppercase;
+    z-index:1;
+    .categories li {
+        font-size: 0.9rem;
+        color: $color-font-gray-base;
+        &.product-name {
+            color: $color-font-gray-dark;
+        }
+        &.divider{
+            padding-left:0.25rem;
+            padding-right:0.25rem;
+        }
+    }
+    .columns {
+        padding-top:2rem;
+        @media screen and (min-width: $screen-sm) {
+            padding-top:0;
+        }
+    }
+    a {
+        color: $color-font-gray-base;
+    }
+}
+
+.category .breadcrumb{
+    padding-left:0.25rem;
+    position: absolute;
+    a, li{
+        color: #fff;
+    }
+    li.product-name {
+        color:#fff;
+    }
+    .columns {
+        padding-top:2rem;
+    }
+}
+
+.category .breadcrumb{
+    display:none;
+    @media screen and (min-width: $screen-sm) {
+        display:block;
+    }
+}

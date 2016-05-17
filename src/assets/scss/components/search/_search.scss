@@ -1,0 +1,166 @@
+.c-search {
+    &__content {
+        padding-top: $base-spacing-unit;
+    }
+}
+
+.c-filter-dropdown {
+    width: 100%;
+    margin-bottom: $base-spacing-unit / 2;
+
+    &__list-item{
+        padding: 2px 0;
+    }
+}
+
+.c-filter-open-close {
+    &__content {
+        max-height: 0;
+    }
+
+    &__checkbox:checked ~ &__content {
+        max-height: 100%;
+        overflow: visible;
+    }
+
+    &__toggle {
+        width: 100%;
+        left: 16px;
+        right: 0;
+        .c-open-close__arrow-top-icon, .c-open-close__arrow-bottom-icon{
+            padding-left: 6px;
+        }
+    }
+}
+
+.filter-container {
+    margin-bottom: $base-spacing-unit;
+
+    .price-filter-dropdown {
+        .c-dropdown__content {
+            max-height: none;
+        }
+    }
+
+    .price-range-list {
+        margin-bottom: $base-spacing-unit / 2;
+
+        &__item {
+            font-size: .8rem;
+        }
+    }
+
+    .price-range-form {
+        .form-errors {
+            position: static;
+            display: none;
+        }
+
+        &--error {
+            .form-errors {
+                display: block;
+            }
+        }
+
+        &__button {
+            width:100%;
+        }
+
+        &__range-start,
+        &__range-end {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        &__price-separator {
+            line-height: $input-height;
+        }
+    }
+}
+
+.active-filters {
+    margin-bottom: $base-spacing-unit;
+
+    &--reset {
+    }
+
+    .c-pill {
+        margin-top: $base-spacing-unit / 4;
+        margin-bottom: $base-spacing-unit / 4;
+        margin-right: $base-spacing-unit / 2;
+    }
+}
+
+// Filters are hidden on small screens but need to be visible in case they are shown inside a dialog.
+.c-filter-dialog {
+    .filter-container {
+        display: block;
+    }
+
+    @media screen and (max-width: $screen-m) {
+
+        .c-filter-dropdown {
+            border: none;
+            border-bottom: 1px solid $color-gray-light;
+            margin-bottom: 0;
+            padding: $base-spacing-unit / 2;
+
+            .c-dropdown__content {
+                border: none;
+                position: static;
+                visibility: visible;
+                opacity: 1;
+                display: none;
+
+                &.is-visible {
+                    display: block;
+                }
+            }
+
+        }
+
+        .c-filter-open-close {
+            padding-top: $base-spacing-unit;
+            padding-bottom: 0;
+            background: linear-gradient(
+                $color-blue-lightest 0px,
+                $color-blue-lightest ($base-spacing-unit - 1px),
+                $color-gray-light ($base-spacing-unit - 1px),
+                $color-gray-light $base-spacing-unit,
+                $color-white $base-spacing-unit,
+                $color-white
+            );
+
+            &__content {
+                max-height: none;
+            }
+
+            &__toggle {
+                display: none;
+            }
+        }
+    }
+}
+
+// Sidebar content is hidden on small screens but need to be visible in case they are shown inside a dialog.
+.c-category-dialog {
+    @media screen and (max-width: $screen-m) {
+        .c-dialog__content {
+            display: block;
+            width: auto !important;
+            padding-top: $base-spacing-unit;
+        }
+    }
+}
+
+// Hidden dialogs must be visible on bigger screens
+@media screen and (min-width: $screen-m) {
+    .c-filter-dialog.is-hidden,
+    .c-category-dialog.is-hidden {
+        display: block;
+    }
+}
+
+.mobile-filter-controls {
+    padding: ($base-spacing-unit / 2) 0;
+}

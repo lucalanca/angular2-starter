@@ -1,0 +1,35 @@
+// Card product uses: c-card, .o-domino, .ratio
+
+
+// Card product image
+// [1] center align
+// [2] make sure image doesn't get cut, taking either the maximum width or height
+// [3] card product in color variation have a pin image
+.c-card-product__image {
+    display: block;   // [1]
+    margin: auto;     // [1]
+    max-height: 100%; // [2]
+    max-width: 100%;  // [2]
+
+
+    .c-card--yellow &,
+    .c-card--orange &,
+    .c-card--blue &,
+    .c-card--teal &,
+    .c-card--red & {
+    	border-radius: 50% 50% 50% 0; // [3]
+    }
+}
+
+.c-card-product__title {
+	@include text-truncate;
+	@media screen and(max-width: $screen-s) {
+		max-height: 2 * 1.4em;
+    	white-space: normal;
+	}
+}
+
+
+.c-card-product__inner-content-text  {
+    height: 70px;
+}

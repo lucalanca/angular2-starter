@@ -1,0 +1,23 @@
+/*
+ *
+ *  component slider thumbnails
+ *
+ */
+
+.c-slider-thumbnails {
+  &__wrapper {
+
+    >.js-active {
+      border-color: $color-teal;
+    }
+  }
+
+  &__item {
+    max-width: 48px;
+    padding: 4px;
+    border: 2px solid transparent;
+    margin-bottom: 4px;
+
+    cursor: pointer;
+  }
+}

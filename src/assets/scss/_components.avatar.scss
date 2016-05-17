@@ -1,0 +1,32 @@
+$avatar-size        : 170px;
+$avatar-size-mobile : 100px;
+$avatar-bg          : $color-white;
+
+
+// Avatar component.
+
+// Creates a square avatar where with white background. Avatars can have other formats other than squera,
+// but they will be centered aligned (horizontally and vertically) in relation to a square container.
+
+// Usage:
+// <figure class="avatar">
+//     <img class="avatar__inner" src="..." alt="...">
+// </figure>
+.avatar {
+    width: $avatar-size-mobile;
+    height: $avatar-size-mobile;
+    background: $avatar-bg;
+    overflow: hidden;
+    margin: 0;
+    text-align: center;
+    vertical-align: middle;
+    @media screen and (min-width: $screen-sm) {
+        width: $avatar-size;
+        height: $avatar-size;
+    }
+
+    &__inner {
+        display: inline-block;
+        width: 100%;
+    }
+}

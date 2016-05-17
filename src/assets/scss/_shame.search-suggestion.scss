@@ -1,0 +1,125 @@
+.search-suggestions-result-pane {
+    position: absolute;
+    z-index: 2; // without this the results flyout overlaps this as it
+                // competes with the z-index (default) and comes after in the dom.
+    left: 0;
+    right: 0;
+    margin-top: 0;
+    top:35px;
+    min-height: 4rem;
+    background: $color-white;
+    border: 2px solid $color-gray-lighter;
+    border-top: thin solid $color-gray-lighter;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .05);
+    overflow: hidden;
+    text-align: left;
+
+    >.loading-spinner {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .search-suggestions-item {
+        display: table;
+        table-layout: fixed;
+        position: relative;
+        border-bottom: 1px solid $color-gray-lighter;
+        padding: 8px 32px;
+        font-size:14px;
+
+        // This is a Safari fix because the table doesn't actually stretch the full width of the
+        // parent element. This is why the parent needs to have overflow:hidden to not break
+        // things for other browsers.
+        width: 100.1%;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        >* {
+            display: table-cell;
+            vertical-align: middle;
+            height: 48px;
+        }
+
+        // Hover effect (teal colored transparent overlay)
+        &.focused,
+        &:hover {
+            >*:first-child:before
+            {
+                content: '';
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                background: rgba(79, 202, 220, .2);
+            }
+        }
+
+        .item-suggest-category {
+            strong {
+                color: $color-brand-tertiary;
+                font-weight: normal;
+            }
+
+            .doc-count {
+                color: $color-gray;
+            }
+        }
+
+        .item-suggest-product {
+            >span {
+                &:first-child {
+                    width: 48px;
+                    height:48px;
+                    background: left center no-repeat;
+                    background-size: contain;
+                    display:inline-block;
+                    float:left;
+                }
+
+                &:nth-child(2) {
+                    padding-left: 32px;
+                    display:inherit;
+                }
+
+                &:last-child {
+                    display: none;
+                    width: 110px;
+                    text-align: right;
+                    float:right;
+
+                    @media screen and(min-width: $screen-sm) {
+                        display: table-cell;
+                    }
+                }
+            }
+        }
+
+        .item-suggest-product-summary {
+            padding-left: 16px;
+
+            >span {
+                padding-left: (2 * $padding-base);
+                font-weight: bold;
+            }
+        }
+
+        .item-suggest-label{
+            color: $color-gray;
+        }
+    }
+
+    &,
+    .loading-spinner {
+        visibility: hidden;
+    }
+
+    &.visible,
+    .loading-spinner.visible{
+        visibility: visible;
+    }
+}

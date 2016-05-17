@@ -1,0 +1,33 @@
+// level 1 Category overview/links  on Homepage
+// --------------------------------------------------
+$category-sidebar-font-size: 18px;
+$category-sidebar-spacing-v: 6px;
+$category-sidebar-spacing-h: 8px;
+
+
+/*aside*/.c-category-sidebar{
+    &__title{
+        padding-right: $category-sidebar-spacing-h;
+    }
+    &__list {
+        overflow: hidden; // Clearfix for when the items are floated
+        @media screen and (min-width: $screen-s){
+            padding-right: $category-sidebar-spacing-h;
+        }
+    }
+    &__item{
+        display: block;
+        padding-right: $category-sidebar-spacing-h;
+        padding-left: 0;
+        font-size: $category-sidebar-font-size;
+
+        @media screen and (min-width: $screen-s){
+            padding-left: 0;
+            padding-right: 0;
+        }
+        @media screen and (min-width: $screen-s) and (max-width: $screen-m){
+            float: left;
+            width: 33.33333333334%;
+        }
+    }
+}

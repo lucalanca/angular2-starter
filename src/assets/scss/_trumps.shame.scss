@@ -1,0 +1,70 @@
+// write quick overrides
+
+// this pushed products and title to the top on the themeworlds inspiration page
+.push-top{
+    position: relative;
+    transition: 0.2s all;
+    margin-top: -96px;
+    @media screen and(min-width: $screen-sm) {
+        margin-top: -128px;
+    }
+    @media screen and(min-width: $screen-md) {
+        margin-top: -256px;
+    }
+}
+
+// this pushes title to the bottom if there are no products at the themeworlds pages
+.push-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+.accordion {
+    &__trigger {
+        padding-top: 12px;
+        border-top: 1px solid rgba(34, 36, 38, .15);
+    }
+}
+
+
+.only-android {
+    display: none;
+}
+
+.android {
+    .no-android {
+        display: none;
+    }
+    .only-android {
+        display: block;
+    }
+}
+
+
+
+/* Transitions for equalheight jquery plugin */
+[data-equalheight-wrapper] {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 500ms ease-in-out;
+}
+
+[data-equalheight-wrapper].heights-loaded {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/*
+   this is a dirty way for showing text aligned to the right on the desktop for the related content panel
+   on the homepage
+*/
+.text-right\@m {
+
+    @media screen and (min-width: $screen-m){
+        text-align: right;
+    }
+}

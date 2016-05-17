@@ -1,0 +1,74 @@
+@mixin ratio {
+  overflow: hidden;
+  position: relative;
+  
+  &:before {
+    content: "";
+    display: block;
+    height: 0;
+  }
+
+  &__content {
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    width: 100%;
+  }
+
+  &--1to1 {
+    &:before {
+      padding-top: 100%;
+    }
+  }
+  &--3to2 {
+    &:before {
+      padding-top: 100% / 3 * 2; // 66.66%
+    }
+  }
+  &--3to1 {
+    &:before {
+      padding-top: 100% / 3 * 1; // 33.33%
+    }
+  }
+  &--16to9 {
+    &:before {
+      padding-top: 100% / 16 * 9; // 56.25%
+    }
+  }
+
+  &--3to4 {
+    &:before {
+      padding-top: 100% / 3 * 4 // 75%;
+    }
+  }
+
+  &--4to3 {
+    &:before {
+      padding-top: 100% / 4 * 3 // 133.33%;
+    }
+  }
+}
+
+.ratio {
+  @include ratio;
+}
+
+@media screen and(min-width: $screen-xs) {
+  .s-ratio {
+    @include ratio;
+  }
+}
+@media screen and(min-width: $screen-sm) {
+  .m-ratio {
+    @include ratio;
+  }
+}
+
+@media screen and(min-width: $screen-md) {
+  .l-ratio {
+    @include ratio;
+  }
+}
+

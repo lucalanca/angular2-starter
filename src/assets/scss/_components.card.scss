@@ -1,0 +1,145 @@
+
+/*
+ * [1] so it works with elements that are not block by default (such as <a>)
+ * [2] reset links styling
+ */
+
+.c-card {
+    display: block; // [1]
+
+    &,
+    &--white {
+        background-color: $color-white;
+        color: $color-black;
+    }
+
+    &--teal {
+        background-color: $color-teal;
+        color: $color-white;
+    }
+
+    &--blue {
+        background-color: $color-blue;
+        color: $color-white;
+    }
+
+    &--orange {
+        background-color: $color-orange;
+        color: $color-white;
+    }
+
+    &--yellow {
+        background-color: $color-yellow;
+        color: $color-white;
+    }
+
+    &--red {
+        background-color: $color-red;
+        color: $color-black;
+    }
+
+    &.c-divider {
+        margin-bottom: 1px;
+    }
+
+    &--with-backdrop {
+        position: relative;
+
+        color: $color-white;
+        background-color: $color-blue;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+}
+
+// Cards with links
+a.c-card {
+   text-decoration: none; // [2]
+
+    &:active {
+        transform: translateY(1px);
+    }
+    // TODO: think about hover effect for white
+    // &:hover,
+    // &--white:hover {
+    // }
+
+    &--teal:hover {
+        background-color: $color-teal-dark;
+    }
+
+    &--blue:hover {
+        background-color: $color-blue-dark;
+    }
+
+    &--orange:hover {
+        background-color: $color-orange-dark;
+    }
+
+    &--yellow:hover {
+        background-color: $color-orange;
+    }
+
+    &--red:hover {
+        background-color: $color-red-dark;
+    }
+
+    &--with-backdrop:hover:before {
+        background: linear-gradient(90deg, rgba(0,0,0,0.8), transparent 70%);
+    }
+}
+
+
+// Card size variations (changes the __inner-content padding);
+@mixin card__inner-content {
+    .c-card__inner-content {
+        padding: 8px 10px;
+    }
+}
+
+@mixin card__inner-content--small {
+    .c-card__inner-content {
+        padding: 4px 8px;
+    }
+}
+
+.c-card {
+    @include card__inner-content;
+    &--small { @include card__inner-content--small; }
+}
+
+@media screen and(max-width: $screen-m) {
+    .c-card--small\@m { @include card__inner-content--small; }
+}
+
+@media screen and(max-width: $screen-s) {
+    .c-card--small\@s { @include card__inner-content--small; }
+}
+
+// Animatable modifiers
+@mixin c-card-animatable {
+    transition: transform 0.1s ease-in;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+
+    &:hover {
+        transform: scale(1.075);
+        z-index: 2;
+        position: relative; // so that z-index works on
+        box-shadow: 0 0 7px $color-gray-light;
+        // if the card has borders, make sure we don't show on hover
+        // as we already have a box-shadow
+        border: 0;
+    }
+    &:active {
+        transform: scale(1.075) translateY(1px);
+    }
+}
+a.c-card--animatable { @include c-card-animatable; }
+@media screen and(min-width: $screen-s) {
+    a.c-card--animatable\@m { @include c-card-animatable; }
+}
+@media screen and(min-width: $screen-m) {
+    a.c-card--animatable\@l { @include c-card-animatable; }
+}

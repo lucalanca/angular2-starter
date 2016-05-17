@@ -1,0 +1,224 @@
+// Deprecated colors.
+// Please use the new colors in _settings.colors.scss
+
+
+// Brand primary
+$color-brand-primary-light: rgba(232, 209, 79, 1);
+$color-brand-primary: rgba(255, 219, 45, 1);
+
+// Brand secondary
+$color-brand-secondary-light: rgba(220, 74, 77, 1);
+$color-brand-secondary: rgba(243, 64, 70, 1);
+$color-brand-secondary-dark: rgba(255, 51, 51, 1);
+$color-brand-secondary-darker: rgba(206, 16, 22, 1);
+
+// Brand tertiary
+$color-brand-tertiary-lighter: $color-teal-light;
+$color-brand-tertiary-light: rgba(98, 208, 223, 1);
+$color-brand-tertiary: $color-teal;
+$color-brand-tertiary-dark: $color-teal-dark;
+
+
+// ABSOLUTE COLORS
+$white: $color-white;
+$white-overlay: rgba(255, 255, 255, 0.85);
+
+$color--brand: $color-brand-tertiary;
+
+// remove this mess
+$black: $color-black;
+$gray-36: rgba(36, 36, 36, 1);
+$gray-51: $color-gray-darker; // color for fonts
+$gray-74: rgba(74, 74, 74, 1);
+$gray-105: rgba(105, 105, 105, 1);
+$gray-156: $color-gray;
+$gray-164: rgba(164, 164, 164, 1);
+$gray-171: rgba(171, 171, 171, 1);
+$gray-204: $color-gray-light;
+$gray-241: $color-gray-lighter;
+
+$yellow: $color-brand-primary;
+
+$red: $color-brand-secondary;
+$red-dark: $color-brand-secondary-darker;
+
+$skyblue: $color-brand-tertiary;
+$skyblue-light: $color-teal-light;
+
+$teal: rgba(83, 200, 218, 1);
+
+$green: rgba(98, 208, 134, 1);
+
+$text--success: $green;
+
+// campatibility adoptions
+$gray-lighter: $gray-241;
+$gray-light: $gray-204;
+$gray-base: $color-gray;
+$gray-dark: $color-gray-darker;
+$gray-shadow: rgba(0, 0, 0, 0.2);
+
+/* alert message colors*/
+$error-bg: rgba(255, 206, 209, 1);
+$error-border: $color-brand-secondary-light;
+$warning-bg: $yellow;
+$warning-border: $color-brand-primary-light;
+$success-bg: $green;
+$success-border: $green;
+
+// COLORS IN CONTEXT
+$color-font-gray-darker: $gray-36;
+$color-font-gray-dark: $color-gray-darker;
+$color-font-gray-base: $color-gray;
+$color-font-error: $red-dark;
+
+$color-button: $color-brand-secondary;
+$color-button-hover: $red-dark;
+$color-button-inactive: $gray-204;
+
+$color-border: $gray-204;
+
+$color-message-success-transparent: rgba(157, 220, 121, 0.5);
+$color-message-warning-transparent: rgba(252, 242, 194, 0.5);
+$color-message-error-transparent: rgba(246, 212, 212, 0.5);
+
+$color-message-error: rgba(246, 212, 212, 1);
+
+
+
+
+
+// BASE
+// -------------------------------------------------------------------------------------------------------------------
+$body-bg: $gray-241;
+$text-color: $gray-dark;
+
+$wrapper-container-width: 1140px + (2 * $base-spacing-unit); 
+$header-height-mobile: 9rem;
+$header-height-desktop: 5.5rem;
+$header-search-input-height: 50px;
+
+// TYPOGRAPHY
+// -------------------------------------------------------------------------------------------------------------------
+
+/* headlines */
+$font-size-h1-m: pxToRem(24);
+$line-height-h1-m: pxToRem(29);
+$letter-spacing-h1-m: 0.02rem;
+
+$font-size-h2-m: pxToRem(20);
+$line-height-h2-m: pxToRem(30);
+
+$font-size-h3-m: pxToRem(16);
+$line-height-h3-m: pxToRem(19);
+
+$font-size-h4-m: pxToRem(14);
+$line-height-h4-m: pxToRem(22);
+
+$font-size-h5-m: pxToRem(10);
+$line-height-h5-m: pxToRem(10);
+
+$font-size-h6-m: pxToRem(10);
+$line-height-h6-m: pxToRem(10);
+
+$font-size-h1: pxToRem(40);
+$line-height-h1: pxToRem(46);
+$letter-spacing-h1: -1px;
+
+$font-size-h2: pxToRem(34);
+$line-height-h2: pxToRem(46);
+
+$font-size-h3: pxToRem(18);
+$line-height-h3: pxToRem(30);
+
+$font-size-h4: pxToRem(14);
+$line-height-h4: pxToRem(14);
+
+$font-size-h5: pxToRem(10);
+$line-height-h5: pxToRem(10);
+
+$font-size-h6: pxToRem(10);
+$line-height-h6: pxToRem(10);
+
+
+/* paragraphs */
+$font-size-p-m: pxToRem(14);
+$line-height-p-m: pxToRem(22);
+
+$font-size-p-big-m: pxToRem(16);
+$line-height-p-big-m: pxToRem(23);
+
+$font-size-p-small-m: pxToRem(12);
+$line-height-p-small-m: pxToRem(18);
+
+$font-size-p: pxToRem(16);
+$line-height-p: pxToRem(26);
+
+$font-size-p-big: pxToRem(18);
+$line-height-p-big: pxToRem(28);
+
+$font-size-p-small: pxToRem(14);
+$line-height-p-small: pxToRem(21);
+
+// BUTTONS AND LINKS
+$font-size-button-m: pxToRem(14);
+$line-height-button-m: pxToRem(14);
+
+$font-size-button: pxToRem(16);
+$line-height-button: pxToRem(16);
+
+$font-size-link-m: pxToRem(14);
+$line-height-link-m: pxToRem(12);
+
+$font-size-link: pxToRem(16);
+$line-height-link: pxToRem(16);
+
+
+// PADDINGS + MARGINS
+// -------------------------------------------------------------------------------------------------------------------
+
+// margins
+$margin-small-m: pxToRem(15);
+$margin-base-m: pxToRem(20);
+$margin-large-m: pxToRem(30);
+$margin-xlarge-m: pxToRem(40);
+
+$margin-small: pxToRem(35);
+$margin-base: pxToRem(40);
+$margin-large: pxToRem(60);
+$margin-xlarge: pxToRem(80);
+
+$margin-header-m: pxToRem(30);
+$margin-footer-m: pxToRem(60);
+
+$margin-header: pxToRem(80);
+$margin-footer: pxToRem(150);
+
+// paddings
+$padding-small: pxToRem(10);
+$padding-base: 32px;
+$padding-large: pxToRem(40);
+
+$padding-small-m: pxToRem(5);
+$padding-base-m: pxToRem(10);
+$padding-large-m: pxToRem(20);
+
+
+
+$slider-lg: pxToRem(1440);
+
+// GRID - FOUNDATION DEFINITIONS
+// -------------------------------------------------------------------------------------------------------------------
+$include-html-classes: true !default;
+$opposite-direction: right;
+$default-float: left;
+$global-radius: 4px;
+
+$include-html-grid-classes: true;
+$include-xl-html-grid-classes: false;
+
+$row-width: $wrapper-container-width;
+$total-columns: 12 !default;
+$last-child-float: $opposite-direction !default;
+$column-gutter: $padding-base;
+

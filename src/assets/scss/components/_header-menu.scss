@@ -1,0 +1,95 @@
+// header navigation / menus
+//
+// Author: Ricardo Hildebrand <ricardo.hildebrand@votum.de>
+// ===================================================================================================================
+
+//.header .header-menu {
+//    float: right;
+//    @media screen and (min-width: $screen-sm) {
+//        margin-left: 1.5rem;
+//    }
+//    margin-top: 0.45rem;
+//    > li {
+//        margin-right: $padding-base;
+//        position: relative;
+//        @media screen and (min-width: $screen-sm) {
+//            padding-bottom: 3rem;
+//        }
+//        > a > i {
+//            font-size: 1.75rem;
+//        }
+//    }
+//}
+
+/* LOGIN-REGISTER FORM */
+.header-menu li > .header-user-popover {
+    display: none;
+    @media screen and (min-width: $screen-sm) {
+        display: none;
+        z-index: 1;
+        visibility: hidden;
+        opacity: 0;
+        width: 20rem;
+        position: absolute;
+        right: 7.5rem;
+        top: 3rem;
+        padding: $padding-base;
+        background: #fff;
+        border: 1px solid $gray-light;
+        border-radius: 4px;
+        transition: all 500ms ease-in-out;
+        /* triangle top */
+        &:after, &:before {
+            bottom: 100%;
+            left: 92%;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+        }
+        &:after {
+            border-color: rgba(136, 183, 213, 0);
+            border-bottom-color: #fff;
+            border-width: 10px;
+            margin-left: -10px;
+        }
+        &:before {
+            border-color: rgba(194, 225, 245, 0);
+            border-bottom-color: $gray-light;
+            border-width: 11px;
+            margin-left: -11px;
+        }
+        h3 {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        button {
+            width: 100%;
+        }
+        .register-form {
+            transition: all 500ms ease-in-out;
+            height: auto;
+            &.hidden {
+                visibility: hidden;
+                opacity: 0;
+                height: 0;
+            }
+        }
+        .login-form {
+            transition: all 500ms ease-in-out;
+            height: auto;
+            &.hidden {
+                visibility: hidden;
+                opacity: 0;
+                height: 0;
+            }
+        }
+    }
+}
+
+.header-menu li:hover > .header-user-popover {
+    visibility: visible;
+    opacity: 1;
+}

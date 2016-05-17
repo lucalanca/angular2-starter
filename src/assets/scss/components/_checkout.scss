@@ -1,0 +1,617 @@
+.no-padding {
+    padding: 0;
+}
+
+.mobile-only {
+    @media screen and (min-width: $screen-sm) {
+        display: none;
+    }
+}
+
+.checkout {
+    @media screen and (min-width: $screen-sm) {
+        padding: $padding-large 0;
+    }
+
+    /* STEPS */
+    .step {
+        text-transform: uppercase;
+        color: $gray-base;
+        margin: 0;
+        padding-top: $padding-large;
+        padding-bottom: 0.4rem;
+        padding-left: $padding-large-m;
+        padding-right: $padding-large-m;
+        letter-spacing: 0.15rem;
+        @media screen and (min-width: $screen-sm) {
+            padding-bottom: $padding-large;
+            padding-left: $padding-small;
+            padding-right: $padding-small;
+        }
+
+        > span {
+            background: $gray-lighter;
+            border: 1px solid $gray-lighter;
+            border-radius: 50%;
+            padding-right: 0.5rem;
+            padding-left: 0.72rem;
+            padding-top: 0.45rem;
+            padding-bottom: 0.3rem;
+            margin-right: $padding-small;
+            @media screen and (min-width: $screen-sm) {
+                padding-right: 0.5rem;
+                padding-left: 0.7rem;
+            }
+        }
+        &.active {
+            > span {
+                background: $yellow;
+                border: 1px solid $yellow;
+            }
+        }
+        &.done, &.active {
+            color: $gray-dark;
+        }
+    }
+    > .row > header + .step {
+        border: 0;
+    }
+
+    /* STEP CONTENT */
+    .step-content {
+        margin-top: $padding-large-m;
+        margin-bottom: $padding-large;
+
+        @media screen and (min-width: $screen-sm) {
+            margin-top: 2.3rem;
+            h1 {
+                margin-bottom: 0.2rem;
+            }
+        }
+
+        h2 {
+            @media screen and(min-width: $screen-md) {
+                padding-left: $padding-large;
+                margin-top: -0.25rem;
+            }
+        }
+
+        h4 {
+            @media screen and (min-width: $screen-sm) {
+                margin-bottom: $padding-small;
+                margin-top: $padding-small;
+            }
+
+            &:not(.description) {
+                text-transform: uppercase;
+                letter-spacing: 0.1rem;
+            }
+        }
+
+        fieldset {
+            margin-top: $padding-base;
+        }
+
+        .checkout-button {
+            padding-top: $padding-small;
+
+            button {
+                width: 100%;
+            }
+        }
+
+        .quantity button {
+            width: auto;
+        }
+
+        .birthday {
+            margin-top: 1rem;
+        }
+
+        .info {
+            margin-top: $padding-small;
+            margin-bottom: 1.25rem;
+            font-size: 0.8rem;
+            @media screen and(min-width: $screen-md) {
+                margin-top: 0;
+            }
+        }
+
+        .set-delivery-address,
+        .set-password {
+            padding-top: $padding-base;
+        }
+
+        .shipping.visible {
+            max-height: 35rem;
+            margin-bottom: $padding-large;
+
+            @media screen and(min-width: $screen-md) {
+                max-height: 22rem;
+            }
+        }
+
+        .register{
+            margin-top:4rem;
+            p{
+                margin:0;
+                margin-bottom:0.25rem;
+                margin-top:0.25rem;
+            }
+            p, ul{
+                color: $color-font-gray-base;
+                font-size:0.9rem;
+            }
+            ul{
+                margin-bottom:2rem;
+            }
+        }
+
+        /* ADDRESS FORM */
+        .address {
+            margin-bottom: 3rem;
+        }
+    }
+
+    /* SUMMARY IN PAYMENT VIEW */
+    .step {
+        @media screen and (min-width: $screen-sm) {
+            font-size: pxToRem(14);
+        }
+        &.done {
+            > span {
+                background-color: $color-brand-primary;
+                font-size: 1.3rem;
+                padding-left: 0.3rem;
+                padding-right: 0.3rem;
+                padding-top: 0;
+                padding-bottom: 0.2rem;
+                letter-spacing: 0.07rem;
+                &:before {
+                    position: relative;
+                    top: 0.15rem;
+                    left: 0.08rem;
+                }
+            }
+        }
+    }
+    .summary {
+        p.currency-medium {
+            font-weight: $font-weight-demi;
+            padding-top: 0.1rem;
+            padding-bottom: 0;
+        }
+        .single-price {
+            padding-right: 0;
+            padding-left: 0;
+            @media screen and (min-width: $screen-md) {
+                padding-left: $padding-small;
+            }
+        }
+    }
+    .change-address, .change-payment {
+        position: absolute;
+        top: 0;
+        right: $padding-base;
+    }
+    /* PAYMENT */
+    .payment {
+        &.active {
+            @media screen and(min-width: $screen-md) {
+                padding-top: $padding-large;
+            }
+        }
+        h4 {
+            margin-bottom: 0;
+        }
+        form {
+            .radio {
+                cursor: pointer;
+                background: #fff;
+                border: 2px $gray-light solid;
+                border-radius: 2px;
+                min-height: 9rem;
+                margin-bottom: 1.5rem;
+
+                @media screen and (min-width: $screen-sm) {
+                    min-height: 11.5rem;
+                }
+
+                .radio-field {
+                    padding: 0.9rem 0 0.5rem 0.5rem;
+
+                    label {
+                        color: $color-font-gray-base;
+                        font-size: 1rem;
+                        font-weight: $font-weight-medium;
+
+                        &:before {
+                            top: 0;
+                        }
+                    }
+                }
+                img {
+                    width: 45px;
+                    margin-top: 0.75rem;
+                    margin-left: 0.5rem;
+                }
+                p {
+                    float: none;
+                    padding-left: 0.25rem;
+                    color: $color-font-gray-base;
+                    @media screen and (min-width: $screen-sm) {
+                        padding-left: 0.5rem;
+                        padding-right: 0.5rem;
+                    }
+                }
+                &.checked {
+                    background: $gray-lighter;
+                    p, label {
+                        color: $gray-dark;
+
+                    }
+                }
+            }
+            button {
+                width: 100%;
+                @media screen and (min-width: $screen-sm) {
+                    width: 83%;
+                }
+                transition: opacity 600ms linear 0ms;
+
+                &.hidden {
+                    @include opacity(0);
+                }
+            }
+        }
+        > .step.active, .step.done {
+            border: 0;
+        }
+        IMG.brandImage {
+            width: 45px;
+        }
+    }
+
+    div.hr-wrapper {
+        padding-left: $padding-base;
+        padding-right: $padding-base;
+
+        @media screen and (min-width: $screen-sm) {
+            padding-left: 3.4rem;
+            padding-right: 3.4rem;
+            &.inside-fix {
+                padding-left: 0.7rem;
+                padding-right: 0.7rem;
+            }
+        }
+        > div.hr {
+            height: 1px;
+            background-color: $color-border;
+        }
+    }
+
+    .payment-info {
+        margin-top: $padding-large;
+    }
+
+    .overview {
+        @media screen and(min-width: $screen-md) {
+            padding-top: $padding-large;
+        }
+        > .step {
+            border: 0;
+        }
+        .q {
+            @media screen and(min-width: $screen-md) {
+                margin-top: 2.6rem;
+            }
+        }
+    }
+
+    .step-address {
+        h4 {
+            margin-bottom: 0;
+        }
+        > .columns {
+            margin-bottom: $padding-large;
+            &:last-child {
+                margin-bottom: 0;
+            }
+            &.pickup{
+                margin-bottom:0;
+            }
+        }
+        .pickup{
+            color: $teal;
+        }
+    }
+
+    .cart {
+        padding-left: $padding-base-m;
+        padding-right: $padding-base-m;
+        @media screen and (min-width: $screen-sm) {
+            padding-top: 0;
+        }
+
+        .merchant {
+            &:first-child {
+                margin-top: 0;
+            }
+            h3 {
+                padding-left: 0;
+                @media screen and (min-width: $screen-sm) {
+                    padding-left: $padding-base;
+                }
+            }
+            .delivery-method, p {
+                font-size: 0.9rem;
+                @media screen and (min-width: $screen-sm) {
+                    padding-left: $padding-base;
+                }
+            }
+            .delivery-info {
+                line-height: 1.2rem;
+                padding-top: 0.15rem;
+
+                @media screen and (min-width: $screen-sm) {
+                    padding-left: 0;
+                    margin-top: 0;
+                    padding-top: 0.3rem;
+                }
+            }
+            .delivery-change {
+                padding-top: 0.5rem;
+                padding-left: 0;
+                padding-right: 0;
+                @media screen and (min-width: $screen-sm) {
+                    padding-top: 0;
+                    padding-right: $padding-small;
+                    text-align: right;
+                }
+            }
+
+            .pickup-address {
+                color: $teal;
+                font-size: pxToRem(14);
+                font-weight: normal;
+                line-height: 1.2rem;
+                @media screen and (min-width: $screen-sm) {
+                    left: -0.1rem;
+                    padding-right: $padding-base;
+                }
+
+                &:before {
+                    font-size: 1.3rem;
+                    position: relative;
+                    top: .2rem;
+                }
+            }
+            @media screen and (min-width: $screen-sm) {
+                .logo {
+                    padding-right: 0;
+                }
+            }
+        }
+        .product-header {
+            display: none;
+            @media screen and (min-width: $screen-md) {
+                display: block;
+                border-left: 1px solid $color-border;
+                border-right: 1px solid $color-border;
+                h5 {
+                    margin: 0;
+                    font-size: 0.7rem;
+                    text-transform: uppercase;
+                    letter-spacing: 0.03rem;
+                    padding-top: $padding-base;
+                    padding-left: 0.3rem;
+                }
+                .price-per-piece {
+                    padding-left: 0.7rem;
+                }
+            }
+        }
+        .product-cart {
+            @media screen and (min-width: $screen-sm) {
+                padding-top: $padding-base;
+            }
+            .info {
+                h3, h4 {
+                    line-height: 1.35rem;
+                    margin-bottom: 0;
+                }
+                h3 {
+                    padding-bottom: 0.4rem;
+                }
+            }
+            img {
+                padding-top: 0;
+                @media screen and (min-width: $screen-sm) {
+                    padding-right: $padding-small;
+                }
+            }
+            .currency-medium {
+                padding-top: 0.2rem;
+                padding-bottom: 0.2rem;
+                font-weight: 400;
+                &.total {
+                    padding-top: 0.7rem;
+                }
+            }
+            .hr-wrapper {
+                padding: 0;
+            }
+            .summary {
+                @media screen and (min-width: $screen-sm) {
+                    padding-top: $padding-base;
+                }
+                .total {
+                    @media screen and (min-width: $screen-md) {
+                        padding-top: 0.2rem;
+                    }
+                }
+            }
+        }
+
+        .totals {
+            margin-top: 1rem;
+            padding-left: 0;
+            .edit-cart {
+                padding-bottom: $padding-large-m;
+                margin-bottom: 0;
+                @media screen and (min-width: $screen-sm) {
+                    padding-bottom: $padding-large;
+                }
+            }
+            h4 {
+                text-transform: none;
+                letter-spacing: 0;
+                font-weight: normal;
+                font-size: 1rem;
+            }
+            .grand-total {
+                @media screen and (min-width: $screen-sm) {
+                    padding-top: $padding-base;
+                }
+                p.currency-big {
+                    font-weight: $font-weight-demi;
+                }
+            }
+
+            .checkbox-field {
+                position: absolute;
+                margin: 0.1rem 0 0 0;
+            }
+
+            button {
+                width: 100%;
+                line-height: 2rem;
+                margin-top: 13rem;
+                @media screen and (min-width: $screen-sm) {
+                    margin-top: 8rem;
+                }
+            }
+        }
+    }
+
+}
+
+.payment-error {
+    padding-top: 0.5rem;
+    color: $red;
+    @include opacity(0);
+    visibility: hidden;
+    transition: all 150ms ease-in-out;
+
+    &.visible {
+        @include opacity(1);
+        visibility: visible;
+    }
+}
+
+/* LOGGED IN CHECKOUT STYLES */
+.checkout {
+    .address.customer {
+        .link {
+            font-size: 0.9rem;
+            color: $gray-156;
+            display: inline-block;
+            @media screen and (min-width: $screen-sm) {
+                padding-top: $padding-small;
+            }
+        }
+        h4 {
+            margin-bottom: $padding-base;
+        }
+        button {
+            margin-top: $padding-large;
+        }
+        .customer-email {
+            margin-bottom: $padding-small;
+            padding-left: 0;
+        }
+    }
+}
+
+.checkout .address.customer .link, .modal .link {
+    font-size: 0.9rem;
+    color: $gray-156;
+    display: inline-block;
+    @media screen and (min-width: $screen-sm) {
+        padding-top: $padding-small;
+    }
+}
+
+.cc-modal label p{
+    display: inline-block;
+    margin-left: 2rem;
+}
+
+.invalid-choice{
+    color: $red;
+}
+
+.gtc-error {
+    margin-top: -1.5rem;
+    font-size: 0.8rem;
+    visibility: hidden;
+    color: $red;
+
+    @include opacity(0);
+    transition: all 150ms ease-in-out;
+
+    @media screen and (min-width: $screen-sm) {
+        margin-top: -0.8rem;
+    }
+
+    &.visible {
+        visibility: visible;
+        @include opacity(1);
+    }
+}
+
+.checkbox-field.newsletter {
+    top: 7rem;
+    @media screen and (min-width: $screen-sm) {
+        top: 3rem;
+    }
+}
+
+#cc-modal .brandImage {
+    width: 45px;
+    vertical-align: middle;
+}
+
+.checkout .input-field-password-second, .checkout .row-gtc{
+    opacity:0;
+    visibility: hidden;
+    transition: all 150ms ease-in-out;
+    &.visible{
+        opacity:1;
+        visibility: visible;
+    }
+}
+
+.checkout .password-repeat-error{
+    color: $red;
+    padding-left: 0.25rem;
+    display: block;
+    line-height: 1.25rem;
+    opacity:0;
+    visibility: hidden;
+    transition: all 150ms ease-in-out;
+    &.visible{
+        opacity:1;
+        visibility: visible;
+    }
+}
+
+.password-repeat-error-diff{
+    position: absolute;
+    top: 4.1rem;
+}
+
+.register .gtc{
+    margin-top:1rem;
+}
+

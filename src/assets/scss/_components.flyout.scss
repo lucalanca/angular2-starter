@@ -1,0 +1,11 @@
+.c-flyout {
+    display: none;
+
+    &.is-opened {
+        display: block;
+    }
+
+    &__trigger {
+
+    }
+}

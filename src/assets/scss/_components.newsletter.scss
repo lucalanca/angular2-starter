@@ -1,0 +1,36 @@
+.c-newsletter {
+    &__image {
+        display: block;
+        margin: 0 auto;
+        max-width: 70%;
+    }
+}
+
+@media screen and (min-width: $screen-s){
+    $newsletter-height: 260px;
+    $newsletter-outter-height: 32px;
+    .c-newsletter {
+        &__container {
+            position: relative;
+            height: $newsletter-height;
+        }
+
+        &__content,
+        &__image {
+            position: absolute;
+        }
+
+        &__content {
+            max-width: (2/3) * 100%;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        &__image {
+            bottom: 0;
+            right: 0;
+            max-width: (1/3) * 100%;
+            max-height: $newsletter-height + $newsletter-outter-height;
+        }
+    }
+}

@@ -1,0 +1,165 @@
+.pagination {
+  border-bottom: 1px solid $gray-lighter;
+  margin-top: 1rem;
+  padding: 1rem 0;
+  .arrow {
+    a {
+      display: block;
+      box-sizing: initial;
+      height: 2.5rem;
+      width: 2.5rem;
+      line-height: 2.5rem;
+      border-radius: 50%;
+      border: 1px solid $teal;
+      background-color: #fff;
+      color: $color-gray-dark;
+      text-align: center;
+      font-size: 1rem;
+      transition: all 200ms ease-in-out;
+      &:hover {
+        background: $teal;
+      }
+    }
+    &.arrow--next a {
+      float: right;
+    }
+  }
+  .pages {
+    a {
+      color: $color-gray;
+      padding: 0.1rem 0.25rem;
+      border-radius: 3px;
+      min-width: 1.6rem;
+      display: inline-block;
+      transition: all 200ms ease-in-out;
+      &:hover {
+        color: $color-gray-dark;
+        background: $teal;
+
+      }
+    }
+    &--first:after, &--last:before {
+      content: '\2026';
+      color: $color-gray;
+    }
+    .pages--first:after {
+      margin-left: 0.25rem;
+    }
+    .pages--last:before {
+      margin-right: 0.5rem;
+    }
+    ul {
+      .active {
+        color: $color-gray-dark;
+        min-width: 1.6rem;
+      }
+      li {
+        margin: 0 0.2rem;
+        &.pages--first {
+          margin-right: 0;
+        }
+        &.pages--last {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
+
+.item-number-select {
+  min-height: 7rem;
+  margin-top: 2rem;
+  text-align: right;
+  > span {
+    font-size: 0.9rem;
+    text-align: right;
+    margin-top: 0.45rem;
+    display: inline-block;
+    margin-right: 0.5rem;
+  }
+}
+
+.c-pagination {
+  &__text-container {
+    margin-top: 0.5rem;
+  }
+
+  &__dropdown-container {
+    display: none;
+    float: right;
+  }
+
+  &__results {
+    display: none;
+    font-weight: $font-weight-bold;
+  }
+
+  &__pages--large {
+    display: none;
+  }
+}
+
+//mayhaps we should make a o-dropdown that can be styled with c- components
+.c-pagination-dropdown {
+
+  border: $color-gray-light 1px solid;
+  color: $color-gray;
+
+  &__content {
+    border: $color-gray-light 1px solid !important;
+    overflow-y: hidden;
+  }
+
+  &__label {
+    width: 50%;
+  }
+
+  &__label, &__toggle-icon {
+    color: $color-teal;
+  }
+
+  &__item > a {
+    display: inline-block;
+    width: 100%;
+    height: 32px;
+    color: $color-gray-light;
+
+    &:hover {
+      color: $color-gray-dark;
+    }
+  }
+
+}
+
+// this animation makes sure the .c-dropdown__content starts not visible. Javascript is making it invisible once it kicks in,
+// but this means that we will have a jump where this suddenly is not visible anymore. This way, this animation is giving some time
+// to the javascript to do its thing. If no javascript is visible, the dropdown will be visible after some time anyway.
+@keyframes preventHeightJump {
+  0% { max-height: 0; }
+  99% { max-height: 0; }
+  100% { max-height: 300px; }
+}
+
+.no-js {
+  .c-dropdown__content {
+    border: 0 !important;
+    max-height: auto;
+    animation-duration: 8s;
+    animation-name: preventHeightJump;
+  }
+}
+
+//shouldn't these be important in _trumps.visibilty.scss
+
+@media screen and (min-width: $screen-s) {
+  .pagination-hidden\@m { display: none !important; }
+  .pagination-visible\@m { display: inline-block !important; };
+}
+@media screen and (min-width: $screen-m) {
+  .pagination-hidden\@l { display: none !important; }
+  .pagination-visible\@l { display: inline-block !important;};
+}
+@media screen and (min-width: $screen-l) {
+  .pagination-hidden\@xl { display: none !important; }
+  .pagination-visible\@xl { display: inline-block !important;};
+}

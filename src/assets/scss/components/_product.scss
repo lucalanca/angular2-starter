@@ -1,0 +1,216 @@
+.product .product-header {
+    .row.collapse{
+        @media screen and (min-width: $screen-sm) {
+            padding-left:$padding-small;
+        }
+    }
+    background: $gray-lighter;
+    padding-bottom: $padding-base-m;
+    @media screen and(min-width: $screen-sm) {
+        padding-top: 2rem;
+        padding-bottom: $padding-large;
+    }
+    
+
+    // TODO: remove opt-in typo
+    .header-info {
+        h1 { 
+            @extend .page__title;
+        }
+
+        h3 {
+            font-size: 1rem;
+            line-height: 1.4rem;
+        }
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+
+.product .merchants {
+    margin-top: $padding-large;
+    header {
+        h4 {
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            @media screen and (min-width: $screen-sm) {
+                color: $color-font-gray-base;
+                margin-top: 1rem;
+                margin-bottom: 3rem;
+            }
+        }
+    }
+    .merchant {
+        padding-top: $padding-base;
+        padding-bottom: $padding-base;
+        background: $gray-lighter;
+        margin-bottom: $padding-base;
+        @media screen and (min-width: $screen-sm) {
+            padding-top: 1.5 * $padding-base;
+            padding-bottom: 1.5 * $padding-base;
+        }
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+
+        h2 {
+            @media screen and (min-width: $screen-sm) {
+                font-weight: $font-weight-demi;
+                color: $color-font-gray-darker;
+                font-size: pxToRem(18);
+                line-height: $line-height-h3;
+                margin-bottom: 0.4rem;
+            }
+        }
+        h3 {
+            margin-bottom: $padding-small;
+        }
+        .delivery-information {
+            margin-bottom: 0;
+            padding-right: 0;
+            &:nth-of-type(odd) {
+                border-bottom: 1px solid $gray-light;
+                @media screen and (min-width: $screen-sm) {
+                    padding-bottom: 0.3rem;
+                }
+            }
+            &:nth-of-type(even) {
+                padding-top: 0.2rem;
+                @media screen and (min-width: $screen-sm) {
+                    padding-top: 0.4rem;
+                }
+            }
+            h4 {
+                padding-left: 0;
+                margin-bottom: 0.1rem;
+                padding-top: 0.15rem;
+                font-wight: normal;
+                &:first-of-type {
+                    color: $gray-156;
+                }
+                &:last-of-type {
+                    padding-right: 0;
+                    text-align: right;
+                    color: $black;
+                }
+            }
+            span {
+                &:first-child {
+                    color: $gray-156;
+                }
+                border-bottom: 1px solid $gray-light;
+                padding-left: 0;
+                padding-right: 0;
+                padding-top: $padding-small/2;
+                padding-bottom: $padding-small/2;
+            }
+        }
+        .price {
+            padding-left: 1rem;
+            margin-top: 1.5rem;
+            font-size: 16px;
+            margin-bottom: $padding-large;
+            @media screen and(min-width: $screen-sm) {
+                font-size: 24px;
+                padding-left: 0;
+                text-align: right;
+                margin-top: 16px;
+                padding-right: $padding-large;
+            }
+        }
+        .quantity {
+            @media screen and(min-width: $screen-sm) {
+                margin-top: 1rem;
+            }
+        }
+        .quantity-form-wrapper {
+            .quantity-form {
+                color: $black;
+                @media screen and (min-width: $screen-sm) {
+                    padding-left: 0;
+                }
+            }
+            .max-exceeded {
+                @include opacity(0);
+                font-size: pxToRem(12);
+                color: $color-font-error;
+                transition: all 500ms;
+                @media screen and (min-width: $screen-sm) {
+                      padding-left: 0;
+                }
+            }
+            &.quantity-exceeded {
+                .max-exceeded {
+                    @include opacity(1);
+                    height: auto;
+                }
+                .quantity-form input[type="number"] {
+                    color: $color-font-error;
+                }
+            }
+        }
+        .button-add {
+            position: relative;
+            font-size: pxToRem(16);
+            line-height: pxToRem(16);
+            padding-top: 0.6rem;
+            padding-bottom: 0.55rem;
+            padding-left: 0.8rem;
+            margin-top: 0.07rem;
+            @media screen and(min-width: $screen-sm) {
+                margin-top: 1.08rem;
+                font-size: pxToRem(16);
+                padding-top: 0.6rem;
+                padding-bottom: 0.55rem;
+                &:before {
+                    padding-right: 0.5rem;
+                }
+            }
+        }
+    }
+}
+
+.product .description {
+    margin-top: $padding-large;
+    margin-bottom: $padding-large;
+    .text h2{
+        font-size: 1.2rem;
+        margin-top: -1rem;
+    }
+
+}
+
+.product {    
+    &__cta{
+        padding-left: 5%;
+        padding-right: 5%;
+        margin-bottom: 24px;
+        @media screen and (min-width: $screen-sm) {
+            padding: 0 ;
+        }
+    }
+    &__image-wrapper{
+        background: #fff;
+        margin-bottom: 24px;
+        text-align: center;
+    }
+    &__image{
+        width: auto !important;
+        max-width: 100%;
+    }
+    &__features-top{
+        margin-bottom:24px;
+    }
+    &__availability {
+        margin:24px 0 !important; // TODO: remove important (.columns p, .search-list > header p, p.columns in contacts.scss)
+    }
+
+    &__availability-icon,
+    &__information-link-icon {
+        margin-right: 12px;
+    }
+}
+
+
+

@@ -1,0 +1,17 @@
+.brands-list {
+  text-align: center;
+
+  &__item {
+    width: 33%;
+    margin-top: 16px;
+
+    @media screen and (min-width: $screen-sm) {
+      width: auto;
+      margin-right: 25px;
+    }
+  }
+
+  &__item:last-child {
+    margin-bottom: 16px;
+  }
+}

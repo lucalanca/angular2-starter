@@ -1,0 +1,16 @@
+.sort {
+    @media screen and(min-width: $screen-sm) {
+        margin-top: -0.5rem;
+        text-align: right;
+        > span {
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+    }
+}
+
+.sort > span {
+    font-size: 0.9rem;
+    text-align: right;
+    margin-top: 0.45rem;
+}

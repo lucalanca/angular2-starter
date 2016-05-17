@@ -1,0 +1,54 @@
+.price-range {
+    padding-bottom: 6rem;
+    padding-right: 4px;
+    margin-top: 1rem;
+    .columns {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .price-to {
+        margin-top: 1.2rem;
+        font-size: 0.8rem;
+        text-align: center;
+    }
+    button {
+        border-color: transparent;
+        text-align: right;
+        background: transparent;
+        color: #4fcadc;
+        padding: 0.5rem;
+        font-size: 1.2rem;
+        width: 100%;
+        @media screen and(min-width: $screen-sm) {
+            padding: 0.25rem;
+            font-size: 1rem;
+        }
+    }
+    .form-errors {
+        opacity: 0;
+        visibility: collapse;
+        transition: all 100ms ease-in;
+    }
+    &--error {
+        .form-errors {
+            visibility: visible;
+            opacity: 1;
+            @media screen and(max-width: $screen-sm) {
+                font-size: 1rem;
+                line-height: 1.3rem;
+            }
+        }
+        .price-range-end {
+            border: 1px solid $error-border !important;
+        }
+        button[disabled] {
+            background-color: transparent;
+            border: 0;
+
+        }
+    }
+}
+
+.price-facet.is-open {
+    padding-bottom: 0;
+}

@@ -1,0 +1,35 @@
+/**
+ * These values will not show up in content, but can be 
+ * queried by JavaScript to know which breakpoint is active.
+ * Add or remove as many breakpoints as you like.
+ */
+
+body:before {
+  content: "";
+  display: none; /* Prevent from displaying. */
+}
+@media screen and (min-width: $screen-xs){ // 480
+  body:before {
+    content: "480";
+  }
+}
+@media screen and (min-width: $screen-s){
+  body:before {
+    content: "768";
+  }
+}
+@media screen and (min-width: $screen-m){
+  body:before {
+    content: "1024";
+  }
+}
+@media screen and (min-width: $screen-l){
+  body:before {
+    content: "1280";
+  }
+}
+@media screen and (min-width: $screen-xl){
+  body:before {
+    content: "1440";
+  }
+}

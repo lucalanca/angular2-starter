@@ -1,0 +1,105 @@
+// Lists
+//
+// Author: Ricardo Hildebrand <ricardo.hildebrand@votum.de>
+// ===================================================================================================================
+
+/*------------------------------------*\
+    $LISTS
+\*------------------------------------*/
+/**
+ * Remove vertical spacing from nested lists.
+ */
+li{
+    > ul,
+    > ol{
+         margin-bottom:0;
+     }
+}
+.list{
+    &--unstyled{
+        padding:0;
+        margin:0;
+    }
+    &__item{
+        display: block;
+        &--sortiment{
+            font-size: 18px;
+            font-weight: 500px;
+            margin-bottom: 8px;
+            color: #333333;
+            @media screen and(min-width: $screen-sm) {
+                margin-right: 32px;
+                display: inline-block;
+            }
+            white-space: nowrap;
+        }
+        &--promo{
+            padding-top: 8px;
+            padding-bottom: 8px
+        }
+    }
+
+    &--inline li{
+        display: inline-block;
+    }
+    &--breadcrumb {
+        display:none;
+        color:white;
+        font-size:14px;
+        font-weight:bold;
+        @media screen and(min-width: $screen-md) {
+            display:block;
+        }
+        font-size: 14px;
+        text-transform: uppercase;
+        .invert & {
+            color: white;
+        }
+        & > li + li:before {
+            content:"\002F" "\00A0";
+            color: white;
+            padding: 0 8px;
+        }
+        li {
+            max-width: 200px;
+            text-overflow: ellipsis;
+
+            /* Required for text-overflow to do anything */
+            white-space: nowrap;
+            overflow: hidden;
+            color: white;
+        }
+        a {
+            text-decoration: none;
+            font-weight: inherit;
+            color:inherit;
+        }
+    }
+       
+}
+
+/**
+ * Have a numbered `ul` without the semantics implied by using an `ol`.
+ */
+/*ul*/.numbered-list{
+    list-style-type: decimal ;
+}
+
+// Description lists
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+dl {
+    margin-top: 0; // Remove browser default
+    margin-bottom: $padding-base;
+}
+
+dt {
+    font-weight: bold;
+}
+
+dd {
+    margin-left: 0; // Undo browser default
+   
+}
+
+
+

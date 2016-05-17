@@ -1,0 +1,103 @@
+$navigation-backgroundColor: $color-brand-tertiary;
+
+$header-height-mobile: 50px;
+$header-height-desktop: 105px;
+
+.o-page,
+.o-page-header {
+    position: relative;
+    transition: all 200ms;
+    &.is-pushed-left {
+        transform: translateX(-280px);
+        transform: translate3d(-280px, 0, 0);
+    }
+}
+
+
+
+
+// Fallback to browsers which don't support flexbox.
+@media screen and (max-width: $screen-m){
+    .o-page {
+        z-index: 2;
+        body.has-sticky-footer & {
+            .o-page__row:not(.o-page__row--expanded) {
+                position: fixed;
+                left: 0;
+                right: 0;
+                bottom: 0;
+            }
+        }
+    }
+}
+
+body.has-sticky-footer .o-page {
+    height: calc(100% - #{$header-height-mobile});
+}
+
+@media screen and (min-width: $screen-s){
+    body.has-sticky-footer .o-page {
+        height: calc(100% - #{$header-height-desktop});
+    }
+}
+
+
+
+
+// Modern technique: flexbox. We should use this when all the browsers
+// we support have flexbox (i.e. when we drop IE9).
+
+// !important: We need to disable this functionality and switch back to position:fixed solution
+// When browsing siroop site with web view inside Facebook or Twitter applications
+// we encountered bug with additional 108px gap at the bottom of the page
+// this gap occurs only in this applications web views and cannot be reproduced in standart web view
+// JS solution doesn't fit because we cannot predict the future of this bug/feature and we cannot relate
+// on magic numbers and browser sniffing.
+// Codepen — http://s.codepen.io/s1ntez/debug/pyOXoY
+// Default Safari/Web View - https://project-thor.atlassian.net/secure/attachment/17936/IMG_0579.PNG
+// Facebook/Twitter Web View - https://project-thor.atlassian.net/secure/attachment/17935/IMG_0578.PNG
+
+// @supports (display: flex) and (flex-direction: column) {
+//     @media screen and (max-width: $screen-m){
+//         body.has-sticky-footer {
+//             .o-page {
+//                 display: flex;
+//                 flex-direction: column;
+//             }
+
+//             .o-page__row--expanded {
+//                 flex: 1;
+//                 overflow-x: hidden;
+//                 overflow-y: scroll;
+//                 -webkit-overflow-scrolling: touch;
+//             }
+
+//             .o-page .o-page__row:not(.o-page__row--expanded) {
+//                 position: static;
+//             }
+//         }
+
+
+//     }
+// }
+
+
+
+
+.o-page-header {
+    z-index: 3;
+    @include clearfix;
+}
+
+.o-page__navigation {
+    background-color: $navigation-backgroundColor;
+    padding-top: 5px;
+    position: relative;
+    min-height: 50px;
+
+    @media screen and(max-width: 1024px ) {
+        .o-page-header.is-pushed-left & {
+            overflow: visible;
+        }
+    }
+}

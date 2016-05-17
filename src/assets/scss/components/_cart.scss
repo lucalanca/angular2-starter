@@ -1,0 +1,416 @@
+// BASIC SHOPPING CART
+//
+// Author: Philipp Weiß <philipp.weiss@votum.de>
+// ===================================================================================================================
+
+
+.cart, .delivery-modal {
+    padding: $padding-large 0;
+
+    h3 {
+        font-weight: $font-weight-demi;
+        padding-right: 0;
+        @media screen and (min-width: $screen-sm) {
+            line-height: pxToRem(22);
+        }
+    }
+    h4 {
+        color: $gray-base;
+        font-size: pxToRem(14);
+        font-weight: $font-weight-medium;
+        line-height: pxToRem(18);
+    }
+
+    .merchant {
+        border: 1px solid $color-border;
+        border-radius: 2px;
+        padding-top: $padding-base;
+        padding-bottom: $padding-base;
+        margin-top: 2rem;
+        > .columns {
+            padding: 0;
+        }
+        h3 {
+            padding-top: 0.5rem;
+            @media screen and (min-width: $screen-sm) {
+                padding-top: 0;
+            }
+        }
+        .logo {
+            margin-bottom: 0.5rem;
+            img {
+                width: 80%;
+            }
+        }
+        p.delivery-method {
+            font-weight: $font-weight-demi;
+            font-size: pxToRem(12);
+            @media screen and (min-width: $screen-sm) {
+                font-size: pxToRem(14);
+                line-height: 1.75rem;
+            }
+        }
+
+        .delivery-info {
+            padding: 0;
+            @media screen and (min-width: $screen-sm) {
+                margin-top: -0.75rem;
+                .delivery-change {
+                    padding-right: $padding-base;
+                    padding-top: 0.1rem;
+                }
+            }
+            .delivery-info-inner {
+                padding: 0;
+                @media screen and (min-width: $screen-sm) {
+                    > div:not(.delivery-change):not(.pickup-address) {
+                        padding-top: 0.3rem;
+                    }
+                }
+                .shipping-type {
+                    padding-bottom: 0;
+                    font-size: pxToRem(14);
+                }
+            }
+
+            .pickup-address {
+                color: $teal;
+                font-size: pxToRem(14);
+                font-weight: normal;
+                padding-bottom: 0.2rem;
+                line-height: 1.2rem;
+
+                &:before {
+                    font-size: 1.3rem;
+                    position: relative;
+                    top: .2rem;
+                }
+                @media screen and (min-width: $screen-sm) {
+                    padding-top: 0;
+                    padding-left: 0.5rem;
+                }
+            }
+        }
+    }
+
+    .product-cart {
+        padding-top: $padding-large;
+        padding-bottom: $padding-base;
+        border-left: 1px solid $color-border;
+        border-right: 1px solid $color-border;
+        & * .merchant {
+            background: red;
+        }
+        border-top: 0;
+        border-radius: 2px;
+
+        .product-info,
+        .quantity-form {
+            @media screen and (min-width: $screen-sm) and (max-width: pxToRem(950)) {
+                .currency-medium {
+                    font-size: 0.8rem;
+                }
+            }
+        }
+        img {
+            padding: $padding-base;
+            @media screen and (min-width: $screen-sm) {
+                padding: 0;
+            }
+        }
+        > .columns {
+            padding: 0;
+        }
+        h3 {
+            margin: 0;
+            @media screen and (min-width: $screen-sm) {
+                font-size: 1rem;
+            }
+            a {
+                color: $gray-dark;
+            }
+        }
+        .currency-medium {
+            @media screen and (min-width: $screen-sm) {
+                font-size: 1rem;
+            }
+        }
+        .product-image {
+            padding-left: 0;
+            img {
+                padding: 0;
+            }
+        }
+        .product-info {
+            padding: 0;
+            @media screen and (min-width: $screen-sm) {
+                p.currency-medium {
+                    padding-left: $padding-small;
+                    text-align: right;
+                    white-space: nowrap;
+                }
+            }
+        }
+        .description {
+            color: $gray-156;
+            @media screen and (min-width: $screen-sm) {
+
+                margin-bottom: 0.5rem;
+                margin-top: 0.25rem;
+            }
+        }
+        .price {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            @media screen and (min-width: $screen-sm) {
+                font-size: 1.0rem;
+                margin-top: 2.4rem;
+            }
+        }
+        .remove-button-1 {
+            text-align: center;
+            padding: .4rem $padding-base .4rem 1.8rem;
+            .a-wrapper {
+                $radius: 1.8rem;
+                float: right;
+                display: block;
+                width: $radius;
+                height: $radius;
+                background-color: $gray-lighter;
+                border-radius: 50%;
+                padding-top: 0.05rem;
+            }
+            @media screen and (min-width: $screen-sm) {
+                display: none;
+            }
+        }
+        .remove-button-2 {
+            display: none;
+            @media screen and (min-width: $screen-sm) {
+                display: block;
+                text-align: center;
+                padding: 1.1rem 0.2rem 0 0;
+
+                .a-wrapper {
+                    $radius: 1.8rem;
+                    float: right;
+                    display: block;
+                    width: $radius;
+                    height: $radius;
+                    background-color: $gray-lighter;
+                    border-radius: 50%;
+                    padding-top: 0.05rem;
+                }
+            }
+        }
+        .quantity-form {
+            padding: 0;
+
+            .quantity-field {
+                @media screen and (min-width: $screen-sm) {
+                    margin-top: 0.8rem;
+                }
+            }
+            .currency-medium {
+                padding-top: $padding-large-m;
+
+                @media screen and (min-width: $screen-sm) {
+                    padding: 1.4rem 0 0 0;
+                    text-align: center;
+                }
+            }
+        }
+        .info {
+            > div {
+                padding-left: 0;
+            }
+            padding-left: 0;
+            @media screen and (min-width: $screen-sm) {
+                .currency-medium {
+                    padding: 0;
+                    padding-top: pxToRem(22);
+                }
+                padding-right: 0;
+            }
+        }
+    }
+
+    .border {
+        //height: 1px;
+        border-top: 1px solid $color-border;
+        margin-top: -1px;
+    }
+
+    .totals {
+        margin-top: 2rem;
+        @media screen and (min-width: $screen-sm) {
+            padding-left: $padding-small;
+        }
+        @media screen and (min-width: $screen-md) {
+            padding-left: $padding-large;
+        }
+        .columns {
+            padding: 0;
+        }
+        > .columns {
+            margin-bottom: 0.5rem;
+            span {
+                font-size: 1.2rem;
+                &:first-child {
+                    color: $gray-156;
+                    font-size: 1rem;
+                }
+            }
+            &.grand-total {
+                border-top: 1px solid $gray-light;
+                margin-top: 1rem;
+                margin-bottom: 3rem;
+                padding-top: 1rem;
+                .currency-big {
+                    font-size: pxToRem(20);
+                    white-space: nowrap;
+                    @media screen and (min-width: $screen-sm) {
+                        font-size: pxToRem(17);
+                    }
+                    @media screen and (min-width: pxToRem(830)) {
+                        font-size: pxToRem(19);
+                    }
+                    @media screen and (min-width: $screen-md) {
+                        font-size: pxToRem(21);
+                    }
+                }
+            }
+        }
+        .button {
+            width: 100%;
+            display: block;
+        }
+    }
+}
+
+.payment-methods {
+    $sprite-height: 30px;
+    $sprite-width: 45px;
+    margin-top: $padding-base;
+    &-title {
+        display: block;
+        color: #4A4A4A;
+        font-size: pxToRem(14);
+        font-weight: 400;
+        margin: 0 0 pxToRem(10);
+    }
+    &-list {
+        display: block;
+        border: 1px solid #f1f1f1;
+        border-radius: 2px;
+        list-style: none;
+        margin: 0;
+        padding: $padding-base / 4;
+    }
+    &-item {
+        display: inline-block;
+        margin-right: 6px;
+    }
+    &-method {
+        display: inline-block;
+        background: url('../images/cart/payment_methods.png') no-repeat 0 0;
+        overflow: hidden;
+        padding-top: $sprite-height;
+        white-space: nowrap;
+        text-indent: 100%;
+        height: 0;
+        width: $sprite-width;
+        vertical-align: bottom;
+        &-2 {
+            background-position: (-$sprite-width) (-$sprite-height);
+        }
+        &-3 {
+            background-position: (-$sprite-width * 2) (-$sprite-height * 2);
+        }
+        &-order {
+            display: inline-block;
+            font-size: pxToRem(12) !important;
+            border: 1px solid #f1f1f1;
+            border-radius: 2px;
+            padding: 0 $padding-base / 2;
+            line-height: $sprite-height;
+            height: $sprite-height;
+            vertical-align: bottom;
+        }
+    }
+}
+
+.delivery-modal {
+    .merchant {
+        margin-top: 0;
+        border: 0;
+        //padding-left: 0.5rem;
+    }
+    .delivery-change {
+        position: absolute;
+        top: $padding-base / 3;
+        right: $padding-base / 2;
+        z-index: 10;
+        a.link {
+            font-size: pxToRem(14);
+        }
+    }
+}
+
+.cart-empty {
+    min-height: 10rem;
+    padding-top: 3rem;
+    @media screen and (min-width: $screen-sm) {
+        padding-top: 8rem;
+    }
+    header {
+        text-align: center;
+        h1 {
+            display: inline;
+            &:before {
+                position: relative;
+                padding-right: $padding-large-m;
+                font-size: 2.3rem;
+                top: pxToRem(5);
+                @media screen and (min-width: $screen-sm) {
+                    font-size: 4rem;
+                    padding-right: 1rem;
+                    top: 0.6rem;
+                }
+            }
+        }
+        i {
+            font-size: 2.5rem;
+            padding-top: 0.25rem;
+        }
+    }
+    p {
+        text-align: center;
+        margin-top: 2rem;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    .empty-cart-button {
+        margin-top: 2rem;
+        margin-bottom: 8rem;
+        @media screen and (min-width: $screen-sm) {
+            margin-top: 2.5rem;
+        }
+        a {
+            display: block;
+            padding: 0;
+            color: $white;
+            font-weight: normal;
+        }
+    }
+}
+
+.totals-top{
+    .button{
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+    p{
+        padding-left:0;
+    }
+}

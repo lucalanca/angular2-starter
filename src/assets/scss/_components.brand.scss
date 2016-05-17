@@ -1,0 +1,9 @@
+.brand {
+    display: block;
+
+    &__image {
+        vertical-align: middle;
+        max-height: 35px;
+        width: auto;
+    }
+}

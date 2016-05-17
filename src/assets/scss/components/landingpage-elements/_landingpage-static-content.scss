@@ -1,0 +1,23 @@
+// default text content
+// --------------------------------------------------------------------------------------------------------------------
+.content-text {
+    padding: 3rem 0;
+    @media screen and (min-width: $screen-sm) {
+        padding: 4.875rem 0;
+        padding-bottom:3rem;
+    }
+    .grid {
+        margin-top:2rem;
+        padding: 0.5rem;
+        > * {
+            &:first-child {
+                @media screen and (min-width: $screen-sm) {
+                    padding-right: 2rem;
+                }
+            }
+        }
+    }
+    + .category-teaser {
+        padding-top: 4rem;
+    }
+}

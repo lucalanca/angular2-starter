@@ -1,0 +1,12 @@
+.cover,
+.contain{
+	background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.cover {
+    background-size: cover;
+}
+.contain{
+	background-size: contain;
+}

@@ -1,0 +1,32 @@
+/*
+ * transform centering
+ *
+ * [1] needs position absolute in order to use
+ *     top position
+
+ */
+@mixin center-vertical {
+    position: absolute;            /* [1] */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    overflow: hidden;
+}
+
+
+.center-vertical {
+    @include center-vertical;
+}
+
+@media screen and(min-width: $screen-sm) {
+    .m-center-vertical {
+        @include center-vertical;
+    }
+}
+
+@media screen and(min-width: $screen-md) {
+    .l-center-vertical {
+        @include center-vertical;
+    }
+}
+

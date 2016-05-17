@@ -1,0 +1,215 @@
+// TODO: this is an hack. consider removing position absolute so we can remove this,
+$header-buttons-width: 40px;
+
+.c-header {
+
+    // hidden search view (search is openend by trigger)
+    &__search-container {
+        @media screen and (max-width: 768px) {
+            text-align: center;
+            position:fixed;
+            float: left;
+            width: 100%;
+            margin-top:-7px;
+            padding:8px;
+            background: $color-brand-tertiary;
+            z-index:10000;
+            left:-100%;
+            transform: translateX(100%);
+            transition: transform .3s;
+            &.is-hidden{
+                transform:translateX(0);
+            }
+            .c-search-global{
+                float:right;
+                width:90%;
+            }
+            .search-suggestions-result-pane{
+                height: 100vh;
+                position: fixed;
+                width: 100%;
+                left: 0;
+                top:90px;
+                padding-bottom: 53px;
+                overflow-x: scroll;
+                -webkit-overflow-scrolling: touch;
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+                transition: all 200ms ease-in-out;
+                overflow: auto;
+            }
+        }
+    }
+
+    // full search view on homepage and search page (controlled via fullHeaderSearch flag from controller)
+    &__search-container--full {
+        position:relative;
+        margin-top:40px;
+        left:0;
+        transform: none;
+        padding: 8px 0;
+        .c-search-global{
+            float:left;
+            width:100%;
+        }
+        .search-suggestions-result-pane{
+    
+            padding-bottom: 90px;
+        }
+    }
+
+    &__close-search-btn{
+        margin-top:9px;
+        font-size: 16px;
+        .c-header__search-container--full &{
+            display:none;
+        }
+    }
+
+    &__main-triggers {
+        display: none;
+        @media screen and (min-width: 769px ) {
+            display: inline-block;
+        }
+    }
+    &__flyout {
+        padding: 32px 0;
+        border-bottom: 1px solid $color-gray-light;
+        background-color: $color-white;
+
+        &.is-opened {
+            @media screen and (max-width: $screen-xs) {
+                display: none;
+            }
+        }
+    }
+
+    &__flyout-trigger {
+        margin-right: 20px;
+        @media screen and  (min-width: $screen-m) {
+            margin-right: 30px; 
+        }
+        @media screen and (min-width: $screen-l) {
+            margin-right: 40px;
+        }
+
+
+        border: none;
+        display: block;
+        padding: 16px 0;
+
+        transition: color 100ms linear;
+        will-change: color;
+
+
+        font-size: 18px;
+        font-weight: 400;
+
+        &:hover,
+        &:focus {
+            color: $color-white;
+            border: none;
+        }
+
+        &.is-opened {
+            color: $color-white;
+            border-bottom: 4px solid $color-white;
+        }
+
+        &-icon {
+            color: currentColor;
+            font-size: 10px;
+            margin-left: 4px;
+            vertical-align: middle;
+            &--opened { display: none; }
+            &--closed { display: inline-block; transform: rotate(90deg); }
+        }
+
+        &.is-opened &-icon {
+            &--opened { display: inline-block; }
+            &--closed { display: none; }
+        }
+    }
+
+    &__flyout-container {
+        position: relative;
+    }
+
+    &__flyout-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    &__flyout-card {
+        display: block;
+
+        &-title {
+            margin-top: 8px;
+        }
+    }
+
+    &__flyout-card-image-container {
+        background-color: #F0F4F6;
+    }
+
+    &__flyout-section {
+        margin-bottom: 40px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    // as this contianer doesn't have a title, we hack the margin-top so
+    // the links have a good aligment with the rest.
+    &__flyout-categories-all-container {
+        margin-top: 35px;
+    }
+
+    // override .c-heading-title-meta default margin-bottom
+    &__title-meta {
+        margin-bottom: 20px;
+    }
+}
+.flyout-brand-logo{
+    position: absolute;
+    top: 25%;
+    right: 25%;
+    bottom: 25%;
+    left: 25%;
+    opacity: .65;
+}
+
+// Desktop MAIN LAYOUT
+// uses table to make search container expandable.
+@media screen and (min-width: 769px) {
+    .c-header {
+        &__wrapper {
+            display: table;
+            width: 100%;
+        }
+
+        &__main-triggers,
+        &__search-container,
+        &__buttons-container {
+            display: table-cell;
+        }
+
+        &__main-triggers,
+        &__buttons-container {
+            white-space: nowrap;
+        }
+
+
+        &__search-container {
+            width: 100%;
+            padding-right: 16px + $header-buttons-width;
+            vertical-align: middle;
+        }
+
+        &__close-search-btn{
+            display:none;
+        }
+    }
+}

@@ -1,0 +1,423 @@
+// we only have vertical scroll. without `overflow-y: hidden;`
+// we could horizontally scroll on firefox.
+.c-primary-nav ul {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+}
+
+.c-primary-nav,
+.c-primary-nav ul/*.nav-list*/ {
+    background:white;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: absolute;
+    top: 0px;
+    bottom: 0;
+    // Full widht of offcanvas + parent container padding
+    right: -(280 + $o-container-spacing);
+    height: 100vh;
+    width: 280px;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
+    z-index: 2;
+    /* Force Hardware Acceleration in WebKit */
+    transform: translateZ(0);
+    transition: transform .3s;
+    &.is-hidden {
+        transform: translateX(100%);
+        transform: translate3d(100%, 0, 0);
+    }
+    &.is-open{
+        visibility: visible;
+        transition: visibility 0s 0s;
+    }
+}
+
+// on smaller screens (in height), we could see two scrollbars.
+.c-primary-nav {
+    top: -5px;
+    overflow: hidden;
+    @media screen and(min-width: 769px) {
+        display: none;
+    }
+}
+
+.c-primary-nav ul {
+    transition: all 200ms;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right:0;
+    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+}
+
+.c-primary-nav ul > li > a{
+    transition: all 200ms;
+    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
+}
+.c-primary-nav ul.moves-out > li.c-primary-nav__item > a,
+.c-primary-nav ul.moves-out > li.c-primary-nav__item--separator{
+    /* push the navigation items to the left - and lower down opacity - when secondary nav slides in */
+    transform: translateX(-100%);
+    transform: translate3d(-100%, 0, 0);
+}
+.c-primary-nav{
+    > ul {
+        margin-top: 51px;
+    }
+    &__item{
+        border-bottom: 1px solid darken(#F1F5F7, 10%);
+        &--go-back,
+        &--see-all{
+            font-weight: 500;
+            @media screen and (min-width: $screen-s) {
+                display:none;
+            }
+        }
+        &--separator{
+            background:white;
+            transition: all 200ms;
+            padding:50px 24px 0;
+            line-height: 50px;
+        }
+        &:last-child {
+            margin-bottom: 150px;
+        }
+    }
+    &__link{
+        background-color: #F1F5F7;
+        position: relative;
+        display:block;
+        height:50px;
+        line-height: 50px;
+        padding: 0 24px;
+        @include text-truncate();
+        transform: translateX(0);
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+        &:hover,
+        &:focus{
+            background-color: #F1F5F7;
+        }
+        &--go-back {
+            padding-left: 40px;
+            &::before, 
+            &::after {
+                /* arrow icon in CSS - for element with nested unordered lists */
+                content: '';
+                position: absolute;
+                top: 50%;
+                margin-top: -1px;
+                display: inline-block;
+                height: 2px;
+                width: 10px;
+                background: currentColor;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+                left: 20px;
+                transform-origin: 1px 50%;
+            }
+            &::before {
+                transform: rotate(45deg);
+            }
+            &::after {
+                transform:rotate(-45deg);
+            }
+        }
+        &--see-all{
+            font-weight: 500;
+            background-color: #F1F5F7;
+        }
+    }
+}
+.offcanvas-user{
+    a {
+        line-height: 50px;
+        height: 50px;
+    }
+    border-bottom: 1px solid darken(#F1F5F7, 10%);
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    background: white;
+    padding:0 24px;
+
+    @media screen and (min-width: 769px) {
+        display:none;
+    }
+}
+.c-primary-nav__item.has-children > a{
+    position: relative;
+    &::before,
+    &::after {
+        transform-origin: 9px 50%;
+        content: "";
+        position: absolute;
+        top: 50%;
+        margin-top: -1px;
+        display: inline-block;
+        height: 2px;
+        width: 10px;
+        background-color: currentColor;
+        backface-visibility: hidden;
+        right: 22px;
+    }
+    &::before{
+        transform: rotate(45deg);
+    }
+    &::after{
+        transform: rotate(-45deg);
+    }
+}
+
+.c-secondary-nav {
+    &.is-hidden {
+        transform: translateX(100%);
+        transform: translate3d(100%, 0, 0);
+    }
+    &__item {
+    }
+    &__link{
+
+    }
+}
+
+// BUTTONS
+
+
+
+.c-header-buttons{
+    position: absolute;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    display: block;
+    right: 0;
+    top: 0;
+    &__item {
+        display: inline-block;
+        position: relative;
+        vertical-align: top;
+    }
+    .is-pushed-left &{
+        right: -6px;
+    }
+}
+
+.c-icon{
+    position: relative;
+    display: block;
+    height: 40px;
+    width: 40px;
+    overflow: hidden;
+    white-space: nowrap;
+    color: transparent;
+    z-index: 9999;
+    line-height: 1;
+}
+
+.c-icon-basket {
+    .is-pushed-left &{
+        display:none;
+    }
+    span.c-icon__bag,
+    span.c-icon__bag::before,
+    span.c-icon__bag::after {
+        // hamburger icon
+        position: absolute;
+        display: inline-block; // for styling
+        transform:translateZ(0);
+        backface-visibility: hidden;
+    }
+    span.c-icon__bag {
+        top: 14px;
+        height: 0px;
+        width: 30px;
+        border-top: solid 16px darken($color-brand-tertiary-dark, 40%);
+        border-left: solid 4px transparent;
+        border-right: solid 4px transparent;
+        right: 5px;
+        z-index: 1;
+    }
+    span.c-icon__bag::before{
+        content: "";
+        height:0;
+        width: 26px;
+        border-top: solid 12px $color-brand-tertiary-dark;
+        border-left: solid 3px transparent;
+        border-right: solid 3px transparent;
+        transition: all 200ms;
+        top: -14px;
+        right: -2px;
+        z-index: 1;
+    }
+    span.c-icon__bag::after{
+        content: "";
+        border-radius: 50%;
+        height: 24px;
+        width: 15px;
+        border: 2px solid darken($color-brand-tertiary-dark, 40%);
+        right:3px;
+        top:-24px;
+    }
+    span.c-icon-basket__pin{
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        right: 0;
+        display: inline-block;
+        border-radius: 50% 50% 50% 0 ;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        @include text-truncate();
+        font-size:14px;
+        background-color: yellow;
+        color: black;
+        padding:0;
+        font-weight: bold;
+    }
+    // class for implementation of old cart icon as mentioned in CMS-496
+    .c-icon-basket__icon{
+        display: inline-block;
+        margin-top: 2px;
+        padding-left: 6px;
+        color: $color-black;
+        &:before{
+            font-size:28px;
+        }
+        @media screen and (min-width: 769px ) {
+            margin-top: 4px;
+            padding-left:0;
+            &:before{
+                font-size:32px;
+            }
+        }
+    }
+    .c-icon-basket__count{
+        display: block;
+        position: absolute;
+        top: 6px;
+        right: 4px;
+        width: 1.0rem;
+        height: 1.0rem;
+        border: 1px solid $color-gray;
+        border-radius: 50% 50% 50% 0;
+        background-color: $color-yellow;
+        font-size: 8px;
+        font-weight: bold;
+        text-align: center;
+        line-height: 16px;
+        color: $color-gray-dark;
+        z-index: 2;
+        @media screen and (min-width: $screen-s) {
+            width: 1.2rem;
+            height: 1.2rem;
+            font-size: 10px;
+            line-height: 18px;
+        }
+    }
+}
+.c-icon-basket.is-full span.c-icon__bag::before{
+        border-top-color: darken($color-brand-tertiary-dark, 40%);
+}
+
+// BURGER ICON
+
+.c-header-button__item--burger{
+    @media screen and (min-width: 769px ) {
+        display:none;
+    }
+}
+
+
+
+
+.c-icon-burger {
+    span,
+    span::before,
+    span::after {
+        // hamburger icon 
+        position: absolute;
+        display: inline-block; // for styling
+        height: 2px;
+        width: 24px;
+        background: darken($color-brand-tertiary-dark, 40%);
+    }
+    span {
+        position: absolute;
+        top: 50%;
+        right: 8px;
+        transition: background 200ms 200ms;
+    }
+    span::before,
+    span::after {
+        content: "";
+        right: 0;
+        transform:translateZ(0);
+        backface-visibility: hidden;
+        transition: transform .2s .2s;
+    }
+    span::before {
+        top:-7px;
+    }
+    span::after {
+        top: 7px;
+    }   
+    &.is-pressed {
+        // hide the line in the center
+        span {
+            background: rgba(transparent, 0);
+        }
+
+        span::before,
+        span::after{
+            background: rgba(darken($color-brand-tertiary-dark, 40%), 1);
+        }
+
+        span::before {
+            transform: translate(0px, 7px) rotate(45deg);
+        }
+
+        span::after {
+            transform: translate(0px, -7px) rotate(-45deg);
+        }
+    }
+}
+
+
+// SEARCH ICON
+
+.c-header-button__item--search{
+    @media screen and (min-width: 769px ) {
+        display:none;
+    }
+}
+
+
+.c-icon-search {
+    vertical-align: top;
+    display:block;
+    padding-top:7px;
+    width:24px;
+    height:32px;
+    overflow:hidden;
+    margin: 0 4px;
+    &.is-hidden{
+        display:none;
+    }
+
+}

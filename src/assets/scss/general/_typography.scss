@@ -1,0 +1,96 @@
+/*h1*/.page__title{
+    font-size: 20px;
+    margin-bottom: 24px;
+    letter-spacing: -0.01em;
+    transition-duration: 200ms;
+    font-weight: 700;
+
+    @media screen and (min-width: $screen-xs) {
+        font-size: 24px;
+        line-height: 1.25;
+    }
+    @media screen and (min-width: $screen-md) {
+        font-size: 28px;
+        line-height: 1.28;
+    }
+    @media screen and (min-width: $screen-lg) {
+        font-size: 32px;
+        line-height: 1.25;
+    }
+}
+
+
+
+b,
+strong {
+    font-weight: bold;
+}
+
+p, ul {
+
+    &.big {
+        font-weight: $font-weight-medium;
+        font-size: $font-size-p-big-m;
+        line-height: $line-height-p-big-m;
+        color: $color-font-gray-darker;
+        @media screen and (min-width: $screen-sm) {
+            font-size: $font-size-p-big;
+            line-height: $line-height-p-big;
+        }
+    }
+    &.small {
+        font-size: $font-size-p-small-m;
+        line-height: $line-height-p-small-m;
+        @media screen and (min-width: $screen-sm) {
+            font-size: $font-size-p-small;
+            line-height: $line-height-p-small;
+        }
+    }
+}
+
+p.currency-small {
+    font-size: pxToRem(12);
+    line-height: pxToRem(18);
+    padding-bottom: $padding-small;
+    //white-space: nowrap;
+    @media screen and (min-width: $screen-sm) {
+        font-size: pxToRem(14);
+    }
+}
+p.currency-regular {
+    font-size: pxToRem(14);
+    line-height: pxToRem(18);
+    padding-bottom: $padding-small;
+    color: $gray-74;
+    //white-space: nowrap;
+    @media screen and (min-width: $screen-sm) {
+        font-size: pxToRem(15);
+    }
+}
+p.currency-medium {
+    font-size: pxToRem(16);
+    line-height: pxToRem(23);
+    padding-bottom: $padding-base-m;
+    padding-top: $padding-base-m;
+    //white-space: nowrap;
+}
+p.currency-big {
+    font-size: pxToRem(20);
+    line-height: pxToRem(26);
+    padding-bottom: $padding-base-m;
+    padding-top: $padding-base-m;
+    @media screen and (min-width: $screen-sm) {
+        font-size: pxToRem(22);
+    }
+    //white-space: nowrap;
+}
+p.price-tag-big {
+    font-size: pxToRem(20);
+    line-height: pxToRem(26);
+    font-weight: $font-weight-bold;
+    padding-bottom: $padding-base-m;
+    padding-top: $padding-base-m;
+    @media screen and (min-width: $screen-sm) {
+        font-size: pxToRem(22);
+    }
+}

@@ -1,0 +1,37 @@
+$link-icon-size    : 16px;
+$link-icon-spacing : 12px;
+$link-color        : $font-base-color;
+$link-color-hover  : $color-teal;
+
+/*a*/.link-icon {
+    position: relative;
+    display: block;
+    color: $link-color;
+    padding-right: $link-icon-size + 2 * $link-icon-spacing;
+    padding-left: $link-icon-spacing;
+
+    line-height: 1.2;
+
+    &:hover {
+        color: $link-color-hover;
+    }
+
+    &:before {
+        position: absolute;
+        right: $link-icon-spacing;
+        top: 50%;
+        width: $link-icon-size;
+        height: $link-icon-size;
+        transform: translateY(-50%);
+        color: currentColor;
+    }
+
+    &--left {
+        padding-right: $link-icon-spacing;
+        padding-left: $link-icon-size + 2 * $link-icon-spacing;
+        &:before {
+            right: auto;
+            left: $link-icon-spacing;
+        }
+    }
+}

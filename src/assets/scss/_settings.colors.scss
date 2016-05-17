@@ -1,0 +1,65 @@
+// Colors definition.
+// If you update this file, please update:
+// https://siroop.frontify.com/d/dAfuoqvjziHE/siroop-itcss#/settings/colors
+// For alpha transparency use SCSS capabilities, example: background-color: rgba($color-teal, .5);
+
+// Teal
+$color-teal-light: #CEF9FE; // rgb(206, 249, 254)
+$color-teal: #4FCADC; // rgb(79, 202, 220)
+$color-teal-dark: #01ACC6; // rgb(1, 172, 198)
+
+// Blue
+$color-blue-lightest: #F1F5F7; // rgb(241, 245, 247)
+$color-blue-light: #D4F1FA; // rgb(212, 241, 250)
+$color-blue: #258099; // rgb(37, 128, 153)
+$color-blue-dark: #1C6377; // rgb(28, 99, 119)
+
+// Red
+$color-red-light: #FAD4DC; // rgb(250, 212, 220)
+$color-red: #E5264D; // rgb(229, 38, 77)
+$color-red-dark: #B71E3D; // rgb(183, 30, 61)
+
+// Orange
+$color-orange-light: #FFEFCC; // rgb(255, 239, 204)
+$color-orange: #FFB800; // rgb(255, 184, 0)
+$color-orange-dark: #DF9901; // rgb(223, 153, 1)
+
+// Yellow
+$color-yellow-light: #FFF6CA; // rgb(255, 246, 202)
+$color-yellow: #FFDC2D; // rgb(255, 220, 45)
+$color-yellow-dark: #E1B803; // rgb(225, 184, 3)
+
+// Green
+$color-green-light:  #CDE9DD; // rgb(205, 233, 221)
+$color-green: #018F55; // rgb(1, 143, 85)
+$color-green-dark: #0A6D43; // rgb(10, 109, 67)
+
+// Black
+$color-black: #000; // rgb(0, 0, 0)
+
+// White
+$color-white: #FFF; // rgb(255, 255, 255)
+
+
+// Gray
+$color-gray-lighter: #F1F1F1; // rgb(241, 241, 241)
+$color-gray-light: #D2D2D2; // rgb(210, 210, 210)
+$color-gray: #9C9C9C; // rgb(156, 156, 156)
+$color-gray-dark: #333333; // rgb(51, 51, 51)
+$color-gray-darker: #242424; // rgba(36, 36, 36, 1);
+$color-gray-darkest: #0A0A19; // rgb(10, 10, 25)
+
+
+// foreign brand colors
+$color-brand-whats-app: #65bc54;
+$color-brand-facebook: #3b8ea2;
+$color-brand-twitter: #00aac1;
+$color-brand-instagram: #ffb63c;
+$color-brand-linkedin: #e7c254;
+
+// Fonts
+$color-font-base: rgba(1,1,30,1);
+
+// project colors
+$color-pacific-blue: rgba(1, 172, 198, 1);
+$color-dodger-blue: #45C0FF;

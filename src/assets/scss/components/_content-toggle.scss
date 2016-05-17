@@ -1,0 +1,26 @@
+//
+// Content toggle transitions
+//
+
+[data-toggle]{
+    cursor: pointer;
+}
+
+.toggle-target {
+    visibility: hidden;
+    max-height: 0;
+    margin-bottom: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 350ms ease-in-out;
+
+    &.visible {
+        visibility: visible;
+        max-height: 500rem;
+        opacity: 1;
+    }
+
+    &.full {
+        overflow: visible;
+    }
+}

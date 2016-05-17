@@ -1,0 +1,122 @@
+#header {
+    .search-suggestions-result-pane {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin-top: -3px;
+        min-height: 4rem;
+        background: $white;
+        border: 1px solid $gray-lighter;
+        border-top: none;
+        border-radius: 0 0 3px 3px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .05);
+        overflow: hidden;
+
+        >.loading-spinner {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .search-suggestions-item {
+            position: relative;
+            display: block;
+            border-bottom: 1px solid $gray-lighter;
+            padding: $padding-small-m $padding-base;
+            font-size: $font-size-p-m;
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            // Hover effect (teal colored transparent overlay)
+            &.focused,
+            &:hover {
+                &:before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+                    background: rgba($color-brand-tertiary, .2);
+                }
+            }
+
+            >.table-layout {
+                display: table;
+                table-layout: fixed;
+
+                // This is a Safari fix because the table doesn't actually stretch the full width of the
+                // parent element. This is why the parent needs to have overflow:hidden to not break
+                // things for other browsers.
+                width: 100.1%;
+
+                >* {
+                    display: table-cell;
+                    vertical-align: middle;
+                    height: 48px;
+                }
+            }
+
+            >.item-suggest-label {
+                color: $color-font-gray-base;
+            }
+
+            >.item-suggest-search-history {
+            }
+
+            >.item-suggest-category {
+                strong {
+                    color: $teal;
+                    font-weight: normal;
+                }
+
+                .doc-count {
+                    color: $color-font-gray-base;
+                }
+            }
+
+            >.item-suggest-product {
+                >span {
+                    &:first-child {
+                        width: 48px;
+                        background: left center no-repeat;
+                        background-size: contain;
+                    }
+
+                    &:nth-child(2) {
+                        padding: 0 $padding-base;
+                    }
+
+                    &:last-child {
+                        display: none;
+                        width: 110px;
+                        text-align: right;
+
+                        @media screen and(min-width: $screen-sm) {
+                            display: table-cell;
+                        }
+                    }
+                }
+            }
+
+            >.item-suggest-product-summary {
+                padding-left: 80px;
+                font-weight: $font-weight-bold;
+                vertical-align: middle;
+            }
+        }
+
+        &,
+        .loading-spinner {
+            visibility: hidden;
+        }
+
+        &.visible,
+        .loading-spinner.visible{
+            visibility: visible;
+        }
+    }
+}

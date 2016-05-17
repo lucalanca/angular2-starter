@@ -1,0 +1,343 @@
+// customer backend styles
+//
+// Author: Ricardo Hildebrand <ricardo.hildebrand@votum.de>
+// ===================================================================================================================
+
+.customer {
+    &.customer-login {
+        .signup {
+            margin-bottom: $padding-large;
+
+            @media screen and(min-width: $screen-sm) {
+                margin-bottom: 0;
+                padding: 0 $padding-small;
+                background-color: $gray-lighter;
+            }
+
+            .title {
+                margin-top: $padding-large;
+                margin-bottom: 0;
+
+                @media screen and(min-width: $screen-sm) {
+                    margin-top: 0;
+                    margin-bottom: 2.8rem;
+                }
+            }
+        }
+
+        button,
+        .button {
+            width: 100%;
+
+            @media screen and(min-width: $screen-sm) {
+                width: auto;
+            }
+        }
+    }
+
+    &.customer-dashboard {
+        .section {
+            margin: $padding-base auto ($padding-base * 2) auto;
+            padding-bottom: ($padding-base * 2);
+            border-bottom: 1px solid $gray-lighter;
+
+            @media screen and(min-width: $screen-sm) {
+                margin: $padding-large auto ($padding-large * 2) auto;
+                padding-bottom: ($padding-large * 2);
+            }
+
+            &:last-of-type {
+                border: none;
+                margin-bottom: 0;
+            }
+
+            h3 {
+                margin: 0 auto $padding-base auto;
+                font-size: 1.1rem;
+
+                @media screen and(min-width: $screen-sm) {
+                    margin: -0.3rem auto 0 auto;
+                }
+            }
+        }
+
+        .profile {
+            .info {
+                padding-bottom: $padding-small;
+                color: $gray-74;
+
+                @media screen and(min-width: $screen-sm) {
+                    color: $gray-dark;
+                }
+
+                &:last-of-type {
+                    padding-bottom: 0;
+                }
+            }
+        }
+
+        .profile-edit {
+            .show-new-password,
+            .hide-new-password {
+                width: 100%;
+                margin: $padding-small 0;
+            }
+
+            .change-password {
+                display: block;
+
+                &.hide {
+                    display: none;
+                }
+            }
+
+            .new-password {
+                display: none;
+
+                &.show {
+                    display: block;
+                }
+            }
+
+            .password-check {
+                .text {
+                    margin: $padding-small 0;
+                    color: $gray-dark;
+                    font-size: 0.8rem;
+                }
+            }
+
+            .actions {
+                margin-top: $padding-small;
+            }
+        }
+
+        .addresses {
+            .address {
+                padding-bottom: $padding-small;
+                color: $gray-74;
+
+                @media screen and(min-width: $screen-sm) {
+                    padding-bottom: 0;
+                    color: $gray-dark;
+                }
+            }
+        }
+
+        .order .order-details-link {
+            display: block;
+            padding-bottom: ($padding-base / 2);
+        }
+
+        .order .order-total {
+            font-size: 1.25rem;
+        }
+
+        .order {
+            margin: $padding-base auto ($padding-base * 2) auto;
+            padding-bottom: ($padding-base * 2);
+            border-bottom: 1px solid $gray-lighter;
+        }
+
+        .order:first-of-type {
+            margin-top: 0;
+        }
+
+        .order:last-of-type {
+            border: none;
+            margin-bottom: 0;
+        }
+    }
+
+    &.customer-addresses {
+        .addresses {
+            padding-bottom: $padding-base;
+
+            .address-container {
+                padding: 0 $padding-base;
+
+                @media screen and(min-width: $screen-sm) {
+                    padding: 0 $padding-small;
+                }
+
+                .address {
+                    position: relative;
+                    padding: $padding-small $padding-small $padding-base $padding-small;
+                    margin: 0 0 0 0;
+                    background-color: $gray-lighter;
+
+                    @media screen and(min-width: $screen-sm) {
+                        min-height: 25rem;
+                        padding: $padding-base $padding-base $padding-base $padding-base;
+                    }
+
+                    h2 {
+                        font-weight: normal;
+
+                        @media screen and(min-width: $screen-sm) {
+                            line-height: 2.5rem;
+                        }
+                    }
+
+                    h3 {
+                        font-weight: bold;
+
+                        @media screen and(min-width: $screen-sm) {
+                            line-height: 1.5rem;
+                        }
+                    }
+
+                    h4 {
+                        text-transform: uppercase;
+                        letter-spacing: 0.15rem;
+                        font-weight: normal;
+                    }
+
+                    .input-field {
+                        &:first-of-type {
+                            & > div {
+                                margin-top: 0;
+                            }
+                        }
+                    }
+
+                    .defaults {
+                        padding-top: $padding-small;
+                    }
+
+                    .buttons {
+                        left: 0;
+                        bottom: 0;
+                        width: 100%;
+                        padding-top: $padding-small;
+
+                        .top {
+                            margin-bottom: $padding-base / 2;
+                        }
+
+                        .left {
+                            width: 50%;
+                            padding-right: $padding-base / 2;
+                        }
+
+                        .right {
+                            float: right;
+                            width: 50%;
+                            padding-left: $padding-base / 2;
+                        }
+
+                        button,
+                        .button {
+                            display: block;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.customer-addresses-delete {
+        .message {
+            margin: 0 0 $padding-base 0;
+        }
+
+        .actions {
+            margin: $padding-large 0;
+        }
+    }
+}
+
+#customer-logout {
+    margin: 0 auto;
+    padding-top: $padding-base;
+    padding-bottom: ($padding-base * 2);
+    border-top: 1px solid $gray-lighter;
+}
+
+.customer-registration, .checkout .address .register {
+    .checkbox-field {
+        margin-left: 0.75rem;
+        margin-bottom: 1rem;
+    }
+    .gtc-error {
+        margin-top: 0.75rem;
+        margin-left: 0.75rem;
+        font-size: 0.8rem;
+    }
+}
+
+
+
+.address-info {
+    margin-bottom: 1rem;
+    min-height: 11rem;
+}
+
+.address-type {
+    p {
+        font-size: 0.8rem;
+        margin-bottom: 0.45rem;
+        margin-top: 0;
+        white-space: nowrap;
+        &:before {
+            margin-right: 0.5rem;
+        }
+    }
+}
+
+.address.delete .details {
+    min-height: 20rem;
+    @media screen and(min-width: $screen-sm) {
+        min-height: 25.5rem;
+    }
+}
+
+.address.delete .buttons p {
+    margin-bottom: 1rem;
+}
+
+.customer-addresses .inactive {
+    @include opacity(0);
+}
+
+
+.payment .method{
+    border:1px solid $gray-lighter;
+    padding: 0.5rem;
+    margin-bottom:1rem;
+    @media screen and(max-width: $screen-sm) {
+        img{
+            width: 5rem;
+            margin-top:1rem;
+            margin-bottom:1rem;
+        }
+    }
+}
+
+.payment IMG.brandImage {
+    width: 45px;
+}
+
+.cc-delete{
+    padding-bottom: $padding-base;
+
+    header{
+        margin-bottom:2rem;
+    }
+    button{
+        width:100%;
+        @media screen and(min-width: $screen-sm) {
+            width:auto;
+        }
+    }
+    form {
+        margin-top: $padding-base;
+    }
+}
+
+.cc-del{
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+}

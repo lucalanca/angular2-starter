@@ -1,0 +1,181 @@
+$navigation-backgroundColor: $color-brand-tertiary;
+$navigation-textColor: $color-gray-darker;
+
+/*div*/.o-page__navigation-meta{
+    position: relative;
+    max-height: 50px;
+    overflow: hidden;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    @include clearfix;
+    display: none;
+    background-color: $navigation-backgroundColor;
+    @media only screen and (min-width: 769px ) {
+        display: block;
+        max-height: none;
+        overflow: visible;
+    }
+}
+
+
+/*div*/.c-nav-logo{
+    position: relative;
+}
+
+/*a*/.c-nav-logo__item{
+    z-index: 1;
+    display: block;
+    position: absolute;
+    left: 16px;
+    top: 8px;
+    width: 100%;
+    max-width: 142px;
+    height: 40px;
+}
+
+/*nav*/.nav-wrapper{
+    position: relative;
+}
+
+/*ul*/.c-nav-meta-list {
+    @include clearfix;
+    float: right;
+    display: block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    /*i*/&__icon {
+        font-size: 8px;
+        line-height: 1;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        margin-top: -12px;
+        padding: 8px;
+        z-index: 101;
+        transition: .3s transform ease-out;
+    }
+
+    /*li*/&__item {
+        display: inline-block;
+        float: left;
+        position: relative;
+        margin-left: 8px;
+        margin-right: 8px;
+        &.is-open {
+            .c-nav-meta-list__icon {
+                color: rgba($navigation-textColor, 0.9);
+                transform: rotate(180deg);
+            }
+        }
+        &.is-animated {
+            .c-nav-meta-list__icon {
+                color: rgba($navigation-textColor, 0.9);
+            }
+        }
+        @media only screen and (min-width: $screen-s) {
+            &.has-children{
+                .c-nav-meta-list__link {
+                    &:first-child {
+                        position: relative;
+                        padding-right: 32px;
+                    }
+                }
+            }
+            &:last-child{
+                margin-right: 0;
+                &::before {
+                    content: "";
+                    margin-left: 8px;
+                    margin-right: 16px;
+                    position: relative;
+                    top: 5px;
+                    height: 20px;
+                    width: 1px;
+                    background: rgba($navigation-textColor, 0.9);
+                    display: inline-block;
+                }
+            }
+        }
+    }
+    /*a*/&__link {
+        display: block;
+        height: 40px;
+        line-height: 40px;
+        padding: 0 12px;
+        font-weight: 400;
+        white-space: nowrap;
+        color: rgba($navigation-textColor, 0.9);
+        font-size: 13px;
+        transition: all 100ms;
+        white-space: nowrap;
+        &:hover,
+        &:focus {
+            color: $color-white;
+        }
+    }
+}
+/*
+* New Component for creating buttons in the menu
+*
+*
+*/
+.c-user-entry {
+    position: relative;
+    display: inline-block;
+    /*a,button*/&__btn {
+        margin-top: 4px;
+        line-height: 26px;
+        min-width: 100px;
+        text-align: center;
+        height: auto;
+        padding: 0 12px;
+        border: 2px solid rgba($navigation-textColor, 0.75);
+        border-radius: 4px;
+        &:hover {
+            border: 2px solid rgba($navigation-textColor, 1);
+        }
+    }
+}
+
+.c-nav-meta-childred-list {
+    background: white;
+    border: 1px solid $color-gray-light;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    z-index: 10;
+    top: 3px;
+    left: -1px;
+    width: auto;
+    min-width: 100%;
+
+    &.is-hidden{
+        display:none;
+    }
+
+    &__item {
+        @media only screen and (min-width: $screen-s) {
+            &:first-child {
+                cursor: pointer;
+                position: relative;
+                padding-right: 20px;
+            }
+        }
+    }
+
+    &__text{
+        &:hover {
+            color: $color-blue-dark;
+        }
+        line-height: 32px;
+        font-size: 13px;
+        font-weight: 400;
+        white-space: nowrap;
+        height: 32px;
+        padding: 0 12px;
+        display: block;
+    }
+}

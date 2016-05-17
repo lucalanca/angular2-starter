@@ -1,0 +1,125 @@
+$dialog-title-bar-height: 40px;
+
+@mixin dialogFullScreen() {
+    top: 0;
+    left: 0;
+    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+    width: 100vw;
+    min-width: 100vw;
+    max-width: 100vw;
+}
+
+@mixin dialogSlideIn() {
+    left: +100vw;
+    transition: left .4s;
+
+    &.is-visible {
+        left: 0;
+    }
+}
+
+@mixin dialogFadeIn() {
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 200ms;
+
+    &.is-visible {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.c-dialog {
+    position: absolute;
+    z-index: $z-index-modal;
+    background: $color-white;
+
+    &.is-hidden { display: none; }
+
+    @include dialogFullScreen();
+    @include dialogSlideIn();
+
+    &--full-screen {
+        @include dialogFullScreen();
+    }
+
+    &--slide-in {
+        @include dialogSlideIn();
+    }
+
+    &--fade-in {
+        @include dialogFadeIn();
+    }
+
+    &__title-bar {
+        position: relative;
+        height: $dialog-title-bar-height;
+        background: $color-blue-lightest;
+        border-bottom: 1px solid $color-gray-light;
+    }
+
+    &__title {
+        line-height: $dialog-title-bar-height;
+        vertical-align: middle;
+        padding-left: $base-spacing-unit/2;
+        text-transform: uppercase;
+
+        @media screen and (min-width: $screen-s){
+            padding-left: $base-spacing-unit;
+        }
+    }
+
+    &__close-button {
+        display: block;
+        position: absolute;
+        height: $dialog-title-bar-height;
+        line-height: $dialog-title-bar-height;
+        padding: 0 $base-spacing-unit/2;
+        right: 0;
+        top: 0;
+    }
+
+    &__content {
+        overflow: auto;
+        position: absolute;
+        top: $dialog-title-bar-height;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: $screen-m) {
+    .c-dialog {
+        // Reset full-screen and slide-in
+        left: auto;
+        top: auto;
+        height: auto;
+        width: auto;
+        min-height: 0;
+        max-height: none;
+        min-width: 0;
+        max-width: none;
+
+        @include dialogFadeIn();
+
+        &--desktop-inline-content {
+            position: static;
+            visibility: visible;
+            opacity: 1;
+
+            .c-dialog__content {
+                position: static;
+                width: auto;
+                overflow: visible;
+            }
+
+            .c-dialog__title-bar {
+                display: none;
+            }
+        }
+    }
+}

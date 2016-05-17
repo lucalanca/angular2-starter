@@ -1,0 +1,48 @@
+
+// this opject creates a swipe grid on the mobile device
+/* .div */
+@mixin o-layout-swipe{
+    /*  Adding 2px padding to prevent VW miscalculation which leads to verticall scroll
+        when only horizontal scroll should be */
+    padding: 2px 0;
+    overflow-x: scroll;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    .o-layout-swipe__item {
+        white-space: normal;
+    }
+}
+
+@media screen and (max-width: $screen-s) {
+    .o-layout-swipe\@s {
+        @include o-layout-swipe;
+    }
+}
+
+@media screen and (min-width: $screen-s) and (max-width: $screen-m) {
+    .o-layout-swipe\@m {
+        @include o-layout-swipe;
+    }
+}
+
+
+// Bottom-up width modifiers
+// With .o-layout-swipe, the width is not defined top-bottom
+// (the layout-swipe sets the width) but bottom-up (the layout-swipe__items set the width).
+@media screen and(max-width: $screen-m) {
+    .o-layout-swipe__item--s\@m { width: 30vw !important; }
+    .o-layout-swipe__item--m\@m { width: 85vw !important; }
+}
+
+@media screen and(max-width: $screen-s) {
+    .o-layout-swipe__item--s\@s { width: 30vw !important; }
+    .o-layout-swipe__item--m\@s { width: 60vw !important; }
+}
+
+@media screen and(max-width: $screen-xs) {
+    .o-layout-swipe__item--s\@s { width: 40vw !important; }
+    .o-layout-swipe__item--m\@s { width: 90vw !important; }
+}

@@ -1,0 +1,12 @@
+@at-root {
+    @-ms-viewport {
+        width: device-width;
+    }
+}
+
+
+// forces body and html to take viewport height.
+html,
+body {
+    height: 100%;
+}

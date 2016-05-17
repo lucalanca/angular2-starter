@@ -1,0 +1,29 @@
+/*------------------------------------*\
+  #CONTAINER
+\*------------------------------------*/
+$o-container-spacing: 16px;
+
+.o-container {
+    @include clearfix();
+    max-width: $wrapper-container-width;
+    padding-right: $o-container-spacing;
+    padding-left:  $o-container-spacing;
+    margin-right: auto;
+    margin-left:  auto;
+
+    @if $debug-mode == true{
+        outline: 5px solid red;
+        &::before{
+            content: "#{$screen-l}";
+        }
+    }
+
+    &--big {
+        max-width: 1680px;
+    }
+
+    &--condensed {
+        padding-left: $base-spacing-unit/2;
+        padding-right: $base-spacing-unit/2;
+    }
+}

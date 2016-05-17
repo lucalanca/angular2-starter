@@ -1,0 +1,107 @@
+.c-heading-title-meta {
+	display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    font-weight: 500;
+    margin: 0;
+    margin-bottom: .5rem;
+    line-height: 1.3;
+}
+
+.c-heading-page-title {
+    font-size: 36px;
+    line-height: 1.26667;
+    font-weight: 700;
+    margin: 0;
+    margin-bottom: .5rem;
+}
+
+@mixin c-heading-title {
+    font-size: 20px;
+    line-height: 1.26667;
+    font-weight: 700;
+    margin: 0;
+    margin-bottom: .5rem;
+}
+
+.c-heading-title {
+    @include c-heading-title;
+}
+
+.c-paragraph {
+	font-size: 1rem;
+	font-weight: 400;
+	margin-top: 0;
+	margin-bottom: 12px;
+    display: block;
+    width: 100%;
+    max-width: 44em; // force maximum line length for readability
+	&:last-child {
+		margin-bottom: 0;
+	}
+    &--small {
+        font-size: 13px;
+        margin-bottom: 4px;
+    }
+}
+
+.c-heading-title-meta,
+.c-heading-page-title,
+.c-heading-title,
+.c-paragraph {
+    color: $color-gray-darker;
+     &--inverted {
+        color: $color-white;
+    }
+    &--light {
+        color: $color-gray;
+    }
+}
+
+.c-heading-link {
+    display: block;
+    font-size: 16px;
+    font-weight: normal;
+    font-family: $font-family-brand;
+    color: $color-gray;
+    line-height: 1.3;
+    margin-bottom: 16px;
+
+
+    &--small {
+        font-size: 15px;
+    }
+}
+
+a.c-heading-link,
+button.c-heading-link {
+    &:hover,
+    &.is-opened {
+        color: $color-gray-darker;
+    }
+}
+a:hover .c-heading-link.c-heading-link--hovered {
+    color: $color-gray-darkest;
+}
+
+
+.c-price {
+    display: block;
+    width: 100%;
+    font-size: 24px;
+    font-weight: $font-weight-bold;
+    font-family: $font-family-brand;
+    color: $color-gray-dark;
+    line-height: 1.2;
+    &--big {
+        @media screen and (min-width: $screen-m) {
+            font-size: 36px;
+        }
+    }
+
+    &--small {
+        font-size: 16px;
+    }
+}
+

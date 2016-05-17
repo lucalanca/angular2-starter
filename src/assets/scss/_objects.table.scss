@@ -1,0 +1,34 @@
+/*
+  Table object
+
+  Use it to create same height columns.
+  It also provides utilities for cells to take all the available width:
+  .o-table__cell--max (only one per table)
+*/
+
+/* The parent always needs the .o-table class */
+.o-table {
+  display: table;
+  width: 100%;
+}
+
+/* .o-table__row is optional if you only need one column */
+.o-table__row {
+  display: table-row;
+}
+
+.o-table__cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/* .o-table__cell--max cell will expand to the max available width
+ * there can be only one max cell in a table */
+.o-table__cell--max {
+  width: 100%;
+}
+
+/* .o-table__cell--min will shrink the cell to the min width needed */
+.o-table__cell--min {
+  width: 1%;
+}

@@ -1,0 +1,25 @@
+.c-pdp-shipment{
+	font-size:16px;
+	padding: 0 16px;
+}
+
+/*p*/.c-pdp-shipment__title{
+	margin: 12px 0;
+	color: $color-gray;
+}
+
+/*dt*/.c-pdp-shipment__list-title{
+	@media screen and(min-width: $screen-sm){
+		float:left;
+		width: 40%;
+	}
+	font-weight: 500;
+}
+
+/*dd*/.c-pdp-shipment__list-description{
+	margin-bottom:12px;
+}
+
+/*span*/.c-pdp-shipment__list-price{
+	font-weight: 500;
+}

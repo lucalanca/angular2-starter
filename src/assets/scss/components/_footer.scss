@@ -1,0 +1,45 @@
+.footer {
+    .corporate {
+        * {
+            color: $gray-base;
+        }
+        .column {
+            padding: $padding-base 0;
+            border-bottom: 1px solid $gray-light;
+            font-size: 0.8rem;
+            line-height: 1.8rem;
+
+            @media screen and (min-width: $screen-md) {
+                line-height: 1.4rem;
+            }
+
+            @media screen and (min-width: $screen-sm) {
+                padding: 0;
+                border: none;
+            }
+
+            &:first-of-type {
+                padding-top: 0;
+            }
+
+            a {
+                display: block;
+            }
+        }
+
+        .social {
+            padding: $padding-large 0 0 0;
+            text-align: center;
+
+            @media screen and (min-width: $screen-sm) {
+                padding: 0;
+            }
+
+            a {
+                display: inline-block;
+                width: 20%;
+                text-align: center;
+            }
+        }
+    }
+}

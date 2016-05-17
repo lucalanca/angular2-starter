@@ -1,0 +1,11 @@
+.c-logo-brand {
+    &__body {
+        fill: $color-white;
+	}
+    &__badge {
+        fill: $color-yellow;
+    }
+    &__badge-text {
+    	fill: $color-gray-darker;
+    }
+}

@@ -1,0 +1,29 @@
+.filter {
+    a {
+        display: inline-block;
+        color: #333;
+        margin-bottom: 1.75rem;
+        font-size: 1.1rem;
+        margin-left: 2rem;
+        line-height: 1.3rem;
+        padding-right: 1rem;
+        @media screen and(min-width: $screen-sm) {
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+            font-size: 0.8rem;
+            margin-bottom: 0;
+        }
+        &:before {
+            margin-left: -2rem;
+            font-size: 1.5rem;
+            @media screen and(min-width: $screen-sm) {
+                font-size: 1.1rem;
+            }
+            color: #cccccc;
+            padding-right: 0.75rem;
+        }
+        &.icon-check-box-checked-icon:before {
+            color: $teal;
+        }
+    }
+}

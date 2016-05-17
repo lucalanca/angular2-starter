@@ -1,0 +1,37 @@
+.error-page {
+    @media screen and (min-width: $screen-sm) {
+        padding-top: $padding-large*3;
+    }
+    img {
+        position: absolute;
+        top: 0;
+        @media screen and (min-width: $screen-sm) {
+            width: 57rem;
+            left: 37%;
+        }
+    }
+    h1 {
+        margin-bottom: $padding-large*6;
+        @media screen and (min-width: $screen-sm) {
+            margin-bottom: $padding-large*2;
+        }
+    }
+    .button {
+        width: 100%;
+        @media screen and (min-width: $screen-sm) {
+            margin-top: $padding-large*3;
+        }
+    }
+}
+
+
+
+.text{
+    &--success{
+        color: $color-green;
+    }
+    &--danger{
+        color: $red;
+    }
+}
+

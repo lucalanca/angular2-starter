@@ -1,0 +1,85 @@
+.merchant-contact {
+    padding: 0;
+
+    /* global section styles*/
+    section {
+        padding: $padding-large 0;
+        @media screen and (min-width: $screen-lg) {
+            padding: $padding-large*3 0;
+        }
+        header {
+            text-align: center;
+            margin-bottom: $padding-large*2;
+        }
+        &:last-child{
+            border-top:1px solid $gray-lighter;
+        }
+    }
+
+    /* header styles */
+    > header {
+        figure {
+            position: absolute;
+            width: 100%;
+            max-height: pxToRem(400);
+            @media screen and (min-width: $screen-lg) {
+                max-height: 42rem;
+            }
+            overflow: hidden;
+        }
+
+        figcaption {
+            position: absolute;
+            bottom: 0;
+            width: 80%;
+            padding: $padding-base;
+            @media screen and (min-width: $screen-lg) {
+                bottom: $padding-large;
+                left: 15%;
+                width: 40%;
+            }
+            h1, p {
+                color: #fff;
+                font-weight: 500;
+            }
+            h1 {
+                margin-bottom: $padding-base;
+                font-weight: 700;
+            }
+        }
+
+        + section {
+            margin-top: pxToRem(400);
+            @media screen and (min-width: $screen-lg) {
+                margin-top: 42rem;
+            }
+        }
+    }
+
+    li {
+        font-weight: 500;
+    }
+
+    h4 {
+        margin-bottom: 0.25rem;
+    }
+
+    /* extending step list */
+    .step-list {
+        li {
+            @media screen and (min-width: $screen-sm) {
+                width: 19%;
+                display: inline-block;
+            }
+            &:before {
+                color: $yellow;
+                margin-bottom: 2rem;
+            }
+        }
+    }
+
+    form button{
+        width: 100%;
+    }
+
+}

@@ -1,0 +1,48 @@
+.editor-content {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    ul,
+    ol,
+     q,
+    img {
+        letter-spacing: 0; // TODO: shame.headings is adding letter spacing to h1!!!
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+
+    }
+    li {
+        margin-bottom: 0.5em;
+    }
+    br + br  {
+        display: none
+    }
+    a{
+       @include link();
+    }
+
+
+    h1 {
+        @include c-heading-title;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    p {
+        max-width: 44em; // force maximum line-length to improve readability.
+    }
+}

@@ -1,0 +1,73 @@
+.product-grid {
+    margin-left: 0;
+    margin-right: 0;
+    @media screen and (min-width: $screen-sm) {
+        margin-left: -$padding-small;
+        margin-right: -$padding-small;
+    }
+
+    li {
+        padding-left: $padding-small;
+        padding-right: $padding-small;
+        margin-bottom: $padding-base;
+        @media screen and (min-width: $screen-sm) {
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin-bottom: 2rem;
+        }
+        .panel {
+            background-color: #fff;
+            padding: 1.82rem $padding-small;
+            text-align: center;
+            img {
+                max-height: 7rem;
+                width: auto;
+                margin-bottom: $padding-small;
+                @media screen and (min-width: $screen-md) {
+                    max-height: 10rem;
+                }
+            }
+            @media screen and (min-width: $screen-sm) {
+                height: pxToRem(300);
+            }
+            a {
+                color: $black;
+            }
+            p {
+                margin: 0;
+                min-height: 3rem;
+                max-height: 3rem;
+                overflow: hidden;
+                @media screen and (min-width: $screen-sm) {
+                    min-height: 3.2rem;
+                    max-height: 3.2rem;
+                }
+                color: $black;
+                &.price {
+                    margin-top:16px;
+                    font-size: 16px;
+                    color: #9c9c9c;
+                    @media screen and (min-width: $screen-sm) {
+                        margin-top: 2rem;
+                    }
+                    @media screen and (min-width: $screen-md) {
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media screen and (min-width: $screen-sm) {
+    .teaser-right .product-grid {
+        padding-left: $padding-small;
+        padding-right: 0;
+    }
+    .teaser-right .teaser {
+        padding-left: 2.5rem;
+        padding-right: 0;
+        border-right: 0.25rem solid transparent;
+    }
+}

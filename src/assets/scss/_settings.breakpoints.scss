@@ -1,0 +1,19 @@
+// MEDIA QUERIES
+// -------------------------------------------------------------------------------------------------------------------
+$screen-sm-max: 768px !default; // prevent form style overlapping on the edge between sm and md viewport
+$screen-sm:     769px !default;
+$screen-md:     992px !default;
+$screen-lg:     1200px !default;
+
+
+// better media queries see:
+// em always depends on the :root element
+
+$screen-xs:     30em !default; //  480px / 16px;
+$screen-s:      48em !default; //  768px / 16px; ipad 2 portrait
+$screen-m:      66em !default; // 1024px / 16px; ipad 2 landscape
+$screen-l:      80em !default; // 1280px / 16px; macbook air 13"
+$screen-xl:     90em !default; // 1440px / 16px; macbook pro 15"
+
+
+

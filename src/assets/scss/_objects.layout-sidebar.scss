@@ -1,0 +1,57 @@
+$o-layout-sidebar-sidebar-bg-color : $color-blue-lightest; //TODO: change me
+$o-layout-sidebar-content-bg-color : $color-white;
+$o-layout-sidebar-bottom-separator-height: 80px;
+// USAGE:
+// <div class="o-layout-sidebar [ o-layout-sidebar--with-background ]">
+//   <div class="o-layout-sidebar__container">
+//     <div class="o-layout-sidebar__content u/1/1 u-2/3@m"></div>
+//     <div class="o-layout-sidebar__sidebar u-1/3 o-sticky js-sticky u-hidden u-visible@l">
+//       <div class="olayout-sidebar__sidebar-inner"></div>
+//     </div>
+//   </div>
+// </div>
+// ---------------------------------------------------------------
+// |                     o-layout-sidebar                         |
+// ---------------------------------------------------------------
+// |  o-layout-sidebar__content | o-layout-sidebar__sidebar       |
+// ---------------------------------------------------------------
+//
+.o-layout-sidebar {
+    &__container {
+        // override .o-container padding
+        @include clearfix();
+        padding-left: 0;
+        padding-right: 0;
+    }
+    &__content {
+        float: left;
+    }
+    &__sidebar { float: right; }
+    &__sidebar-inner {
+        padding-left: 24px;
+        max-width: 394px; // fix as the polyfill doesn't always work as expected
+    }
+    &--with-background {
+        background: linear-gradient(to right, $o-layout-sidebar-content-bg-color 0%, $o-layout-sidebar-content-bg-color 50%, $o-layout-sidebar-sidebar-bg-color 50%, $o-layout-sidebar-sidebar-bg-color 100%);
+    }
+    &--with-background &__content { background: $o-layout-sidebar-content-bg-color; }
+    &__with-background &__sidebar { background: $o-layout-sidebar-sidebar-bg-color; }
+    &--with-bottom-separator:after {
+        display: block;
+        content: "";
+        height: $o-layout-sidebar-bottom-separator-height;
+        background: $o-layout-sidebar-sidebar-bg-color;
+    }
+
+    &--with-background {
+        &__content {
+            position: relative;
+        }
+    }
+    &--with-background &__container {     
+        background: linear-gradient(to right, $o-layout-sidebar-content-bg-color 0%, $o-layout-sidebar-content-bg-color 75%, $o-layout-sidebar-sidebar-bg-color 75%, $o-layout-sidebar-sidebar-bg-color 100%);        
+        &--small{     
+            background: linear-gradient(to right, $o-layout-sidebar-content-bg-color 0%, $o-layout-sidebar-content-bg-color 66.66%, $o-layout-sidebar-sidebar-bg-color 66.66%, $o-layout-sidebar-sidebar-bg-color 100%);      
+        }     
+    }
+}

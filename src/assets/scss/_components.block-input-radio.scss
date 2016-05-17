@@ -1,0 +1,105 @@
+// http://codepen.io/lucalanca/pen/ONQabR?editors=1100
+
+$c-block-input-radio-border-radius      : $base-radius;
+$c-block-input-radio-border-thickness   : 1px;
+
+
+// border
+$c-block-input-radio-border-color         : $color-gray-lighter;
+$c-block-input-radio-border-color-hover   : $color-gray-light;
+$c-block-input-radio-border-color-checked : $color-teal;
+
+
+// background
+$c-block-input-radio-background-color         : $color-white;
+$c-block-input-radio-background-color-hover   : $color-white;
+$c-block-input-radio-background-color-checked : $color-teal-light;
+
+// circle
+$c-block-input-radio-circle-color             : $color-gray-light;
+$c-block-input-radio-circle-color-hover       : $color-gray;
+$c-block-input-radio-circle-color-checked     : $color-teal;
+
+
+$c-block-input-radio-spacing-v          : 16px;
+$c-block-input-radio-spacing-h          : 8px;
+$c-block-input-radio-circle-size        : 32px;
+$c-block-input-radio-spacing            : 4px;
+
+.c-block-input-radio {
+  margin-top: $c-block-input-radio-spacing;
+  &:first-child { margin-top: 0; }
+  &__input {
+    display: none;
+  }
+
+  &__input + &__label:before,
+  &__container {
+    display: table-cell;
+    vertical-align: middle; // NOTE: this might change with complete data.
+  }
+
+  // note: we need this because elements.inputs is gaining the specificity
+  // war. we should decrease it there.
+
+  // NORMAL STATE
+  &__input +  &__label,
+  &--single &__input +  &__label,
+  &--single &__input:checked + &__label {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+
+
+    cursor: pointer;
+    border: $c-block-input-radio-border-thickness solid transparent;
+    padding: $c-block-input-radio-spacing-v $c-block-input-radio-spacing-h;
+    border-radius: $c-block-input-radio-border-radius;
+    border: $c-block-input-radio-border-thickness $c-block-input-radio-border-color solid;
+    background-color: $c-block-input-radio-background-color;
+    transition: border-color 100ms linear;
+
+    &:before {
+      font-size: $c-block-input-radio-circle-size;
+      width: $c-block-input-radio-circle-size;
+      height: $c-block-input-radio-circle-size;
+      color: $c-block-input-radio-circle-color;
+      transform: translateY(-3px); // the icon font circle its slighly off. this hack solves it. i'm sorry
+      transition: color 100ms linear;
+    }
+  }
+
+  // HOVER/FOCUS STATE
+  &__input + &__label {
+    &:hover,
+    &:focus {
+      outline: none;
+      background-color: $c-block-input-radio-background-color-hover;
+      border-color: $c-block-input-radio-border-color-hover;
+      &:before {
+        color: $c-block-input-radio-circle-color-hover
+      }
+    }
+  }
+
+  // CHECKED STATE
+  &__input:checked + &__label {
+    border-color: $c-block-input-radio-border-color-checked;
+    background-color: $c-block-input-radio-background-color-checked;
+
+    &:before {
+      color: $c-block-input-radio-circle-color-checked;
+    }
+  }
+
+  &__input + &__label:active {
+    transform: translateY(1px);
+  }
+
+  &--single &__input:checked + &__label {
+    cursor: default;
+    padding-left: 0;
+    // border: none;
+    &:before { display: none; }
+  }
+}

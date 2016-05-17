@@ -1,0 +1,30 @@
+$pill-font-size: ($base-font-size * 0.75);
+$pill-line-height: ($base-line-height * 0.75);
+$pill-vertical-padding: ($base-spacing-unit / 6);
+$pill-horizontal-padding: ($base-spacing-unit / 4);
+$pill-border-radius: (($pill-line-height + $pill-horizontal-padding) / 2);
+
+.c-pill {
+    padding: $pill-vertical-padding $pill-horizontal-padding;
+    font-size: $pill-font-size;
+    line-height: $pill-line-height;
+    background: $color-blue-lightest;
+    display: inline-block;
+
+    @include side-radius('left', $pill-border-radius);
+    @include side-radius('right', $pill-border-radius);
+
+    &__close {
+        display: none;
+        width: ($pill-line-height - 2px);
+        height: ($pill-line-height - 2px);
+        margin-right: -(($pill-horizontal-padding - 2px) / 2);
+        margin-left: $pill-horizontal-padding;
+    }
+
+    &--closable {
+        .c-pill--close {
+            display: inline-block;
+        }
+    }
+}

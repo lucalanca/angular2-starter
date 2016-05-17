@@ -1,0 +1,22 @@
+.nowrap {
+    white-space: nowrap;
+}
+
+.centered,
+.text-center,
+.text--center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.text-truncate,
+.u-text-truncate {
+    @include text-truncate;
+}

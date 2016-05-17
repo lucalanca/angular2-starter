@@ -1,0 +1,77 @@
+$pin-size       : 80px;
+$pin-size-small : 2rem;
+$pin-font-size  : 22px;
+$pin-font-weight: 500;
+$pin-font-color : $color-white;
+$pin-spacing    : 5px;
+
+.c-pin {
+    display: inline-block;
+    border-radius: 50% 50% 0 50%;
+
+    width: $pin-size;
+    height: $pin-size;
+    line-height: $pin-size; // align text vertically
+    text-align: center; // align text horizontally
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    padding-left: $pin-spacing;
+    padding-right: $pin-spacing;
+
+    color: $pin-font-color;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    font-weight: $pin-font-weight;
+    font-size: $pin-font-size;
+
+    &,
+    &--primary   { background-color: $color-red; }
+    &--secondary { background-color: $color-blue; }
+    &--tertiary  { background-color: $color-teal; }
+
+    &--small {
+        width: $pin-size-small;
+        height: $pin-size-small;
+    }
+
+    // Loading spinner component.
+
+    // Creates a spinner when content is loading.
+    // Example: <span class="c-pin c-pin--spin"></span>
+    &--spin {
+        border-color: $color-red;
+        border: solid $pin-size * 0.23;
+        transform: rotate(45deg);
+        animation: spinning 3s linear infinite;
+    }
+}
+
+@keyframes spinning {
+    0% {
+        transform: rotate(0deg);
+        border-color: $color-red;
+    }
+    5% {
+        border-color: $color-teal;
+    }
+    33% {
+        border-color: $color-teal;
+    }
+    38% {
+        border-color: $color-yellow;
+    }
+    66% {
+        border-color: $color-yellow;
+    }
+    71% {
+        border-color: $color-red;
+    }
+    100% {
+        transform:rotate(720deg);
+        border-color: $color-red;
+    }
+}

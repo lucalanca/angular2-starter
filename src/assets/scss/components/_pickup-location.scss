@@ -1,0 +1,320 @@
+.pickup-location {
+    position: absolute;
+    width: 100%;
+    z-index: $z-index-modal;
+    top: 0;
+    left: 0;
+    border: 1px solid red;
+
+    header.screen-sm {
+        @media screen and (min-width: $screen-sm) {
+            display: none;
+        }
+        background-color: $white;
+        border-bottom: 1px solid $color-border;
+        text-transform: uppercase;
+        font-weight: normal;
+        letter-spacing: 0.12rem;
+        padding: $padding-base $padding-small;
+    }
+
+    .content {
+        .map {
+            width: 100%;
+            height: 16rem;
+        }
+    }
+}
+
+.locations-content {
+    position: relative;
+    min-height: 25rem;
+    z-index: 1;
+
+    &.loaded {
+        .map,
+        .list {
+            display: block;
+        }
+
+        .loader {
+            visibility: hidden;
+            z-index: 0;
+
+            @include opacity(0);
+        }
+    }
+
+    &.locked {
+        &.no-locations {
+            .no-locations {
+                display: block;
+            }
+        }
+
+        &.error {
+            .error {
+                display: block;
+            }
+        }
+
+        .loader {
+            .text {
+                display: none;
+            }
+
+            .lock {
+                display: block;
+            }
+        }
+    }
+
+    .loader {
+        visibility: visible;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        background-color: $white;
+        z-index: 2;
+
+        @include opacity(1);
+        transition: all 500ms ease-in-out;
+
+        .text,
+        .lock {
+            position: absolute;
+            top: 43%;
+            left: 0px;
+            width: 100%;
+            padding: 0 $padding-large;
+            font-size: 0.8rem;
+            color: $gray-light;
+            text-align: center;
+        }
+
+        .lock {
+            display: none;
+            cursor: pointer;
+
+            p {
+                display: none;
+                color: $color-black;
+
+                &.error {
+                    color: $red;
+                }
+            }
+
+            .fa-warning {
+                color: $red;
+            }
+        }
+    }
+
+    .map {
+        position: relative;
+        height: 220px;
+        border-bottom: 1px solid $gray-light;
+        z-index: 1;
+
+        @media screen and (min-height: 550px) {
+            height: 300px;
+        }
+
+        @media screen and (min-width: $screen-sm) {
+            position: absolute;
+            height: 100%;
+            right: 0;
+            border-bottom: none;
+            border-left: 1px solid $gray-light;
+        }
+    }
+
+    .list {
+        @media screen and (min-width: $screen-sm) {
+            position: relative;
+            left: -50%;
+        }
+
+        .back {
+            padding: $padding-base $padding-large;
+            color: $color-font-gray-base;
+            cursor: pointer;
+        }
+
+        
+
+        .confirm {
+            clear: both;
+            padding: $padding-base $padding-small;
+
+            @media screen and (min-width: $screen-sm) {
+                padding: $padding-base;
+            }
+        }
+    }
+}
+
+.locations {
+    padding: $padding-base $padding-small 0 $padding-small;
+
+    @media screen and (min-width: $screen-sm) {
+        height: 26rem;
+        padding: 0 $padding-small 16.2rem $padding-small;
+        overflow-y: auto;
+    }
+
+    .location {
+        display: none;
+        padding: 0;
+        border: 1px solid $white;
+        font-size: 0.9rem;
+        cursor: pointer;
+
+        @media screen and (min-width: $screen-sm) {
+            display: block;
+            padding: $padding-small;
+            border: 1px solid transparent;
+
+            transition: all 350ms ease-in-out;
+
+            &.selected {
+                border: 1px solid $color-brand-tertiary;
+                background-color: $color-brand-tertiary-lighter;
+            }
+        }
+
+        .pick-up-highlight-date {
+            color: $teal;
+            font-weight: 600;
+        }
+
+        &.selected {
+            display: block;
+        }
+
+        .distance {
+            display: none;
+            font-weight: $font-weight-bold;
+            padding-right: 0;
+            padding-left: 0.25rem;
+
+            @media screen and (min-width: $screen-sm) {
+                display: block;
+            }
+        }
+
+        .overview {
+            padding: 0;
+        }
+
+        .name {
+            font-weight: $font-weight-demi;
+        }
+
+        .address {
+            color: $color-font-gray-base;
+            font-weight: normal;
+            white-space: nowrap;
+            line-height: 1rem;
+        }
+
+        .opening-hours {
+            position: relative;
+            padding-bottom: $padding-base;
+            font-weight: 400;
+            cursor: pointer;
+
+            @media screen and (min-width: $screen-sm) {
+                padding-bottom: 0;
+                text-decoration: underline;
+
+                &.show {
+                    .balloon {
+                        visibility: visible;
+                        top: 2.2rem;
+
+                        @include opacity(1);
+                    }
+                }
+            }
+
+            .label {
+                display: inline-block;
+            }
+
+            .balloon {
+                @media screen and (min-width: $screen-sm) {
+                    visibility: hidden;
+                    position: absolute;
+                    width: 16rem;
+                    top: 1rem;
+                    left: -0.5rem;
+                    padding: $padding-base;
+                    border: 1px solid $gray-light;
+                    border-radius: 3px;
+                    background-color: $white;
+                    box-shadow: 1px 1px 3px $gray-light;
+                    font-size: 0.8rem;
+                    z-index: 2;
+
+                    @include opacity(0);
+                    transition: all 350ms ease-in-out;
+
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        top: -0.8rem;
+                        left: 0.6rem;
+                        width: 0;
+                        height: 0;
+                        border-left: 0.6rem solid transparent;
+                        border-right: 0.6rem solid transparent;
+                        border-bottom: 0.8rem solid $gray-light;
+                    }
+                }
+
+                .title {
+                    display: block;
+                    margin-bottom: $padding-small;
+                    color: $color-font-gray-base;
+                    text-transform: uppercase;
+                    letter-spacing: pxToRem(1);
+                }
+
+                .times {
+                    text-align: right;
+                }
+            }
+        }
+    }
+}
+
+.delivery-locations-list {
+
+    @media screen and (min-width: $screen-sm) {
+        .list {
+            border: 1px solid $color-border;
+            border-width: 1px 0 1px 1px;
+            border-top-left-radius: 2px;
+            border-bottom-left-radius: 2px;
+            position: absolute;
+            left: 0;
+        }
+        .locations {
+            padding-top: $padding-small;
+            padding-bottom: $padding-small;
+            height: 598px;
+        }
+        .map {
+            border: 1px solid $color-border;
+            border-top-right-radius: 2px;
+            border-bottom-right-radius: 2px;
+            float: right;
+            position: static;
+            height: 600px;
+        }
+    }
+}

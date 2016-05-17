@@ -1,0 +1,23 @@
+// LANDINGPAGE HEADLINES
+// ------------------------------------------------------------------------------------------------------------------
+.landingpage {
+    figure.gradient, div.gradient {
+        line-height: 0; // dont remove. otherwise gradient may overflow on the bottom
+        &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: 0%;
+            left: 0;
+            // TODO: The gradient was wider than the .teaser. This hack fixes it.
+            //       Remove once teasers get refactor.
+            width: calc(100% - #{$column-gutter/2});
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.45), transparent, rgba(0, 0, 0, 0.45));
+        }
+        &.portrait-image:before {
+            height: 45%;
+            background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.65));
+        }
+    }
+}

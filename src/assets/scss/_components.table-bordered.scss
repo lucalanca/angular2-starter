@@ -1,0 +1,41 @@
+$table-bordered-border-color: $color-gray-light;
+$table-bordered-vertical-spacing: 8px;
+
+.c-table-bordered {
+    width: 100%;
+
+    &__row {
+        border-top:1px solid $table-bordered-border-color;
+    }
+
+    
+    /* 
+        TODO: Refactor, cell width should come from _objects.table.scss 
+        but since it is in the cms branch, I do my own here for the moment.
+        The display attribute is used to do a linebreak on mobilephone between name and value
+    */
+    &__cell{
+        vertical-align: top;
+        display:block;
+        padding-top: $table-bordered-vertical-spacing;
+        padding-bottom: $table-bordered-vertical-spacing;
+        
+        
+        @media screen and (min-width: $screen-xs) {
+            display: table-cell;
+            padding-right: 16px;
+        }
+    }
+
+    &__cell:first-child {
+        
+        @media screen and (min-width: $screen-xs) {
+            /*
+             the first column from the table-bordered takes the minimum size it needs 
+             (instead of having all columns with equal size). this also makes the other cells expandable.
+            */
+            width: 1%;
+
+        }
+    }
+}

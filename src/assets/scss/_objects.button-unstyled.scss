@@ -1,0 +1,15 @@
+.o-button-unstyled {
+    padding: 0;
+    border: 0;
+
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+        background: transparent;
+        border-radius: 0;
+        text-align: left;
+        color: $color-black;
+        outline: none;
+    }
+}

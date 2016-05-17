@@ -1,0 +1,122 @@
+// alert message stylings
+//
+// Author: Ricardo Hildebrand <ricardo.hildebrand@votum.de>
+// ===================================================================================================================
+
+#flash-messages {
+    display: none;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: $z-index-flash-messages;
+
+    &.show {
+        display: block;
+    }
+
+    button,
+    .button {
+        margin-top: $padding-small;
+
+        @media screen and (min-width: $screen-sm) {
+            margin-top: 0;
+        }
+
+        &.alt {
+            border-color: $gray-dark;
+        }
+
+        &.success {
+            border-color: $white;
+            background: $success-bg;
+            color: $white;
+        }
+    }
+}
+
+.flash-message {
+    display: block;
+    visibility: hidden;
+    position: relative;
+    top: -0.5rem;
+    left: 0;
+    width: 100%;
+    max-height: 10rem;
+
+    @include opacity(0);
+    transition: all 500ms linear;
+
+    &.show {
+        visibility: visible;
+        top: 0;
+        @include opacity(1);
+    }
+
+    &.hide {
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    &.error {
+        background: $error-bg;
+        color: $red;
+    }
+
+    &.warning {
+        background: $warning-bg;
+        color: $gray-dark;
+    }
+
+    &.success {
+        background: $success-bg;
+        color: $white;
+    }
+
+    &.notification{
+        visibility: visible;
+        @include opacity(1);
+        .button{
+            background: $yellow;
+            color: $gray-dark;
+            border-color: $gray-dark;
+        }
+    }
+
+    .content {
+        padding-top: $padding-base;
+        padding-bottom: $padding-base;
+    }
+
+    &--noresults {
+        max-height: none;
+    }
+    
+    &__buttons {
+        text-align: center;
+        margin-top: 1rem;
+        @media screen and (min-width: $screen-lg) {
+            text-align: right;
+        }
+    }
+
+    // Modified the buttons in flash messages
+    // TODO: Integrate this in the buttons concept or remove
+    &__button {
+        border-color: rgba(0, 0, 0, 0.5);
+    
+        &:hover {
+            border-color: $color-black;
+        }
+
+        @media screen and (max-width: $screen-xs) {
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        &--last {
+            @media screen and (max-width: $screen-xs) {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

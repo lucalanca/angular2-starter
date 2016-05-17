@@ -1,0 +1,24 @@
+// Card title uses: c-card, .o-domino, .ratio
+
+@mixin card-title__footer {
+    .c-card-title__footer {
+        height: 70px;
+    }
+}
+@mixin card-title__footer--small {
+    .c-card-title__footer {
+        height: 68px;
+    }
+}
+
+
+@include card-title__footer;
+.c-card--small { @include card-title__footer--small; }
+
+@media screen and(max-width: $screen-m) {
+    .c-card--small\@m { @include card-title__footer--small;  }
+}
+
+@media screen and(max-width: $screen-s) {
+    .c-card--small\@s { @include card-title__footer--small;  }
+}

@@ -1,0 +1,34 @@
+$c-product-merchant-logo-height: 60px;
+$c-product-merchant-cell-spacing: 16px;
+$c-product-merchant-logo-radius: 10px;
+
+.c-product-merchant {
+
+  &__logo,
+  &__link {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__price-container {
+    text-align: right;
+    vertical-align: middle;
+  }
+
+  &__logo {
+    max-height: $c-product-merchant-logo-height;
+    border-radius: $c-product-merchant-logo-radius;
+  }
+
+  &__logo-container {
+    padding-left: $c-product-merchant-cell-spacing;
+  }
+
+  &__link {
+    margin-left: $c-product-merchant-cell-spacing;
+  }
+
+  &__info-container {
+    // padding-bottom: $c-product-merchant-cell-spacing;
+  }
+}

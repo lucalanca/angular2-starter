@@ -1,0 +1,343 @@
+// MODAL FOR SHOPPING CART
+//
+// Author: Philipp Weiß <philipp.weiss@votum.de>
+// ===================================================================================================================
+
+#modal-container {
+    visibility: hidden;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: $white;
+    overflow: hidden;
+    z-index: $z-index-modal;
+
+    @include opacity(0);
+    transition: all 500ms ease-in-out;
+
+    @media screen and (min-width: $screen-sm) {
+        background-color: $white-overlay;
+    }
+
+    .modal {
+        visibility: hidden;
+        position: absolute;
+        width: 100%;
+        padding: 0;
+        z-index: $z-index-modal;
+
+        @include opacity(0);
+
+        @media screen and (min-width: $screen-sm) {
+            padding: $padding-large 0;
+        }
+
+        &.show {
+            visibility: visible;
+            @include opacity(1);
+        }
+    }
+}
+
+html.show-modal {
+    overflow: hidden;
+
+    body {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        #modal-container {
+            visibility: visible;
+            overflow-y: auto;
+            @include opacity(1);
+        }
+    }
+}
+
+.modal {
+    .window {
+        position: relative;
+        margin: 0 auto;
+
+        @media screen and (min-width: $screen-sm) {
+            margin-top: 183px;
+        }
+
+        .frame {
+            position: relative;
+            background-color: $white;
+
+            @media screen and (min-width: $screen-sm) {
+                border-radius: 2px;
+                border: 1px solid $gray-light;
+            }
+
+            .overlay {
+                display: none;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
+                background-color: $white-overlay;
+                z-index: 3;
+
+                &.show {
+                    display: block;
+                }
+
+                i {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translateX(-50%) translateY(-50%);
+                }
+            }
+
+            header.screen-sm {
+                position: relative;
+                padding: 0.6rem $padding-base;
+                border-bottom: 1px solid $gray-light;
+                text-transform: uppercase;
+                letter-spacing: 0.12rem;
+                z-index: 2;
+
+                h4 {
+                    padding-top: 0.6rem;
+                    text-align: center;
+                }
+
+                a {
+                    padding-top: 0.6rem;
+                    color: $gray-light;
+                }
+
+                @media screen and (min-width: $screen-sm) {
+                    display: none;
+                }
+            }
+
+            header.screen-md {
+                display: none;
+                position: relative;
+                z-index: 2;
+
+                @media screen and (min-width: $screen-sm) {
+                    display: block;
+                    .merchant {
+                        border-bottom: 1px solid $gray-light;
+                        padding-top: $padding-base;
+                        padding-bottom: $padding-base;
+                        > .columns {
+                            padding: 0;
+                        }
+                        .delivery-change > a {
+                            color: $color-font-gray-base;
+                        }
+                    }
+                }
+            }
+
+            .view {
+                display: none;
+                position: relative;
+                z-index: 1;
+
+                &.show {
+                    display: block;
+                }
+
+                .menu {
+                    margin-bottom: $padding-base;
+
+                    > div {
+                        text-align: center;
+                        height: 3.5rem;
+                        padding-top: 1rem;
+                        cursor: pointer;
+
+                        &:first-of-type {
+                            border-right: 1px solid $gray-light;
+                        }
+                        &:not(.active) {
+                            border-bottom: 1px solid $gray-light;
+                            background-color: $gray-lighter;
+                            color: $gray-base;
+                        }
+                    }
+                }
+
+                .details-content {
+                    position: relative;
+                    padding: 0 $padding-base-m $padding-large-m $padding-base-m;
+
+                    .tab {
+                        display: none;
+
+                        &.show {
+                            display: block;
+                        }
+
+                        &.shipping-tab,
+                        &.pickup-tab {
+                            @media screen and (min-width: $screen-sm) {
+                                padding: 0 $padding-small;
+                                h4 {
+                                    margin-bottom: 0;
+                                }
+                            }
+                            .header-list {
+                                display: none; //only show medium an up
+                                padding: 0px;
+                                text-transform: uppercase;
+                                color: $color-font-gray-base;
+                                letter-spacing: 0.1rem;
+
+                                > div {
+                                    margin: $padding-small $padding-small 0 0;
+                                    padding: $padding-base 0 0 $padding-base;
+                                    @media screen and (min-width: $screen-sm) {
+                                        padding: $padding-base 2rem 0;
+                                        > h4 {
+                                            padding-left: 0.6rem;
+                                        }
+                                    }
+                                }
+                                @media screen and (min-width: $screen-sm) {
+                                    display: block;
+                                }
+                            }
+                            .content-list {
+                                padding: 0px;
+
+                                .item {
+                                    cursor: pointer;
+
+                                    &:first-of-type {
+                                        .item-details {
+                                            margin-top: $padding-small;
+                                        }
+                                    }
+
+                                    &.selected {
+                                        .item-details {
+                                            background-color: $color-brand-tertiary-lighter;
+                                            border-color: $color-brand-tertiary;
+                                            border-radius: 2px 2px 0 0;
+                                        }
+
+                                        .item-addresses {
+                                            display: block;
+                                            border-radius: 0 0 2px 2px;
+                                        }
+                                    }
+
+                                    &[data-location-logical-id] {
+                                        .item-addresses {
+                                            background-color: $color-brand-tertiary;
+                                            border-color: $color-brand-tertiary;
+                                        }
+                                    }
+
+                                    .item-details {
+                                        margin: $padding-base 0 0 0;
+                                        padding: $padding-base-m $padding-small-m;
+                                        border: 1px solid $color-border;
+                                        @media screen and (min-width: $screen-sm) {
+                                            padding: $padding-base 2rem;
+                                        }
+
+                                        .currency-regular {
+                                            padding: $padding-small-m $padding-base-m 0;
+                                        }
+                                    }
+
+                                    .item-addresses {
+                                        display: none;
+                                    }
+
+                                    span {
+                                        display: block;
+                                    }
+                                }
+                            }
+                        }
+
+                        .content-footer {
+                            padding-top: 1.5 * $padding-large-m;
+
+                            .circle {
+                                width: 30px;
+                                height: 30px;
+                                border-radius: 100%;
+                                background-color: $gray-lighter;
+                                text-align: center;
+                                line-height: 1;
+                            }
+
+                            button {
+                                margin-top: 1.5 * $padding-large-m;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* MODALS IN CHECKOUT */
+.select-modal {
+    .window {
+        margin-top: 5.5rem;
+
+        header {
+            padding-top: $padding-base;
+            border-bottom: 1px solid $gray-light;
+        }
+
+        .details-content {
+            .change-view {
+                clear: both;
+                display: inline-block;
+                padding: $padding-base 0;
+            }
+
+            .radio-item {
+                display: block;
+                padding: $padding-base;
+                margin: 0 0 $padding-base 0;
+                border: 1px solid transparent;
+                transition: all 200ms ease-in-out;
+
+                &:hover {
+                    border-color: $gray-light;
+                }
+
+                &:active,
+                &.active {
+                    background-color: $skyblue-light;
+                    border-color: $skyblue;
+                }
+
+                &:last-of-type {
+                    margin-bottom: $padding-small;
+                }
+
+                label {
+                    font-size: 1rem;
+                }
+            }
+
+            button {
+                margin: $padding-small auto $padding-base auto;
+                width: 100%;
+            }
+        }
+    }
+}
+

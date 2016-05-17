@@ -1,0 +1,52 @@
+$icon-size: 24px !default;
+$icon-size-small: $icon-size*3/4 !default;
+$icon-size-large: $icon-size*4/3 !default;
+
+// SVG ICONS
+// =======
+// Place your svg icons in /src/Pyz/Yves/Application/Theme/thor/icons/yourIcon.svg.twig
+
+// Use like this: 
+// ```
+// <i class="svg-icon">{% include "@application/icons/yourIcon.svg.twig" %}</i>
+// ```
+// 
+// Modifiers available:
+// svg-icon--small:
+// ```
+// <i class="svg-icon svg-icon--small">{% include "@application/icons/yourIcon.svg.twig" %}</i>
+// ```
+//
+// svg-icon--large:
+// ```
+// <i class="svg-icon svg-icon--large">{% include "@application/icons/yourIcon.svg.twig" %}</i>
+// ```
+// 
+// For icon margins and color use the component specific or context classes
+body > svg {
+    display: none;
+}
+
+.svg-icon {
+    width: $icon-size;
+    height: $icon-size;
+    display: inline-block;
+    vertical-align: middle;
+
+    & svg {
+        fill: currentColor;
+        user-select: none;
+        width: 100%;
+    }
+
+    &--small {
+        width: $icon-size-small;
+        height: $icon-size-small;
+    }
+
+
+    &--large {
+        width: $icon-size-large;
+        height: $icon-size-large;
+    }
+}

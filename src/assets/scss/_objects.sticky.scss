@@ -1,0 +1,6 @@
+// note: make sure you also use .js-sticky so the javascript polyfill works in browsers
+// where `position: sticky` is not suppoerted.
+.o-sticky {
+	position: sticky;
+	top: 0;
+}

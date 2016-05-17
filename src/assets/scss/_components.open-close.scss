@@ -1,0 +1,78 @@
+$c-open-close-icon-size: 14px;
+
+.c-open-close{
+    position:relative;
+
+    &--with-toggle {
+        padding-bottom: 32px; // spacing for the toggle
+    }
+
+    &__checkbox[type=checkbox] {
+        display:none;
+    }
+    &__arrow-top-icon{
+        display:none;
+    }
+    &__arrow-bottom-icon:before{
+        display:inline-block;
+        transition: all 200ms ease-in-out;
+    }
+    /* 
+   we have to be more specific here since 
+   we need to override the basic element style
+   */
+   &__checkbox ~ &__toggle,
+   &__checkbox:checked ~ &__toggle {
+        position: absolute;
+        bottom: 0;
+
+        width: auto;
+        cursor: pointer;
+        &:before{
+            content: attr(data-content-is-closed);
+            font-family: inherit;
+            font-size: inherit;
+            font-weight: inherit;
+            width: auto;
+            color: inherit;         // take whatever is defined on c-link
+            font-size: inherit;     // take whatever is defined on c-link
+        }
+        &:hover:before {
+            color: inherit;         // take whatever is defined on c-link
+        }
+    }
+
+    &__content {
+        /* We show an initial height of 5 baseline-heights,
+        regardless of any paddings or tables-borders in the content for example */
+        max-height: $base-line-height * 5;
+        overflow: hidden;
+        text-align: left;
+        overflow:hidden;
+    }
+
+    /* 
+       Toggled State
+       */
+       &__checkbox:checked ~ &__toggle:before{
+        content: attr(data-content-is-open);
+    }
+
+    &__checkbox:checked ~ &__content {
+        height: auto;
+        max-height: 100%;
+    }
+    &__checkbox:checked ~ &__toggle > &__arrow-bottom-icon {
+        &:before{
+            transform: rotate(180deg);
+        }
+     }
+
+     &__arrow-top-icon,
+     &__arrow-bottom-icon {
+        font-size: $c-open-close-icon-size;
+        line-height: $c-open-close-icon-size;
+        width: $c-open-close-icon-size;
+        height: $c-open-close-icon-size;
+    }
+}

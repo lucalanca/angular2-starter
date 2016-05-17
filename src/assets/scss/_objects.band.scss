@@ -1,0 +1,75 @@
+
+// Utility Module: steuert die grössen oder die farben der container
+
+// categorized by property
+// [1] - by size
+// [2] - by background-color
+// [3] - by the presence of top seller products (spy_abstract_product)
+
+
+/*div*/.u-band{
+    display: block;
+    // [1] - by size
+    &--sx {
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+    &--s {
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+    &--m {
+        padding-top: 32px;
+        padding-bottom: 32px;
+    }
+    &--l {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+    &--xl {
+        padding-top: 64px;
+        padding-bottom: 64px;
+    }
+    // [2] - by color
+    &--brand {
+        background-color: $color-teal;
+    }
+    &--gray {
+        background-color: rgba(0, 0, 0, 0.08);
+        // TODO: remove this usage and replace by blue lightest variation
+        background-color: $color-blue-lightest;
+    }
+    &--blue-lightest {
+        background-color: $color-blue-lightest;
+    }
+
+    &--white {
+        background-color: $color-white;
+    }
+}
+
+.no-top-seller {
+    @extend .u-band;
+
+    &--m {
+        @media screen and (min-width: $screen-lg) {
+            padding-top: 184px;
+        }
+
+        @media screen and (min-width: $screen-md) and (max-width: $screen-lg) {
+            padding-top: 204px;
+        }
+
+        @media screen and (min-width: $screen-sm) and (max-width: $screen-md) {
+            padding-top: 94px;
+        }
+
+        @media screen and (min-width: $screen-xs) and (max-width: $screen-sm-max) {
+            padding-top: 74px;
+        }
+
+        @media screen and (max-width: $screen-xs) {
+            padding-top: 74px;
+        }
+    }
+}

@@ -1,0 +1,59 @@
+// this component will create the flag object
+
+/*
+<div class="flag">
+    <div class="flag__image flag__image--xs">
+        <img src="{{ product.images.highres[0] }}" alt="">
+    </div>
+    <div class="flag__body">
+        <p>{{ name }}</p>
+    </div>
+</div>
+*/
+
+
+$flag-object-spacer: 16px !default; //TODO replace with gutter variable variable
+
+.flag{
+    display: table;
+    width: 100%;
+
+    &__image,
+    &__body {
+        display: table-cell;
+        vertical-align: middle;
+        &--top & {
+            vertical-align: top;
+        }
+        &--bottom & {
+            vertical-align: bottom;
+        }
+    }
+
+    &__image{
+        margin-right: $flag-object-spacer;
+        > img,
+        > figure,
+        > video {
+            display: block;
+            max-width: none;
+        }
+        &--xs{
+            width: 100px;
+            > img,
+              figure,
+              video
+            {
+                max-width: 100%;
+            }
+        }
+        &--rev & {
+            margin-right: 0;
+            margin-left: $flag-object-spacer;
+        }
+    }
+
+    &__content{
+        width: 100%;
+    }
+}

@@ -1,0 +1,53 @@
+@mixin responsive-invisibility($parent) {
+    #{$parent} {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: $screen-sm-max) {
+    @include responsive-invisibility('.hide-sm');
+}
+
+@media screen and (min-width: $screen-sm) {
+    @include responsive-invisibility('.hide-md');
+}
+
+.hide {
+    display: none;
+}
+
+.mobile-only {
+    display: block;
+    @media screen and (min-width: $screen-sm) {
+        display: none !important; //fix for slider with thumbnails, as slider overrides default
+    }
+}
+
+.desktop-only {
+    display: none;
+    @media screen and (min-width: $screen-sm) {
+        display: block;
+    }
+}
+
+
+
+
+.u-hidden { display: none; }
+
+@media screen and (max-width: $screen-s) {
+    .u-hidden\@s { display: none !important; }
+}
+@media screen and (min-width: $screen-m) {
+    .u-hidden\@l { display: none; }
+    .u-visible\@l { display: block };
+}
+
+@media screen and (min-width: $screen-s) {
+    .u-hidden\@m { display: none; }
+    .u-visible\@m { display: block };
+}
+@media screen and (min-width: $screen-m) {
+    .u-hidden\@l { display: none; }
+    .u-visible\@l { display: block };
+}

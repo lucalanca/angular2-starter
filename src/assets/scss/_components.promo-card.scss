@@ -1,0 +1,134 @@
+$promo-card-spacing: 15px;
+
+/* PROMO-CARD
+ *
+ * Used for marketing promotional content (which are usually configurable
+ * through a CMS.
+ * A promo card has:
+ *     title:
+ *     lead       (optional)
+ *     meta_title (optional)
+ *     image      (optional)
+ *     bg_color   (optional)
+ *     bg_image   (optional)
+ *     cta_text   (optional)
+ */
+
+/**
+ * 1: content container layout is done using a table-like layout (this makes the cells the same width and the content vertically aligned with only one technique).
+ *
+ *
+ */
+.c-promo-card {
+  position: relative;
+  background-size: 0 0;
+
+
+  &,
+  &__content-bg-replacement {
+    background-repeat:  no-repeat;
+    background-color: $color-white;
+    background-position: center center;
+  }
+
+
+  &__wrapper {
+    display: block;
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: $color-black;
+      opacity: 0;
+      transition: opacity 200ms;
+    }
+    &:hover:after {
+      opacity: .2;
+    }
+  }
+
+  &__inner {
+      display: table;      // 1
+      width: 100%;         // 1
+      table-layout: fixed; // 1
+    }
+
+  &__content-container {
+    padding: $promo-card-spacing;
+    position: relative;
+  }
+
+  &__content-bg-replacement {
+    height: 200px;
+    background-size: cover;
+  }
+
+
+  &__image {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  &__pin {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+  }
+
+  &--gradient {
+    &:after {
+      display: none;
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(90deg, rgba(0,0,0,0.7), transparent 50%);
+    }
+
+    .c-promo-card__inner {
+      z-index: 2; // so that the inner is always on top of the gradient
+    }
+  }
+  &--inverted {
+    background-color: $color-gray-darker;
+  }
+}
+
+// MOBILE ONLY
+@media screen and (max-width: $screen-sm){
+  .c-promo-card__content-container--image {
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+// MEDIUM UP
+@media screen and (min-width: $screen-sm){
+  .c-promo-card {
+    background-size: cover;
+    &--gradient:after { display: block; }
+    &__inner {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &__content-container  {
+      display: table-cell;    // 1
+      vertical-align: middle; // 1
+      width: 50%;
+    }
+
+    &__content-bg-replacement-container {
+      display: none;
+    }
+
+    
+  }
+}

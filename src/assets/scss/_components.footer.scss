@@ -1,0 +1,26 @@
+$footer-bg-image-height: 150px;
+
+.c-footer {
+    &__container {
+        background: url(../images/homepage/footer_bg.svg) bottom center no-repeat;
+        background-size: 100%;
+        padding-bottom: $footer-bg-image-height;
+    }
+    
+    &__facebook {
+        color: $color-brand-facebook;
+    }
+    &__twitter {
+        color: $color-brand-twitter;
+    }
+    &__instagramm {
+        color: $color-brand-instagram;
+    }
+    &__linkedin {
+        color: $color-brand-linkedin;
+    }
+
+    &__column {
+        margin-top: 16px;
+    }
+}

@@ -1,0 +1,209 @@
+#merchant-page {
+
+    $screen-smd: pxToRem(620); // intermdiate breakpoint
+
+    #merchant-main.hide, #merchant-imprint.hide {
+        display: none;
+    }
+
+    .pickup-teaser {
+        padding: 0 $padding-small;
+        > div {
+            background: $yellow;
+            padding: (1.5*$padding-base) $padding-base;
+            margin-bottom: $padding-large*2;
+            margin-top: $padding-large;
+            @media screen and (min-width: $screen-sm) {
+                padding: $padding-large;
+                padding-top: $padding-large * 2;
+                padding-bottom: $padding-large;
+            }
+            h3 {
+                color: $black;
+                font-size: pxToRem(27);
+                line-height: pxToRem(31);
+                font-weight: $font-weight-medium;
+                letter-spacing: 0.05rem;
+                @media screen and (min-width: $screen-sm) {
+                    text-align: right;
+                    font-size: pxToRem(36);
+                    line-height: pxToRem(40);
+                    padding-right: 0;
+                    padding-left: 1rem;
+                    @media screen and (min-width: $screen-md) {
+                        padding-right: $padding-large;
+                        padding-left: 0;
+                    }
+                }
+            }
+            .button {
+                margin-top: 6rem;
+                width: 100%;
+                @media screen and (min-width: $screen-sm) {
+                    width: 80%;
+                    float: right;
+                    margin-right: 0;
+                    margin-top: 3rem;
+                    @media screen and (min-width: $screen-md) {
+                        margin-right: $padding-large;
+                    }
+                }
+            }
+            .big-icon {
+                position: absolute;
+                width: pxToRem(300);
+                height: pxToRem(300);
+                background: url('../images/icon_location_teaser.svg') no-repeat;
+                background-size: contain;
+                background-position-x: 110px;
+                overflow: hidden;
+                right: 0;
+                top: 0;
+                @media screen and (min-width: $screen-sm) {
+                    left: 0;
+                    background-position-x: 0;
+                    width: pxToRem(400);
+                    height: pxToRem(400);
+                    top: pxToRem(-80);
+                }
+                color: #fff;
+                font-size: 20rem;
+            }
+        }
+    }
+
+    .topseller {
+        padding-top: 1.5 * $padding-large;
+        border-bottom: 1px solid $color-border;
+        text-align: center;
+        .product-wrapper {
+            padding: 1rem 1.5rem 3rem;
+            @media screen and (min-width: $screen-sm) {
+                padding: 1rem 3rem 3rem;
+            }
+            .product-info {
+                p.name {
+                    padding-top: $padding-small;
+                    font-size: pxToRem(16);
+                    width: 100%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                p.price {
+                    font-size: 16px;
+                    color: #9c9c9c;
+                }
+            }
+        }
+    }
+
+    .gallery{
+        padding-top: 1.5 * $padding-large;
+        text-align: center;
+        margin-bottom: $padding-large*2;
+        h3{
+            color: $gray-dark;
+            margin-bottom: $padding-large*2;
+        }
+        img {
+            height: 100%;
+            //width: 100%;
+            @media screen and (min-width: $screen-sm) {
+                padding: $padding-small;
+            }
+        }
+    }
+
+    .merchant-imprint {
+        margin-top: 3.25rem;
+
+        header {
+            margin-top: $padding-small;
+            margin-bottom: $padding-large;
+        }
+
+        h5 {
+            margin-bottom: 0;
+            padding-bottom: $padding-small-m;
+            padding-top: 0.5rem;
+            text-transform: uppercase;
+            font-weight: normal;
+            letter-spacing: 0.1rem;
+        }
+        p {
+        }
+        a {
+            padding-bottom: $padding-base;
+        }
+
+        div.columns {
+            padding-bottom: $padding-base;
+        }
+        div:last-of-type {
+            padding-bottom: 6rem;
+        }
+    }
+}
+
+$merchant-header-height                               : 400px;
+$merchant-header-height-mobile                        : 200px;
+$merchant-title-title-spacing-top                     : 40px;           // (mobile only)
+$merchant-title-title-spacing-bottom                  : 20px;           // (mobile only)
+$merchant-title-title-spacing-left                    : $padding-large; // (desktop only)
+$merchant-header-content-vertical-displacement-mobile : $avatar-size-mobile + ($merchant-title-title-spacing-top/2);
+
+
+//TODO: 20px
+/**
+ * [1] .merchant-header__content is centered aligned (with positioin absolute) on desktop.
+ * [2] .merchant-header__content goes after the background on mobile.
+ */
+.merchant-header {
+    position: relative; // [1]
+    overflow: hidden;
+
+    @media screen and (min-width: $screen-sm) {
+        margin-bottom: $padding-large;
+    }
+    &__background {
+        width: 100%;
+        display: block;
+        background: no-repeat center center;
+        background-size: cover;
+        min-height: $merchant-header-height-mobile;
+        @media screen and (min-width: $screen-sm) {
+            min-height: $merchant-header-height;
+        }
+    }
+
+    &__content {
+        // push the content up so the avatar is on the background but the title is after it.
+        margin-top: -$merchant-header-content-vertical-displacement-mobile;
+
+        @media screen and (min-width: $screen-sm) {
+            position: absolute;     // [1]
+            bottom: $merchant-title-title-spacing-top; // [1]
+            left: 0;                // [1]
+            right: 0;
+            margin-top: 0;          // override vertical displacement on desktop
+        }
+    }
+    .flag,
+    .flag__image,
+    .flag__body {
+        @media screen and (max-width: $screen-sm) {
+            display: block; // override flag on mobile
+        }
+    }
+
+    &__title {
+        @media screen and (max-width: $screen-sm) {
+            margin-top: $merchant-title-title-spacing-top;
+            margin-bottom: $merchant-title-title-spacing-bottom;
+        }
+        @media screen and (min-width: $screen-sm) {
+            padding-left: $merchant-title-title-spacing-left;
+        }
+    }
+}

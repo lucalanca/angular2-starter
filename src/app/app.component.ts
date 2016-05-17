@@ -30,8 +30,7 @@ import { SearchService } from './data/search.service';
   directives: [ RouterActive ],
   encapsulation: ViewEncapsulation.None,
   styles: [
-    require('normalize.css'),
-    require('./app.css')
+    require('../assets/scss/main.scss')
   ],
   template: `
     <md-content>

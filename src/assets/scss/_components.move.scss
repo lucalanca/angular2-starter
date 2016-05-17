@@ -1,0 +1,35 @@
+.move{
+    position: absolute;
+    &--top-left{
+        top: 16px;
+        left: 16px;
+        @media screen and(min-width: $screen-md) {
+            top: 32px;
+            left: 32px;
+        }
+    }
+    &--top-right{
+        top: 16px;
+        right: 16px;
+        @media screen and(min-width: $screen-md) {
+            top: 32px;
+            right: 32px;
+        }
+    }
+    &--bottom-left{
+        bottom: 16px;
+        left: 16px;
+        @media screen and(min-width: $screen-md) {
+            bottom: 32px;
+            left: 32px;
+        }
+    }
+    &--bottom-right{
+        right: 16px;
+        bottom: 16px;
+        @media screen and(min-width: $screen-md) {
+            right: 32px;
+            bottom: 32px;
+        }
+    }
+}

@@ -1,0 +1,16 @@
+// LAYOUT THEMING
+//
+// Author: Ricardo Hildebrand <ricardo.hildebrand@votum.de>
+// ===================================================================================================================
+
+section {
+    @include clearfix;
+    .page-header {
+        margin: $padding-base auto;
+        @media screen and(min-width: $screen-sm) {
+            margin: 5rem auto 2rem auto;
+        }
+    }
+}
+
+

@@ -1,0 +1,172 @@
+// Foundation by ZURB
+// foundation.zurb.com
+// Licensed under MIT Open Source
+
+//
+// Block Grid Variables
+//
+$include-html-block-grid-classes: $include-html-classes !default;
+
+// We use this to control the maximum number of block grid elements per row
+$block-grid-elements: 12 !default;
+$block-grid-default-spacing: $column-gutter !default;
+
+// Enables media queries for block-grid classes. Set to false if writing semantic HTML.
+$block-grid-media-queries: true !default;
+
+//
+// Block Grid Mixins
+//
+
+// Create a custom block grid
+//
+// $small, $medium, $large - number of columns per breakpoint
+@mixin block-grid( $small: 1, $medium: 2, $large: 3, $row-styles: true, $column-styles: true) {
+    @if $row-styles {
+        @include grid-row($behavior: nest);
+    }
+
+    > * {
+        @if $column-styles {
+            @include grid-column($columns: false);
+            margin-bottom: $block-grid-default-spacing;
+            overflow: hidden;
+        }
+
+        @media screen and (max-width: $screen-sm) {
+            @include grid-column($columns: ($total-columns / $small), $collapse: null, $float: false);
+
+            &:nth-child( #{$small}n+1 ) {
+                 //clear: left;
+            }
+        }
+        @media screen and (min-width: $screen-sm) and (max-width: $screen-md) {
+            @include grid-column($columns: ($total-columns / $medium), $collapse: null, $float: false);
+
+            &:nth-child( #{$medium}n+1 ) {
+                clear: left;
+            }
+        }
+        @media screen and (min-width: $screen-md) {
+            @include grid-column($columns: ($total-columns / $large), $collapse: null, $float: false);
+
+            &:nth-child( #{$large}n+1 ) {
+                clear: left;
+            }
+        }
+    }
+}
+
+@include exports("block-grid") {
+    @if $include-html-block-grid-classes {
+
+        .grid {
+            @include grid-row($behavior: nest);
+
+            // Default grid element styling
+            > * {
+                @include grid-column($columns: false);
+                margin-bottom: $block-grid-default-spacing;
+                overflow: hidden;
+                @media screen and (max-width: $screen-sm) {
+                    //float: none;
+                }
+            }
+
+            // Lists in grids
+            > ul,
+            > ol {
+                &:not(.grid) > li {
+                    margin-left: $padding-base + ($column-gutter / 4);
+                }
+            }
+
+            > .panel {
+                // Min-height for panels inside a grid to give them equal heights
+                min-height: 14rem;
+                margin-bottom: 0;
+
+                // Images in grid-panels
+                > figure,
+                > img {
+                    margin-right: -($column-gutter / 2);
+                    margin-left: -($column-gutter / 2);
+                }
+            }
+
+            // Grids with mostly images in it
+            &.image-bar {
+                padding-left: $column-gutter / 2;
+                padding-right: $column-gutter / 2;
+
+                figure {
+                    margin-left: -$column-gutter / 2;
+                    margin-right: -$column-gutter / 2;
+                    border-right: 2px solid transparent;
+                }
+
+                &.category-grid {
+                    figure {
+                        border-right-color: white;
+                    }
+                }
+            }
+        }
+
+        .grid-1 > * {
+            width: 100%;
+        }
+
+        // Remove list styling for grids, but do not reset margins
+        ul.grid, ol.grid {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .grid-2 {
+            @include block-grid($small: 1, $medium: 2, $large: 2, $row-styles: false, $column-styles: false);
+            > .grid-2 {
+                @media screen and (max-width: $screen-sm) {
+                    @include block-grid($small: 2, $medium: 2, $large: 4, $row-styles: false, $column-styles: false);
+                    padding-left: $padding-small;
+                }
+            }
+        }
+        .grid-3 {
+            @include block-grid($small: 2, $medium: 2, $large: 3, $row-styles: false, $column-styles: false);
+        }
+        .grid-4 {
+            @include block-grid($small: 2, $medium: 2, $large: 4, $row-styles: false, $column-styles: false);
+        }
+        .grid-5 {
+            @include block-grid($small: 1, $medium: 2, $large: 5, $row-styles: false, $column-styles: false);
+        }
+
+        // this is a manual exception, used as footer element below tables
+        .grid-2\/3 {
+            @media screen and (min-width: $screen-md) {
+                > *:nth-child(1n) {
+                    padding-left: ($total-columns / 3 * 2);
+                    @include grid-column($columns: ($total-columns / 3 * 2));
+                }
+                > *:nth-child(2n) {
+                    padding-left: ($total-columns / 3);
+                    @include grid-column($columns: ($total-columns / 3));
+                }
+            }
+        }
+        // this is a manual exception, used in address book for example
+        .grid-1\/3 {
+            @media screen and (min-width: $screen-md) {
+                > *:nth-child(1n) {
+                    padding-left: ($total-columns / 3);
+                    @include grid-column($columns: ($total-columns / 3));
+                }
+                > *:nth-child(2n) {
+                    padding-left: ($total-columns / 3 * 2);
+                    @include grid-column($columns: ($total-columns / 3 * 2));
+                }
+            }
+        }
+    }
+}

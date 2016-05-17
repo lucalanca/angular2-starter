@@ -1,0 +1,29 @@
+@mixin card-promo-middle-aligned {
+	bottom: auto;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+
+@media screen and(max-width: $screen-s) {
+	.c-card-promo__content-middle-aligned\@s { @include card-promo-middle-aligned;  }
+}
+@media screen and(min-width: $screen-s) {
+	.c-card-promo__content-middle-aligned\@m { @include card-promo-middle-aligned;  }
+}
+
+
+.c-card-promo__title {
+	max-height: 3*1.3em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+}
+
+
+.c-card-promo__text-ratio:before {
+	@media screen and(max-width: $screen-s){
+		padding-top: 45%; // custom ratio for this.
+	}
+	
+}

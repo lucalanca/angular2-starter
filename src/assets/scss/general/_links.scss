@@ -1,0 +1,27 @@
+a.link {
+    color: $color-black;
+    &:hover, &:focus {
+        color: $color-brand-secondary;
+    }
+
+    @media screen and (min-width: $screen-sm) {
+        font-size: $font-size-link;
+        line-height: $line-height-link;
+    }
+    // TODO: there is a trump.typography very similar to this named `underline`. Consider using it.
+    &.underlined {
+        text-decoration: underline;
+    }
+}
+
+
+.toggle-link {
+    padding-bottom: $padding-small;
+    display: block;
+    &:hover, &:focus {
+        color: $gray-156;
+    }
+    > i {
+        margin-right: $padding-small;
+    }
+}

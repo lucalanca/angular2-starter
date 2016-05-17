@@ -1,0 +1,100 @@
+// BUTTONS
+//
+// Author: Ricardo Hildebrand <ricardo.hildebrand@votum.de>,
+//         Philipp Weiß <philipp.weiss@votum.de>
+// ===================================================================================================================
+// DEPRECATED
+// Do not use those buttons any more.
+// Please use the ones in _components.buttons.scss
+
+button, .button {
+    /*default button*/
+    display:inline-block;
+    background: $color-button;
+    border: 1px solid $color-button;
+    border-radius: 2px;
+    color: $white;
+    font-size: $font-size-button-m;
+    line-height: $line-height-button-m;
+    padding: pxToRem(11) pxToRem(20) pxToRem(10) pxToRem(20);
+    text-align: center;
+
+    @media screen and (min-width: $screen-sm) {
+        font-size: $font-size-button;
+        line-height: $line-height-button;
+        padding: pxToRem(15) pxToRem(20) pxToRem(13) pxToRem(20);
+    }
+
+    &:hover,
+    &.hover
+    &:active,
+    &.active
+    &:focus,
+    &.focus
+    &.highlight {
+        background-color: $color-button-hover;
+        border-color: $color-button-hover;
+        outline: none;
+    }
+
+    &.inactive,
+    &[disabled],
+    &[disabled]:hover,
+    &[disabled].hover
+    &[disabled]:active,
+    &[disabled].active
+    &[disabled]:focus,
+    &[disabled].focus
+    &[disabled].highlight {
+        background-color: $color-button-inactive;
+        border-color: $color-button-inactive;
+        outline: none;
+    }
+
+    // uncolored, grey-border button
+    &.alt {
+        background-color: transparent !important;
+        border-color: $gray-base;
+        color: $gray-dark;
+
+        &:hover,
+        &.hover
+        &:active,
+        &.active
+        &:focus,
+        &.focus
+        &.highlight {
+            background-color: transparent !important;
+            border-color: $gray-dark;
+        }
+    }
+
+    //unstyled button as wrapper
+    &-unstyled {
+        margin: 0;
+        padding: 0;
+        background: none;
+        width: auto;
+        height: auto;
+        border: none;
+        color: $gray-dark;
+        font-weight: normal;
+
+        &:hover,
+        &.hover
+        &:active,
+        &.active
+        &:focus,
+        &.focus
+        &.highlight {
+            background: none;
+            outline: none;
+            color: inherit;
+        }
+    }
+    &--block {
+        display: block;
+        width: 100%;
+    }
+}
+/* new buttons for scalebility */

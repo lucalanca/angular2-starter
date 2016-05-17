@@ -1,0 +1,129 @@
+.cms {
+    padding: $padding-large 0;
+}
+
+// remove this stupid classes
+.yellow{
+    background: $yellow; 
+}
+
+.gray{
+    background: $gray-lighter;
+}
+
+
+
+.aboutuspageheader {
+    margin-bottom: 1em;
+}
+.teamheader {
+    margin-top: 3em;
+}
+
+.departmentheader{
+    border-bottom: #9c9c9c;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    margin-top: 3em;
+    margin-bottom: 2em;
+    color: #9c9c9c;
+    text-transform: uppercase;
+    padding-bottom:0.75em;
+    @media screen and(min-width: $screen-sm) {
+        margin-bottom: 5em;
+    }
+}
+
+.employeeimg img {
+    width: 100%;
+    border-radius: 50%;
+    display: block;
+}
+
+
+.employeeimg {
+    overflow: hidden;
+    position: relative;
+    margin-left:0;
+    margin-right:0;
+    @media screen and(min-width: $screen-sm) {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+
+}
+.employeedetails {
+    padding-top: 0;
+    min-height: 8em;
+    @media screen and(min-width: $screen-sm) {
+        padding-top: 20px;
+        min-height: 10em;
+    }
+}
+
+.mask {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(98,208,223,0.7);
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    visibility:hidden;
+    @media screen and(min-width: $screen-sm){
+        visibility:initial;
+    }
+}
+
+.mailicon {
+    position:relative;
+    opacity: 0;
+    background:url("https://cdn.siroop.ch/media/images/team/mailicon.png") center no-repeat;
+    background-size:60%;
+    display: inline-block;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    line-height: 1;
+    @media screen and(min-width: $screen-sm) {
+        background-size:33%;
+    }
+}
+
+.employeeimg:hover .mask, .mailicon {
+    opacity: 1;
+}
+
+.mailtomobile img {
+    visibility: hidden;
+}
+
+.mailtomobile {
+    width:100%;
+    height: 100%;
+    background-color: rgba(98,208,223,1);
+    border-radius: 50%;
+    background-size:33%;
+    line-height: 1;
+    display: inline-block;
+}
+
+.employeefullname{
+    font-weight: bold;
+    text-align: left;
+    @media screen and(min-width: $screen-sm) {
+        text-align: center;
+    }
+}
+
+.jobtitle, .startdate{
+    text-align: left;
+    color: #9c9c9c;
+    @media screen and(min-width: $screen-sm){
+        text-align: center;
+    }
+}
+
+

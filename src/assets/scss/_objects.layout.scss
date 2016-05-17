@@ -1,0 +1,45 @@
+/*------------------------------------*\
+  #LAYOUT
+\*------------------------------------*/
+
+.o-layout {
+    margin:  0;
+    padding: 0;
+    list-style: none;
+    margin-left: -$base-spacing-unit/2;
+    transition: all 100ms;
+    @media screen and (min-width: $screen-s){
+        margin-left: -$base-spacing-unit;
+    }
+
+    &--collapse{
+        margin-left: 0;
+    }
+
+    &--condensed {
+        margin-left: -4px;
+    }
+
+    &__item {
+        transition: width 100ms;
+        display: inline-block;
+        vertical-align: top;
+        width: 100%;
+        padding-left: $base-spacing-unit/2;
+        @media screen and (min-width: $screen-s){
+            padding-left: $base-spacing-unit;
+        }
+        .o-layout--collapse &{
+            padding-left: 0;
+        }
+
+        .o-layout--condensed &{
+            padding-left: 4px;
+        }
+
+        // modifier to align items vertically
+        .o-layout--centered-v & {
+            vertical-align: middle;
+        }
+    }
+}

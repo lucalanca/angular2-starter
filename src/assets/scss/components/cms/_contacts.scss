@@ -1,0 +1,178 @@
+
+#contacts,
+#feedback,
+#newsletter {
+    padding-bottom: $padding-large;
+
+    button,
+    .button {
+        width: 100%;
+    }
+
+    .info {
+        margin: $padding-small 0 $padding-large 0;
+
+        h4 {
+            margin: 0 0 0.4rem 0;
+            text-transform: uppercase;
+        }
+    }
+
+    .feedback-form {
+        margin-bottom: $padding-large;
+    }
+
+    .newsletter-form {
+        margin-bottom: $padding-large;
+    }
+
+    .temp {
+        display: none;
+    }
+
+    .contents {
+        max-height: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: all 450ms ease-in-out;
+
+        &.show {
+            max-height: 1000000px;
+            padding-bottom: 0;
+            margin-bottom: $padding-base;
+            border-bottom: none;
+            opacity: 1;
+
+            @media screen and(min-width: $screen-sm) {
+                max-height: 1000000px;
+                padding-bottom: $padding-large * 2;
+                border-bottom: 1px solid $gray-lighter;
+            }
+        }
+
+        .section-links {
+            .section-link {
+                display: block;
+                margin: 0 0 $padding-small 0;
+                color:  $gray-base;
+
+                &.current {
+                    color:  $gray-dark;
+                }
+            }
+        }
+
+        .sections-frame {
+            @media screen and(max-width: $screen-sm) {
+                padding: 0;
+            }
+
+            .sections {
+                position: relative;
+
+                .section-name {
+                    clear: both;
+                    padding: $padding-large $padding-small 0 $padding-small;
+
+                    &:first-of-type {
+                        padding-top: $padding-small;
+                    }
+                }
+
+                .section {
+                    position: relative;
+                    top: 0;
+                    visibility: visible;
+                    opacity: 1;
+                    background-color: $white;
+                    transition: all 350ms ease-in-out;
+
+                    @media screen and(min-width: $screen-sm) {
+                        position: absolute;
+                        top: 100%;
+                        visibility: hidden;
+                        opacity: 0;
+                    }
+
+                    &.show {
+                        position: relative;
+                        top: 0;
+                        visibility: visible;
+                        opacity: 1;
+                    }
+
+                    .name {
+                        cursor: pointer;
+                        display: block;
+                        position: relative;
+                        top: -1px;
+                        padding: $padding-base;
+                        margin: 0;
+                        border-top: 1px solid $gray-light;
+                        background-color: $skyblue-light;
+                        transition: all 350ms ease-in-out;
+
+                        &.is-hidden {
+                            background-color: $gray-lighter;
+                            @media screen and(min-width: $screen-sm) {
+                                background-color: $white;
+                            }
+                            .arrow {
+                                transform: rotate(0deg);
+                            }
+                        }
+
+                        @media screen and(min-width: $screen-sm) {
+                            padding: $padding-base 0;
+                            background-color: $white;
+                        }
+
+                        &:first-of-type {
+                         @media screen and(min-width: $screen-sm) {
+                             padding-top: 0;
+                             border: none;
+                         }
+                     }
+
+                     .arrow {
+                        float: right;
+                        margin: 0.1rem 0 0 0;
+                        color: $gray-dark;
+                        transform: rotate(180deg);
+                        transition: transform 350ms ease-in-out;
+
+                        @media screen and(min-width: $screen-sm) {
+                            margin: 0.5rem 0 0 0;
+                            color: $skyblue;
+                        }
+                    }
+                }
+                .content {
+                    padding: 0 $padding-base;
+                    margin: $padding-base 0 $padding-large 0;
+                    overflow: hidden;
+                    opacity: 1;
+                    max-height: 999px;
+                    transition: all 350ms ease-in-out;
+
+                    @media screen and(min-width: $screen-sm) {
+                        padding: 0;
+                    }
+
+                    &.is-hidden {
+                        margin: 0;
+                        opacity: 0;
+                        max-height: 0;
+                    }
+
+                    .inner {
+                        box-sizing: border-box;
+                    }
+                }
+            }
+        }
+    }
+}
+}

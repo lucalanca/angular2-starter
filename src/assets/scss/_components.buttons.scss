@@ -1,0 +1,166 @@
+// Buttons component
+// Demo: https://siroop.frontify.com/d/dAfuoqvjziHE/siroop-itcss#/components/buttons
+
+$btn-font-size: 16px !default;
+$btn-font-size-small: 14px !default;
+$btn-font-size-large: 18px !default;
+$btn-v-padding: 10px !default;
+$btn-h-padding: 15px !default;
+$btn-icon-size: 24px !default;
+$btn-icon-size-mobile: 18px !default;
+$btn-border-width: 1px !default;
+$btn-line-height: 1.4 !default;
+$btn-font-weight: $font-weight-medium;
+
+$btn-min-height-mobile: $btn-v-padding * 2 + $btn-font-size-small * $btn-line-height + 2 * $btn-border-width;
+
+$btn-min-height: $btn-v-padding * 2 + $btn-font-size * $btn-line-height + 2 * $btn-border-width;
+
+.btn {
+  display: inline-block;
+  position: relative;
+
+  border-radius: $base-radius;
+  border: $btn-border-width solid transparent;
+
+  text-align: center;
+  vertical-align: middle;
+
+  user-select: none;
+
+  color: $color-gray-darker;
+  cursor: pointer;
+  background-image: none;
+  background-color: transparent;
+
+  font-size: $btn-font-size;
+  font-weight: $btn-font-weight;
+
+  padding: $btn-v-padding $btn-h-padding;
+
+  line-height: $btn-line-height;
+  min-height: $btn-min-height;
+
+  &:hover {
+      background-color: transparent;
+      border-color: transparent;
+      color: $color-black;
+  }
+
+  &:focus,
+  &--focused {
+    // // TODO: design a focus state
+  }
+
+  &:active,
+  &--active {
+    // TODO: design an active state
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+
+
+.btn--primary {
+  background-color: $color-red;
+  border-color: $color-red-dark;
+  color: $color-white;
+
+  &:hover,
+  &.btn--selected {
+    background-color: $color-red-dark;
+    border-color: $color-red-dark;
+    color: $color-white;
+  }
+}
+
+.btn--secondary {
+  background-color: transparent;
+  border-color: $color-gray;
+  color: $color-gray-darker;
+
+  &:hover {
+    background-color: transparent;
+    border-color: $color-gray-darker;
+  }
+
+  &.btn--selected {
+    background-color: $color-teal;
+    border-color: $color-teal-dark;
+    color: $color-gray-darker;
+  }
+}
+
+
+.btn__icon {
+  position: absolute;
+  top: 50%;
+  left: $btn-v-padding;
+  transform: translateY(-50%);
+  width: $btn-icon-size-mobile;
+  height: $btn-icon-size-mobile;
+
+  @media screen and (min-width: $screen-sm) {
+    position: absolute;
+    top: 50%;
+    left: $btn-v-padding;
+    transform: translateY(-50%);
+    width: $btn-icon-size;
+    height: $btn-icon-size;
+  }
+}
+
+.btn__text {
+  padding-left: $btn-icon-size-mobile / 2 + $btn-v-padding;
+  @media screen and (min-width: $screen-sm) {
+    padding-left: $btn-icon-size / 2 + $btn-v-padding;
+  }
+}
+
+
+// States
+.btn:disabled,
+.btn--disabled {
+  outline: none;
+  &,
+  &:hover {
+    color: $color-gray-light;
+    cursor: default;
+  }
+  &.btn--primary,
+  &.btn--secondary {
+    background-color: $color-gray-light;
+    border-color: $color-gray-light;
+    color: $color-gray-darker;
+  }
+}
+
+// Modifiers
+.btn--full {
+  display: block;
+  width: 100%;
+}
+
+.btn--large {
+  font-size: $btn-font-size;
+  padding: 15px 20px 13px;
+  @media screen and (min-width: $screen-sm) {
+    font-size: $btn-font-size-large;
+    padding: 14px 20px 16px;
+  }
+}
+
+.btn--small {
+  font-size: $btn-font-size-small;
+  padding: $btn-v-padding $btn-h-padding;
+  min-height: $btn-min-height-mobile;
+
+  .btn__icon {
+    width: $btn-icon-size-mobile;
+    height: $btn-icon-size-mobile;
+  }
+}

@@ -1,0 +1,17 @@
+///*----------------------------------*\
+//  #GLOBAL
+//\*----------------------------------*/
+
+// Project-level settings and setup.
+
+// Base typographical styles and baseline grid.
+$base-font-size:          16px;
+$base-line-height:        $base-font-size * 1.5;
+
+// Standardise some UI treatments.
+$base-radius:             $base-font-size / 8;
+$base-transition-speed:   200ms;
+
+
+// Do not modify: reassigning variables for use throughout the project.
+$base-spacing-unit: $base-line-height;

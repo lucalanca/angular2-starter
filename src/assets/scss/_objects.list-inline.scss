@@ -1,0 +1,14 @@
+// Inline turns list items into inline-block
+// An inline list may be used as simple menu bar
+@mixin list-inline {
+    @extend .list-unstyled;
+    font-size: 0;
+    > li {
+        display: inline-block;
+        font-size: $font-size-base;
+    }
+}
+
+.list-inline {
+    @include list-inline;
+}

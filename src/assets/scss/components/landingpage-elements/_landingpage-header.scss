@@ -1,0 +1,35 @@
+// Landingpage HEADER
+// --------------------------------------------------------------------------------------------------------------------
+.landingpage-header {
+    background: $gray-lighter;
+    overflow: hidden;
+    figure {
+        max-height: 42rem;
+        overflow: hidden;
+        position: relative;
+
+        + .row {
+            position: relative;
+            margin-top: -9rem;
+            @media screen and (min-width: $screen-sm) {
+                margin-top: -18.75rem;
+            }
+            > header {
+                margin-bottom: 2rem;
+                @media screen and (min-width: $screen-sm) {
+                    margin-bottom: 5.125rem;
+                }
+            }
+        }
+    }
+
+    .product-grid .panel {
+        padding: 1.5rem $padding-base;
+        @media screen and (min-width: $screen-sm) {
+            height: auto;
+        }
+        @media screen and (min-width: $screen-md) {
+            height: pxToRem(300);
+        }
+    }
+}

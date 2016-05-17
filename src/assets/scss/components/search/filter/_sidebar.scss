@@ -1,0 +1,86 @@
+.filter-bar {
+    padding-left: 0;
+    padding-right: 0;
+    @media screen and(min-width: $screen-sm) {
+        padding-right: 2.25rem;
+        padding-left: 0.75rem;
+    }
+    > header {
+        border-bottom: 1px solid $gray-light;
+        padding: 0 0.75rem;
+        padding-bottom: 1rem;
+        @media screen and(min-width: $screen-sm) {
+            border-bottom: 0;
+            padding: 0;
+        }
+        > h4 {
+            font-size: 14px;
+            line-height: 1.6rem;
+            color: #333333;
+            @media screen and(min-width: $screen-sm) {
+                margin-bottom: 0;
+                padding-bottom: 1.25rem;
+                border-bottom: 1px solid $gray-lighter;
+            }
+        }
+    }
+    .full-facet-reset {
+
+        i.icon-close-icon {
+            color: $red;
+        }
+
+        @media screen and(max-width: $screen-sm) {
+            a:before {
+                display: none;
+            }
+            a, button {
+                color: #333;
+                display: block;
+                text-align: center;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+                border: 1px solid #333;
+                border-radius: 2px;
+                font-weight: 400;
+            }
+            button {
+                width: 100%;
+                background: #fff;
+                &:before {
+                    margin-right: 1rem;
+                }
+            }
+        }
+
+        @media screen and(min-width: $screen-sm) {
+            padding: 1rem 0;
+            border-bottom: 1px solid $gray-lighter;
+            border-radius: 2px;
+            a {
+                color: $gray-171;
+                font-size: 0.9rem;
+                &:before {
+                    padding-right: 0.5rem;
+                    font-size: 0.8rem;
+                }
+            }
+        }
+
+        &.mobile {
+            padding: 0 1rem;
+            margin-top: 1rem;
+            a {
+                border: 0;
+                color: $red;
+                text-align: left;
+                i {
+                    margin-right: 1rem;
+                    font-size: 1rem;
+                }
+            }
+        }
+
+    }
+}
+

@@ -1,0 +1,12 @@
+@mixin c-divider() {
+  border-bottom: 1px solid $color-blue-lightest;
+}
+
+.c-divider {
+  @include c-divider;
+}
+
+hr.c-divider {
+  border: 0;
+  @include c-divider;
+}

@@ -1,0 +1,30 @@
+$usp-h-padding: 16px !default;
+$usp-v-padding: 8px !default;
+
+.usp {
+    background-color: $color-yellow;
+    font-size: 14px;
+}
+
+.usp.is-hidden {
+    display: none;
+}
+
+.usp__container {
+    padding-top: $usp-v-padding;
+    padding-bottom: $usp-v-padding;
+
+    padding-left: $usp-h-padding;
+    padding-right: $usp-h-padding;
+
+    @media screen and(min-width: $screen-sm) {
+        text-align: center;
+    }
+}
+
+.usp__container--linked {
+    &:hover {
+        background-color: $color-yellow-dark;
+        color: $color-white;
+    }
+}

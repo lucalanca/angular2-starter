@@ -1,0 +1,97 @@
+// USAGE:
+// 
+//   <div class="input-quantity">
+//       <input type="number" name="quantity" class="input-quantity__input" value="1" min="1">
+//       <button type="button" data-quantity="minus"
+//               class="input-quantity__button input-quantity__button-minus icon-minus-icon"</button>
+//       <button data-quantity="plus" type="button"
+//               class="input-quantity__button input-quantity__button-plus icon-plus-icon"></button>
+//   </div>
+
+$input-quantity-border-radius: 2px;
+$input-quantity-height       : 44px;
+$input-quantity-button-width : $input-quantity-height;
+
+$input-quantity-background: $white;
+
+$input-quantity-input-font-size       : 1rem;
+$input-quantity-input-font-weight     : $font-weight-demi;
+
+$input-quantity-divider-border-color  : $gray-lighter;
+$input-quantity-button-color          : $gray-dark;
+$input-quantity-button-disabled-color : $gray-base;
+$input-quantity-button-icon-size      : 10px;
+$input-quantity-button-icon-weight    : $font-weight-bold;
+
+.input-quantity {
+    position: relative;
+    background: $input-quantity-background;
+
+    &__input {
+        margin: 0;
+        padding-left: $input-quantity-button-width;
+        padding-right: $input-quantity-button-width;
+        border-radius: $input-quantity-border-radius;
+
+        text-align: center;
+
+        font-size: $input-quantity-input-font-size;
+        font-weight: $input-quantity-input-font-weight;
+        height: $input-quantity-height;
+        line-height: $input-quantity-height;
+    }
+
+    &__button {
+        position: absolute;
+        top: 1px;
+        bottom: 1px;
+        background-color: $input-quantity-background;
+        width: $input-quantity-button-width;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        color: $input-quantity-button-color;
+        border: 0 solid $input-quantity-divider-border-color;
+
+
+        &:hover,
+        &.inactive,
+        &:disabled,
+        &:disabled:hover {
+            color: $input-quantity-button-disabled-color;
+            background: $input-quantity-background;
+            border-color: $input-quantity-divider-border-color;
+        }
+
+        &.inactive,
+        &[disabled] {
+            cursor: default;
+        }
+
+        &:before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: $input-quantity-button-icon-size;
+
+            font-size: $input-quantity-button-icon-size;
+            font-weight: $input-quantity-button-icon-weight;
+        }
+    }
+
+    &__button-minus {
+        left: 1px;
+        border-right-width: 1px;
+        border-top-left-radius: $input-quantity-border-radius;
+        border-bottom-left-radius: $input-quantity-border-radius;
+    }
+
+    &__button-plus {
+        right: 1px;
+        border-left-width: 1px;
+        border-top-right-radius: $input-quantity-border-radius;
+        border-bottom-right-radius: $input-quantity-border-radius;
+    }
+}
